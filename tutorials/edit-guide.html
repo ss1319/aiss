@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>静态网站修改与上传教程 - AI大全站点</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#fef9e7,#fff,#fef5e7);color:#333;line-height:1.8;padding:20px;font-size:16px}
+.container{max-width:900px;margin:0 auto;background:rgba(255,255,255,.95);border-radius:16px;padding:30px;box-shadow:0 4px 20px rgba(212,160,23,.15)}
+h1{color:#d4a017;text-align:center;margin-bottom:8px;font-size:28px}
+h2{color:#b8860b;border-left:4px solid #d4a017;padding-left:12px;margin:30px 0 15px;font-size:22px}
+h3{color:#d4a017;margin:20px 0 10px;font-size:18px}
+p{margin:10px 0}
+.step{background:linear-gradient(135deg,#fff9e6,#fff);border:1px solid #f0e0a0;border-radius:12px;padding:16px;margin:12px 0}
+.step-no{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;border-radius:50%;font-weight:bold;margin-right:10px}
+.code-wrap{position:relative;margin:12px 0;border-radius:10px;overflow:hidden;border:1px solid #e0d0a0}
+.code-bar{display:flex;justify-content:space-between;align-items:center;background:#2c3e50;color:#ecf0f1;padding:6px 12px;font-size:13px}
+.copy-btn{background:#27ae60;color:#fff;border:none;padding:4px 10px;border-radius:4px;cursor:pointer;font-size:12px}
+pre{margin:0;padding:14px;background:#1a1a2e;color:#e0e0e0;overflow:auto;font-size:14px;line-height:1.6;max-height:400px}
+pre::-webkit-scrollbar{width:4px;height:4px}
+pre::-webkit-scrollbar-thumb{background:#d4a017}
+.tip{background:#e8f5e9;border-left:4px solid #4caf50;padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0}
+.warn{background:#fff3e0;border-left:4px solid #ff9800;padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0}
+.info{background:#e3f2fd;border-left:4px solid #2196f3;padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th{background:#d4a017;color:#fff;padding:10px;text-align:left}
+td{padding:10px;border-bottom:1px solid #eee}
+a{color:#d4a017;text-decoration:none}
+.footer{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid #eee;color:#999;font-size:13px}
+@media(max-width:600px){.container{padding:16px}h1{font-size:22px}pre{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📖 静态网站修改与上传教程</h1>
+<p style="text-align:center;color:#888;margin-bottom:20px">AI大全站点 · 零基础也能改 · 本地改完一键上传</p>
+
+<div class="info">
+<p><b>网站地址：</b><a href="https://ss1319.github.io/ai-directory/" target="_blank">https://ss1319.github.io/ai-directory/</a></p>
+<p><b>GitHub仓库：</b><a href="https://github.com/ss1319/ai-directory" target="_blank">https://github.com/ss1319/ai-directory</a></p>
+<p><b>本地文件夹：</b><code>E:\000000已设计好的完整HTML源码\AI配置教程\</code></p>
+</div>
+
+<h2>一、网站文件结构</h2>
+<table>
+<tr><th>文件/文件夹</th><th>作用</th></tr>
+<tr><td><code>index.html</code></td><td>首页目录（打开这个就是主页）</td></tr>
+<tr><td><code>pages\</code></td><td>75个AI单页（每个AI一个html文件）</td></tr>
+<tr><td><code>assets\css\main.css</code></td><td>全站样式（颜色、大小、玻璃效果）</td></tr>
+<tr><td><code>assets\js\main.js</code></td><td>全站功能（客服面板、搜索、B站解析）</td></tr>
+<tr><td><code>assets\img\</code></td><td>所有图片（二维码、截图）</td></tr>
+<tr><td><code>search-engine-sdk\</code></td><td>万能搜索接口（可单独提取使用）</td></tr>
+<tr><td><code>tutorials\</code></td><td>图文教程页面</td></tr>
+</table>
+
+<h2>二、如何修改网站内容</h2>
+
+<h3>1. 修改文字内容</h3>
+<div class="step">
+<span class="step-no">1</span><b>打开index.html</b>
+<p>用记事本或浏览器右键→"用记事本打开" index.html</p>
+</div>
+<div class="step">
+<span class="step-no">2</span><b>找到要改的文字</b>
+<p>按Ctrl+F搜索关键词，直接修改文字，保存</p>
+</div>
+<div class="step">
+<span class="step-no">3</span><b>刷新预览</b>
+<p>双击index.html在浏览器中打开，按F5刷新看效果</p>
+</div>
+
+<h3>2. 修改颜色/样式</h3>
+<div class="step">
+<p>打开 <code>assets\css\main.css</code>，找到对应项修改：</p>
+</div>
+<div class="code-wrap">
+<div class="code-bar"><span>常用颜色变量</span><span style="font-size:11px;color:#aaa">css</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<pre><code>/* 主金色 - 改成你喜欢的颜色 */
+:root {
+  --gold: #d4a017;       /* 主色 */
+  --gold-light: #f4d03f; /* 亮色 */
+  --bg: #fef9e7;         /* 背景色 */
+  --text: #333;          /* 文字颜色 */
+}
+
+/* 客服面板8个按钮颜色 */
+.svc-link.c1 { background: linear-gradient(135deg,#ff6b6b,#ee5a6f); }
+.svc-link.c2 { background: linear-gradient(135deg,#48dbfb,#0abde3); }
+.svc-link.c3 { background: linear-gradient(135deg,#ff9ff3,#f368e0); }
+.svc-link.c4 { background: linear-gradient(135deg,#54a0ff,#5f27cd); }</code></pre>
+</div>
+
+<h3>3. 增加新的AI页面</h3>
+<div class="step">
+<span class="step-no">1</span><b>复制一个现有页面</b>
+<p>打开 <code>pages\</code> 文件夹，复制任意一个html文件，改名为 <code>新AI名.html</code></p>
+</div>
+<div class="step">
+<span class="step-no">2</span><b>编辑内容</b>
+<p>用记事本打开新文件，把里面的AI名称、介绍、链接改成新AI的信息</p>
+</div>
+<div class="step">
+<span class="step-no">3</span><b>在首页添加卡片</b>
+<p>打开 <code>index.html</code>，按Ctrl+F找到分类卡片区域，复制一张卡片代码，修改名称和链接：</p>
+</div>
+<div class="code-wrap">
+<div class="code-bar"><span>卡片HTML模板</span><span style="font-size:11px;color:#aaa">html</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<pre><code>&lt;a class="card" href="pages/新AI名.html"&gt;
+  &lt;div class="card-ico"&gt;🤖&lt;/div&gt;
+  &lt;h3&gt;新AI名称&lt;/h3&gt;
+  &lt;p&gt;一句话简介&lt;/p&gt;
+  &lt;div class="card-tag"&gt;分类标签&lt;/div&gt;
+&lt;/a&gt;</code></pre>
+</div>
+
+<h3>4. 修改客服面板链接</h3>
+<div class="step">
+<p>打开 <code>index.html</code>，按Ctrl+F搜索 <code>svc-link</code>，找到8个按钮的<a>标签，修改href：</p>
+</div>
+<div class="code-wrap">
+<div class="code-bar"><span>修改按钮链接</span><span style="font-size:11px;color:#aaa">html</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<pre><code>&lt;!-- 快手小店按钮 --&gt;
+&lt;a class="svc-link c1" href="你的新链接" target="_blank"&gt;
+  &lt;span class="svc-ico"&gt;🛒&lt;/span&gt;快手小店
+&lt;/a&gt;</code></pre>
+</div>
+
+<h2>三、如何上传修改到网站</h2>
+
+<h3>方法A：用GitHub网页上传（最简单）</h3>
+<div class="step">
+<span class="step-no">1</span><b>打开仓库网页</b>
+<p>访问 <a href="https://github.com/ss1319/ai-directory" target="_blank">github.com/ss1319/ai-directory</a></p>
+</div>
+<div class="step">
+<span class="step-no">2</span><b>点Add file → Upload files</b>
+<p>把改好的文件拖进去，点Commit changes</p>
+</div>
+<div class="step">
+<span class="step-no">3</span><b>等1分钟</b>
+<p>GitHub Pages自动更新，刷新网站即可看到新内容</p>
+</div>
+
+<h3>方法B：用GitHub Desktop上传</h3>
+<div class="step">
+<span class="step-no">1</span><b>打开GitHub Desktop</b>
+<p>打开你电脑上的GitHub Desktop 3.5.4</p>
+</div>
+<div class="step">
+<span class="step-no">2</span><b>File → Add Local Repository</b>
+<p>选择文件夹 <code>E:\000000已设计好的完整HTML源码\AI配置教程</code></p>
+</div>
+<div class="step">
+<span class="step-no">3</span><b>点Commit to main</b>
+<p>左下角写修改说明，点Commit</p>
+</div>
+<div class="step">
+<span class="step-no">4</span><b>点Push origin</b>
+<p>右上角点Push，等几秒上传完成</p>
+</div>
+
+<h2>四、万能搜索引擎接口提取</h2>
+<div class="step">
+<p>搜索接口文件在 <code>search-engine-sdk\</code> 文件夹：</p>
+</div>
+<table>
+<tr><th>文件</th><th>用途</th></tr>
+<tr><td><code>search-api.js</code></td><td>搜索功能核心代码（纯英文）</td></tr>
+<tr><td><code>search.css</code></td><td>搜索界面样式</td></tr>
+</table>
+<div class="step">
+<p><b>嵌入到其他网页：</b>把这两个文件复制到你的项目，在HTML中引入：</p>
+</div>
+<div class="code-wrap">
+<div class="code-bar"><span>嵌入到任意网页</span><span style="font-size:11px;color:#aaa">html</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<pre><code>&lt;link rel="stylesheet" href="search.css"&gt;
+&lt;input id="ss-input" type="search" placeholder="搜索..."&gt;
+&lt;button id="ss-go"&gt;搜索&lt;/button&gt;
+&lt;div id="ss-results"&gt;&lt;/div&gt;
+&lt;div id="ss-player"&gt;&lt;/div&gt;
+&lt;script src="search-api.js"&gt;&lt;/script&gt;</code></pre>
+</div>
+
+<h2>五、常见问题</h2>
+<div class="tip">
+<p><b>Q：改完文件网站没变化？</b><br>A：按Ctrl+F强制刷新，等1分钟GitHub Pages自动更新。</p>
+</div>
+<div class="tip">
+<p><b>Q：图片不显示？</b><br>A：检查图片路径是否正确，HTML中引用用相对路径如 <code>assets/img/xxx.png</code></p>
+</div>
+<div class="tip">
+<p><b>Q：想加新分类？</b><br>A：在index.html中复制一个分类标题和卡片区域，改分类名即可。</p>
+</div>
+<div class="warn">
+<p><b>注意：</b>不要删除 <code>.git</code> 文件夹（隐藏文件夹），它是Git版本管理用的。不要删除 <code>assets\</code> 文件夹，全站样式都在里面。</p>
+</div>
+
+<div class="footer">
+<p>AI大全站点 · 修改与上传教程 · 网站地址 https://ss1319.github.io/ai-directory/</p>
+</div>
+</div>
+<script>
+function copyCode(btn){
+  var pre=btn.closest(".code-wrap").querySelector("pre");
+  var text=pre.textContent;
+  if(navigator.clipboard){navigator.clipboard.writeText(text);}
+  else{var ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);}
+  btn.textContent="已复制";setTimeout(function(){btn.textContent="复制";},1500);
+}
+</script>
+</body>
+</html>
