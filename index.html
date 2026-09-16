@@ -75,10 +75,10 @@ body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914}
 <div class="search-tabs">
 <button class="stab active" data-s="video">📺 视频</button>
 <button class="stab" data-s="music">🎵 音乐</button>
-<button class="stab" data-s="news">📰 新闻</button>
 <button class="stab" data-s="article">📄 文章</button>
 <button class="stab" data-s="image">🖼️ 图片</button>
-<button class="stab" data-s="toutiao">📰 头条</button>
+<button class="stab" data-s="anime">🎬 番剧</button>
+<button class="stab" data-s="up">👤 UP主</button>
 </div>
 <div class="sr-box" id="srBox">
 <div class="sr-title" id="srTitle"></div>
@@ -203,10 +203,10 @@ function doSearch(){
   var urls={
     video:'https://search.bilibili.com/all?keyword='+enc,
     music:'https://music.163.com/#/search/m/?s='+enc+'&type=1',
-    news:'https://www.baidu.com/s?wd='+enc+'&tn=news',
-    article:'https://www.baidu.com/s?wd='+enc,
+    article:'https://weixin.sogou.com/weixin?type=2&query='+enc+'&ie=utf8',
     image:'https://image.baidu.com/search/index?tn=baiduimage&word='+enc,
-    toutiao:'https://so.toutiao.com/search?keyword='+enc
+    anime:'https://search.bilibili.com/anime?keyword='+enc,
+    up:'https://search.bilibili.com/upuser?keyword='+enc
   };
   document.getElementById("srContent").innerHTML='<iframe src="'+urls[curTab]+'"></iframe>';
   document.getElementById("srBox").scrollIntoView({behavior:"smooth"});
