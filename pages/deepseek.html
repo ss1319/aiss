@@ -1,63 +1,56 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>n - cat - 配置教程</title>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>DeepSeek - 配置教程</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;width:100%;font-family:"Microsoft YaHei","PingFang SC",sans-serif}
-body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914;min-height:100%}
-/* 1px金色滚动条 - 全站统一 */
+body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914}
 ::-webkit-scrollbar{width:1px;height:1px}
-::-webkit-scrollbar-thumb{background:#d4a017;border-radius:0}
+::-webkit-scrollbar-thumb{background:#d4a017}
 ::-webkit-scrollbar-track{background:transparent}
 *{scrollbar-width:thin;scrollbar-color:#d4a017 transparent}
-.nav{padding:12px 16px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(212,160,23,.2)}
-.nav a{color:#8b6914;text-decoration:none;font-size:14px}
-.wrap{max-width:800px;margin:0 auto;padding:20px}
-.header{text-align:center;padding:24px;background:rgba(255,255,255,.9);border-radius:18px;border:1px solid rgba(212,160,23,.2);margin-bottom:16px}
-.header .icon{font-size:48px}
-.header h1{font-size:24px;color:#8b6914;margin:8px 0}
-.header .cat{display:inline-block;padding:4px 14px;background:rgba(212,160,23,.15);border-radius:12px;font-size:13px;color:#8b6914}
-.cta{display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;text-decoration:none;border-radius:14px;font-weight:bold;font-size:16px;margin:16px 0}
-.section{background:rgba(255,255,255,.9);border-radius:14px;padding:20px;margin-bottom:14px;border:1px solid rgba(212,160,23,.15)}
-.section h2{font-size:18px;color:#8b6914;margin-bottom:12px;border-left:4px solid #d4a017;padding-left:10px}
-.section p{font-size:15px;line-height:1.8;color:#5a4a2a;margin-bottom:10px;white-space:pre-line}
-.section ul{padding-left:20px;font-size:15px;line-height:2;color:#5a4a2a}
-.step{display:flex;gap:12px;margin-bottom:10px;align-items:flex-start}
-.step b{min-width:28px;height:28px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px}
-.step span{font-size:15px;line-height:1.8;color:#5a4a2a}
-.code-box{position:relative;background:#1e1e2e;border-radius:12px;padding:16px;margin:10px 0;overflow:auto;max-height:400px}
+.nav{padding:12px 20px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(212,160,23,.2)}
+.nav a{color:#8b6914;text-decoration:none;font-size:15px}
+.wrap{max-width:100%;padding:20px 30px;margin:0 auto}
+.header{text-align:center;padding:30px;background:rgba(255,255,255,.9);border-radius:18px;border:1px solid rgba(212,160,23,.2);margin-bottom:16px}
+.header .icon{font-size:56px}
+.header h1{font-size:32px;color:#8b6914;margin:8px 0}
+.header .cat{display:inline-block;padding:5px 16px;background:rgba(212,160,23,.15);border-radius:12px;font-size:14px;color:#8b6914}
+.cta{display:block;text-align:center;padding:16px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;text-decoration:none;border-radius:14px;font-weight:bold;font-size:18px;margin:16px 0}
+.section{background:rgba(255,255,255,.9);border-radius:14px;padding:24px;margin-bottom:14px;border:1px solid rgba(212,160,23,.15)}
+.section h2{font-size:20px;color:#8b6914;margin-bottom:14px;border-left:4px solid #d4a017;padding-left:12px}
+.section p{font-size:16px;line-height:2;color:#5a4a2a;margin-bottom:12px;white-space:pre-line}
+.section ul{padding-left:24px;font-size:16px;line-height:2;color:#5a4a2a}
+.step{display:flex;gap:14px;margin-bottom:12px;align-items:flex-start}
+.step b{min-width:32px;height:32px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.step span{font-size:16px;line-height:1.9;color:#5a4a2a}
+.code-box{position:relative;background:#1e1e2e;border-radius:12px;padding:18px;margin:10px 0;overflow:auto;max-height:500px}
 .code-box::-webkit-scrollbar{width:1px;height:1px}
 .code-box::-webkit-scrollbar-thumb{background:#d4a017}
 .code-box pre{color:#a6e3a1;font-size:14px;line-height:1.7;white-space:pre}
-.copy-btn{position:absolute;top:8px;right:8px;padding:4px 12px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;cursor:pointer;font-size:12px}
-.links{display:flex;flex-wrap:wrap;gap:8px}
-.link-item{padding:8px 16px;background:rgba(212,160,23,.1);border:1px solid rgba(212,160,23,.3);border-radius:10px;color:#8b6914;text-decoration:none;font-size:14px}
-/* 三个悬浮按钮 */
+.copy-btn{position:absolute;top:8px;right:8px;padding:5px 14px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;cursor:pointer;font-size:13px}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.link-item{padding:10px 18px;background:rgba(212,160,23,.1);border:1px solid rgba(212,160,23,.3);border-radius:10px;color:#8b6914;text-decoration:none;font-size:15px}
 .float-btns{position:fixed;right:0;bottom:20px;z-index:9999;display:flex;flex-direction:column;gap:8px;transition:transform .3s}
 .float-btns.hide{transform:translateX(80px)}
 .fab{width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.2)}
-.home-fab{background:linear-gradient(135deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3);animation:grad 4s infinite}
-.svc-fab{background:linear-gradient(135deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3);animation:bounce 1.2s infinite,grad 4s infinite}
-.back-top{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+.home-fab{background:linear-gradient(135deg,#f39c12,#e74c3c);color:#fff}
+.svc-fab{background:linear-gradient(135deg,#9b59b6,#3498db);color:#fff;animation:bounce 1.2s infinite}
+.back-top{background:linear-gradient(135deg,#1abc9c,#2ecc71);color:#fff}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@keyframes grad{0%{filter:hue-rotate(0)}100%{filter:hue-rotate(360deg)}}
 .svc-mask{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:9998;display:none}
 .svc-mask.show{display:block}
 .svc-panel{position:fixed;right:0;top:0;width:300px;height:100%;background:rgba(255,252,240,.97);backdrop-filter:blur(20px);z-index:9999;padding:24px;overflow-y:auto;transform:translateX(100%);transition:transform .3s;display:none}
 .svc-panel.open{display:block;transform:translateX(0)}
-.svc-panel::-webkit-scrollbar{width:1px}
-.svc-panel::-webkit-scrollbar-thumb{background:#d4a017}
-.panel-title{text-align:center;color:#8b6914;font-size:17px;margin-bottom:18px;font-weight:bold}
+.panel-title{text-align:center;color:#8b6914;font-size:18px;margin-bottom:18px;font-weight:bold}
 .qr-frame{width:160px;height:160px;margin:0 auto;border:2px solid #d4a017;border-radius:14px;overflow:hidden;background:#fff}
 .qr-frame img{width:100%;height:100%;object-fit:cover}
-.qr-name{text-align:center;color:#888;font-size:13px;margin-top:10px}
-.qr-switch{display:block;margin:10px auto;padding:6px 16px;border:1.5px solid #d4a017;background:transparent;color:#8b6914;border-radius:16px;cursor:pointer;font-size:13px}
-.qr-tip{text-align:center;color:#999;font-size:13px;margin:10px 0}
+.qr-name{text-align:center;color:#888;font-size:14px;margin-top:10px}
+.qr-switch{display:block;margin:10px auto;padding:6px 16px;border:1.5px solid #d4a017;background:transparent;color:#8b6914;border-radius:16px;cursor:pointer;font-size:14px}
+.qr-tip{text-align:center;color:#999;font-size:14px;margin:10px 0}
 .wx-id{text-align:center;margin:16px 0}
-.wx-label{display:block;color:#999;font-size:13px}
+.wx-label{display:block;color:#999;font-size:14px}
 .wx-line{display:block;font-size:22px;font-weight:bold;background:linear-gradient(90deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
 .svc-links{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
 .svc-link{width:48%;padding:10px;border-radius:10px;text-align:center;text-decoration:none;color:#fff;font-size:13px;display:block}
@@ -65,66 +58,78 @@ body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914;mi
 .c3{background:linear-gradient(135deg,#ff9ff3,#f368e0)}.c4{background:linear-gradient(135deg,#54a0ff,#5f27cd)}
 .c5{background:linear-gradient(135deg,#54ca6b,#27ae60)}.c6{background:linear-gradient(135deg,#ff9f43,#e67e22)}
 .c7{background:linear-gradient(135deg,#00d2d3,#01a3a8)}.c8{background:linear-gradient(135deg,#a55eea,#8854d0)}
-</style>
-</head>
-<body>
+</style></head><body>
 <div class="nav"><a href="../index.html">← 返回首页</a></div>
 <div class="wrap">
-  <div class="header">
-    <div class="icon">i</div>
-    <h1>n</h1>
-    <span class="cat">cat</span>
-  </div>
-  <a class="cta" href="url" target="_blank">🚀 立即访问n</a>
-  <div class="section"><h2>📖 平台详细介绍</h2><p>intro</p></div>
-  <div class="section"><h2>💡 主要用途</h2><ul><li>u</li><li>s</li><li>e</li><li>s</li></ul></div>
-  <div class="section"><h2>🚀 详细使用步骤</h2><div class="step"><b>1</b><span>s</span></div><div class="step"><b>2</b><span>t</span></div><div class="step"><b>3</b><span>e</span></div><div class="step"><b>4</b><span>p</span></div><div class="step"><b>5</b><span>s</span></div></div>
-  <div class="section"><h2>🔌 API回调函数代码</h2><div class="code-box"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre>code</pre></div></div>
-  <div class="section"><h2>🔗 社交渠道与社区</h2><div class="links"><a class="link-item" href="l" target="_blank">链接 ↗</a><a class="link-item" href="i" target="_blank">链接 ↗</a><a class="link-item" href="n" target="_blank">链接 ↗</a><a class="link-item" href="k" target="_blank">链接 ↗</a><a class="link-item" href="s" target="_blank">链接 ↗</a></div></div>
-</div>
+<div class="header"><div class="icon">🧠</div><h1>DeepSeek</h1><span class="cat">普通对话型AI</span></div>
+<a class="cta" href="https://www.deepseek.com" target="_blank">🚀 立即访问DeepSeek</a>
+<div class="section"><h2>📖 平台详细介绍</h2><p>DeepSeek（深度求索）是由深度求索科技有限公司开发的大语言模型系列，由前量化基金负责人梁文锋创立。DeepSeek最引人注目的成就是在2024年底发布的DeepSeek-V3模型，其性能在多项基准测试中达到了与GPT-4o相当的水平，但训练成本仅为GPT-4的几十分之一，这一成就震惊了整个AI行业。2025年初，DeepSeek又发布了推理模型DeepSeek-R1，在数学推理、代码生成、逻辑思考等方面比肩OpenAI o1模型，并且完全开源，允许任何人免费下载本地部署，被誉为"开源推理之王"。
 
+DeepSeek的模型架构采用了混合专家（MoE）设计，V3版本拥有6710亿总参数，但每次推理只激活约370亿参数，在保持强大能力的同时大幅降低了推理成本。DeepSeek-R1通过强化学习（RL）进行训练，不需要大量人工标注的推理数据，就能产生类似人类"思考"的过程，用户可以看到模型的完整推理链。DeepSeek的API价格极其低廉，输入每百万Token仅需1元人民币，是GPT-4o价格的几十分之一，成为了开发者构建AI应用的首选。DeepSeek支持函数调用（Function Calling）、JSON结构化输出、JSON模式等高级功能，非常适合构建AI Agent和自动化工作流。DeepSeek还提供670亿参数的蒸馏版本（R1-Distill-Qwen-7B/14B/32B），可以在消费级显卡上本地运行。</p></div>
+<div class="section"><h2>💡 主要用途</h2><ul><li>深度推理与逻辑思考（R1模型）</li><li>数学证明与竞赛题求解</li><li>复杂代码生成与调试重构</li><li>学术论文阅读与分析</li><li>法律文书审查与合同分析</li><li>科学研究辅助与假设验证</li><li>构建AI Agent和自动化工作流</li><li>函数调用与工具使用</li><li>长文本理解与总结</li><li>代码审查与Bug定位</li></ul></div>
+<div class="section"><h2>🚀 详细使用步骤</h2><div class="step"><b>1</b><span>第一步：访问 www.deepseek.com 或 chat.deepseek.com</span></div><div class="step"><b>2</b><span>第二步：使用手机号注册并登录账号</span></div><div class="step"><b>3</b><span>第三步：在对话框上方选择模型（DeepSeek-V3通用对话，DeepSeek-R1深度推理）</span></div><div class="step"><b>4</b><span>第四步：输入问题，R1模型会显示完整的思考过程</span></div><div class="step"><b>5</b><span>第五步：可以上传PDF文件进行分析总结</span></div><div class="step"><b>6</b><span>第六步：如需API开发，访问 platform.deepseek.com</span></div><div class="step"><b>7</b><span>第七步：在API页面创建API Key，管理用量和充值</span></div></div>
+<div class="section"><h2>🔌 API回调函数代码</h2><div class="code-box"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre>// DeepSeek API调用示例（兼容OpenAI SDK格式）
+// 官网: https://platform.deepseek.com
+
+// Python回调函数：
+from openai import OpenAI
+client = OpenAI(
+    api_key="YOUR_DEEPSEEK_KEY",
+    base_url="https://api.deepseek.com"
+)
+# 深度推理调用
+resp = client.chat.completions.create(
+    model="deepseek-reasoner",  # R1推理模型
+    messages=[
+        {"role": "system", "content": "你是一个数学专家"},
+        {"role": "user", "content": "证明勾股定理"}
+    ],
+    max_tokens=4000
+)
+print(resp.choices[0].message.content)
+
+// JavaScript调用：
+const resp = await fetch("https://api.deepseek.com/v1/chat/completions", {
+  method: "POST",
+  headers: {"Authorization": "Bearer YOUR_KEY", "Content-Type": "application/json"},
+  body: JSON.stringify({
+    model: "deepseek-chat",
+    messages: [{role: "user", content: "9.11和9.9哪个大？"}]
+  })
+});</pre></div></div>
+<div class="section"><h2>🔗 社交渠道与社区</h2><div class="links"><a class="link-item" href="https://www.deepseek.com" target="_blank">DeepSeek官网 ↗</a><a class="link-item" href="https://platform.deepseek.com" target="_blank">API开放平台 ↗</a><a class="link-item" href="https://github.com/deepseek-ai" target="_blank">GitHub开源 ↗</a><a class="link-item" href="https://chat.deepseek.com" target="_blank">DeepSeek Chat ↗</a></div></div>
+</div>
 <div class="float-btns" id="floatBtns">
-  <button class="fab home-fab" onclick="location.href='../index.html'">🏠</button>
-  <button class="fab svc-fab" id="svcToggle">💬</button>
-  <button class="fab back-top" id="backTop">🚀</button>
+<button class="fab home-fab" onclick="location.href='../index.html'">🏠</button>
+<button class="fab svc-fab" id="svcToggle">💬</button>
+<button class="fab back-top" id="backTop">🚀</button>
 </div>
 <div class="svc-mask" id="svcMask"></div>
 <div class="svc-panel" id="svcPanel">
-  <div class="panel-title">💬 联系客服</div>
-  <div class="qr-frame"><img id="qrImg" src="../assets/img/zsm.png"></div>
-  <div class="qr-name" id="qrName">赞赏二维码</div>
-  <button class="qr-switch" onclick="switchQr()">切换到公众号</button>
-  <p class="qr-tip">欢迎自愿赞赏支持作者</p>
-  <div class="wx-id"><span class="wx-label">微信公众号</span><span class="wx-line" id="wxLine">wxsy1349</span></div>
-  <div class="svc-links">
-    <a class="svc-link c1" href="https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj" target="_blank">🛒 快手小店</a>
-    <a class="svc-link c2" href="https://pd.qq.com/s/24yp7y38f" target="_blank">💬 腾讯频道</a>
-    <a class="svc-link c3" href="https://www.zhihu.com/people/z6391" target="_blank">💡 知乎</a>
-    <a class="svc-link c4" href="https://qm.qq.com/q/VHeRTTdQcu" target="_blank">👥 QQ群</a>
-    <a class="svc-link c5" href="https://bolt.cello.so/lsypink3QTR" target="_blank">⚡ 在线编程</a>
-    <a class="svc-link c6" href="https://api.u-claw.org/register?aff=9OLG" target="_blank">🦞 OpenClaw</a>
-    <a class="svc-link c7" href="https://weibo.com/zdzqxt" target="_blank">📢 微博</a>
-    <a class="svc-link c8" href="https://txc.qq.com/embed/367382/new-post/" target="_blank">✍️ 欢迎留言</a>
-  </div>
-</div>
-
+<div class="panel-title">💬 联系客服</div>
+<div class="qr-frame"><img id="qrImg" src="../assets/img/zsm.png"></div>
+<div class="qr-name" id="qrName">赞赏二维码</div>
+<button class="qr-switch" onclick="switchQr()">切换到公众号</button>
+<p class="qr-tip">欢迎自愿赞赏支持作者</p>
+<div class="wx-id"><span class="wx-label">微信公众号</span><span class="wx-line" id="wxLine">wxsy1349</span></div>
+<div class="svc-links">
+<a class="svc-link c1" href="https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj" target="_blank">🛒 快手小店</a>
+<a class="svc-link c2" href="https://pd.qq.com/s/24yp7y38f" target="_blank">💬 腾讯频道</a>
+<a class="svc-link c3" href="https://www.zhihu.com/people/z6391" target="_blank">💡 知乎</a>
+<a class="svc-link c4" href="https://qm.qq.com/q/VHeRTTdQcu" target="_blank">👥 QQ群</a>
+<a class="svc-link c5" href="https://bolt.cello.so/lsypink3QTR" target="_blank">⚡ 在线编程</a>
+<a class="svc-link c6" href="https://api.u-claw.org/register?aff=9OLG" target="_blank">🦞 OpenClaw</a>
+<a class="svc-link c7" href="https://weibo.com/zdzqxt" target="_blank">📢 微博</a>
+<a class="svc-link c8" href="https://txc.qq.com/embed/367382/new-post/" target="_blank">✍️ 欢迎留言</a>
+</div></div>
 <script>
-function copyCode(btn){
-  navigator.clipboard.writeText(btn.parentElement.querySelector("pre").textContent);
-  btn.textContent="已复制";setTimeout(()=>btn.textContent="复制",1500);
-}
-var svcToggle=document.getElementById("svcToggle");
-var svcPanel=document.getElementById("svcPanel");
-var svcMask=document.getElementById("svcMask");
-svcToggle.onclick=function(e){e.stopPropagation();svcPanel.classList.toggle("open");svcMask.classList.toggle("show");};
-svcMask.onclick=function(){svcPanel.classList.remove("open");svcMask.classList.remove("show");};
-document.onclick=function(e){if(svcPanel.classList.contains("open")&&!svcPanel.contains(e.target)&&e.target!==svcToggle){svcPanel.classList.remove("open");svcMask.classList.remove("show");}};
-document.addEventListener("keydown",function(e){if(e.key==="Escape"){svcPanel.classList.remove("open");svcMask.classList.remove("show");}});
-var wxQr=false;
-function switchQr(){wxQr=!wxQr;document.getElementById("qrImg").src=wxQr?"../assets/img/wxsy1349.png":"../assets/img/zsm.png";document.getElementById("qrName").textContent=wxQr?"微信公众号":"赞赏二维码";event.target.textContent=wxQr?"切换到赞赏码":"切换到公众号";}
+function copyCode(b){navigator.clipboard.writeText(b.parentElement.querySelector("pre").textContent);b.textContent="已复制";setTimeout(()=>b.textContent="复制",1500);}
+var st=document.getElementById("svcToggle"),sp=document.getElementById("svcPanel"),sm=document.getElementById("svcMask");
+st.onclick=function(e){e.stopPropagation();sp.classList.toggle("open");sm.classList.toggle("show");};
+sm.onclick=function(){sp.classList.remove("open");sm.classList.remove("show");};
+document.onclick=function(e){if(sp.classList.contains("open")&&!sp.contains(e.target)&&e.target!==st){sp.classList.remove("open");sm.classList.remove("show");}};
+var wq=false;function switchQr(){wq=!wq;document.getElementById("qrImg").src=wq?"../assets/img/wxsy1349.png":"../assets/img/zsm.png";document.getElementById("qrName").textContent=wq?"微信公众号":"赞赏二维码";event.target.textContent=wq?"切换到赞赏码":"切换到公众号";}
 document.getElementById("wxLine").onmouseenter=function(){navigator.clipboard.writeText("wxsy1349");};
 document.getElementById("backTop").onclick=function(){window.scrollTo({top:0,behavior:"smooth"});};
-var st;window.onscroll=function(){document.getElementById("floatBtns").classList.add("hide");clearTimeout(st);st=setTimeout(function(){document.getElementById("floatBtns").classList.remove("hide");},300);};
-</script>
-</body>
-</html>
+var t;window.onscroll=function(){document.getElementById("floatBtns").classList.add("hide");clearTimeout(t);t=setTimeout(function(){document.getElementById("floatBtns").classList.remove("hide");},300);};
+</script></body></html>
