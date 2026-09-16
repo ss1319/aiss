@@ -77,8 +77,8 @@ body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914}
 <button class="stab" data-s="music">🎵 音乐</button>
 <button class="stab" data-s="article">📄 文章</button>
 <button class="stab" data-s="image">🖼️ 图片</button>
-<button class="stab" data-s="anime">🎬 番剧</button>
-<button class="stab" data-s="up">👤 UP主</button>
+<button class="stab" data-s="cinema">🎬 影视</button>
+<button class="stab" data-s="course">📚 课程</button>
 </div>
 <div class="sr-box" id="srBox">
 <div class="sr-title" id="srTitle"></div>
@@ -121,7 +121,14 @@ var cats=[
 {n:"360智脑",f:"360gpt",i:"🟢",d:"360"},{n:"文心素食助手",f:"wenxin-vegan",i:"🥗",d:"百度智能体"},
 {n:"天工AI",f:"tiangong",i:"🌌",d:"昆仑万维"},{n:"零一万物",f:"01ai",i:"🌐",d:"李开复"},
 {n:"商量SenseChat",f:"sensechat",i:"👁️",d:"商汤"},{n:"元器",f:"yuanqi",i:"🧩",d:"字节智能体"},
-{n:"星野",f:"xingye",i:"✨",d:"MiniMax星野"},{n:"Glow",f:"glow",i:"💫",d:"对话AI"}]},
+{n:"星野",f:"xingye",i:"✨",d:"MiniMax星野"},{n:"Glow",f:"glow",i:"💫",d:"对话AI"},
+{n:"出门问问问道",f:"wenwen",i:"🔍",d:"序列猴子"},{n:"知乎直答",f:"zhihuida",i:"💡",d:"知乎AI"},
+{n:"纳米AI搜索",f:"nami",i:"🧭",d:"360AI搜索"},{n:"华为盘古",f:"pangu",i:"☁️",d:"华为大模型"},
+{n:"京东言犀",f:"yanxi",i:"🐦",d:"京东大模型"},{n:"网易子曰",f:"ziyue",i:"📝",d:"网易大模型"},
+{n:"百度文库AI",f:"wendang",i:"📄",d:"百度写作"},{n:"钉钉AI",f:"dingtalk",i:"📌",d:"阿里办公"},
+{n:"飞书智能伙伴",f:"feishu",i:"🐦",d:"字节办公"},{n:"有道AI",f:"youdao",i:"📖",d:"网易学习"},
+{n:"讯飞听见",f:"tingjian",i:"🎙️",d:"语音转文字"},{n:"百度翻译",f:"fanyi",i:"🌐",d:"机器翻译"},
+{n:"作业帮AI",f:"zuoyebang",i:"📚",d:"作业辅导"}]},
 {name:"🔵 自定义模型/API类",items:[
 {n:"OpenAI",f:"openai",i:"⚪",d:"GPT API"},{n:"Claude",f:"claude",i:"🟠",d:"Anthropic"},
 {n:"Gemini",f:"gemini",i:"💎",d:"谷歌"},{n:"DeepSeek API",f:"deepseek-api",i:"🧠",d:"深度求索API"},
@@ -140,12 +147,15 @@ var cats=[
 {n:"OpenClaw虾盘云",f:"openclaw",i:"🦞",d:"虾盘云"},{n:"实在智能Agent",f:"shizai",i:"🤖",d:"实在RPA"},
 {n:"腾讯WorkBuddy",f:"workbuddy",i:"💼",d:"腾讯"},{n:"爱派Aipy",f:"aipy",i:"💡",d:"Aipy"},
 {n:"百度AppBuilder",f:"appbuilder",i:"🔨",d:"百度智能体"},{n:"Flowise",f:"flowise",i:"🌊",d:"可视化LLM"},
-{n:"LangFlow",f:"langflow",i:"🔬",d:"LangFlow"},{n:"Semantic Kernel",f:"semantickernel",i:"🧠",d:"微软SDK"}]},
+{n:"LangFlow",f:"langflow",i:"🔬",d:"LangFlow"},{n:"Semantic Kernel",f:"semantickernel",i:"🧠",d:"微软SDK"},
+{n:"字节HiAgent",f:"hiagent",i:"🤖",d:"企业智能体"},{n:"腾讯HiFlow",f:"hiflow",i:"🔄",d:"腾讯工作流"}]},
 {name:"🟡 RPA类AI",items:[
 {n:"影刀RPA",f:"yingdao",i:"🤖",d:"影刀"},{n:"UiBot",f:"uibot",i:"🤖",d:"UiBot"},
 {n:"UiPath",f:"uipath",i:"🤖",d:"UiPath"},{n:"Automation Anywhere",f:"automationanywhere",i:"🤖",d:"AA"},
 {n:"Power Automate",f:"powerautomate",i:"⚡",d:"微软"},{n:"来也RPA",f:"laiye",i:"🤖",d:"来也科技"},
-{n:"艺赛旗",f:"i-search",i:"🔍",d:"iS-RPA"},{n:"Blue Prism",f:"blueprism",i:"🔷",d:"Blue Prism"}]},
+{n:"艺赛旗",f:"i-search",i:"🔍",d:"iS-RPA"},{n:"Blue Prism",f:"blueprism",i:"🔷",d:"Blue Prism"},
+{n:"弘玑Cyclone",f:"cyclone",i:"🔄",d:"弘玑"},{n:"金智维",f:"kingdee",i:"👑",d:"金智维"},
+{n:"云扩科技",f:"cloudext",i:"☁️",d:"云扩"},{n:"达观数据",f:"datagrand",i:"📄",d:"达观"}]},
 {name:"🔴 生产类AI",items:[
 {n:"PixVerse",f:"pixverse",i:"🎥",d:"AI视频"},{n:"Runway",f:"runway",i:"🎞️",d:"AI视频"},
 {n:"Canva",f:"canva",i:"🎨",d:"设计"},{n:"Gamma",f:"gamma",i:"📊",d:"AI PPT"},
@@ -156,7 +166,14 @@ var cats=[
 {n:"Pika",f:"pika",i:"⚡",d:"Pika视频"},{n:"D-ID",f:"did",i:"🗣️",d:"数字人"},
 {n:"HeyGen",f:"heygen",i:"🧑",d:"AI数字人"},{n:"Midjourney",f:"midjourney",i:"🖼️",d:"AI绘画"},
 {n:"即梦生图",f:"jimeng-img",i:"🎨",d:"字节生图"},{n:"WPS AI",f:"wpsai",i:"📝",d:"办公AI"},
-{n:"秘塔AI搜索",f:"metaso",i:"🔍",d:"AI搜索"}]},
+{n:"秘塔AI搜索",f:"metaso",i:"🔍",d:"AI搜索"},{n:"文心一格",f:"yiyan",i:"🎨",d:"百度生图"},
+{n:"通义万相",f:"wanxiang",i:"🖌️",d:"阿里生图"},{n:"腾讯智影",f:"zhiying",i:"🎬",d:"腾讯视频"},
+{n:"硅基智能",f:"guiji",i:"🤖",d:"数字人"},{n:"魔珐科技",f:"mofa",i:"🎭",d:"虚拟人"},
+{n:"Suno AI",f:"suno",i:"🎵",d:"AI音乐"},{n:"讯飞配音",f:"peiyin",i:"🗣️",d:"AI配音"},
+{n:"火山引擎语音",f:"volcvoice",i:"🔊",d:"TTS"},{n:"网易天音",f:"tianyin",i:"🎼",d:"AI音乐"},
+{n:"海绵音乐",f:"haimian",i:"🎵",d:"字节音乐"},{n:"百度曦灵",f:"xiling",i:"🧑",d:"数字人"},
+{n:"快影",f:"kuaiging",i:"✂️",d:"快手剪辑"},{n:"必剪",f:"bcut",i:"✂️",d:"B站剪辑"},
+{n:"美图WHEE",f:"whee",i:"🎨",d:"美图生图"},{n:"巨量星图",f:"xingtu",i:"✨",d:"达人营销"}]},
 {name:"🟢 离线/本地部署类",items:[
 {n:"Ollama",f:"ollama",i:"🦙",d:"本地模型"},{n:"LM Studio",f:"lmstudio",i:"💻",d:"桌面"},
 {n:"GPT4All",f:"gpt4all",i:"🔒",d:"离线"},{n:"Llama.cpp",f:"llama-cpp",i:"📦",d:"GGUF"},
@@ -171,12 +188,17 @@ var cats=[
 {n:"CodeGeeX",f:"codegeex",i:"💻",d:"智谱代码"},{n:"Codeium",f:"codeium",i:"💨",d:"免费补全"},
 {n:"Bolt在线编程",f:"bolt",i:"⚡",d:"在线编程"},{n:"学会打字",f:"typefun",i:"⌨️",d:"学打字"},
 {n:"Windsurf",f:"windsurf",i:"🌊",d:"AI IDE"},{n:"Tabnine",f:"tabnine",i:"⚡",d:"代码补全"},
-{n:"Aider",f:"aider",i:"✏️",d:"终端AI"},{n:"Continue",f:"continue",i:"🔄",d:"开源助手"}]},
+{n:"Aider",f:"aider",i:"✏️",d:"终端AI"},{n:"Continue",f:"continue",i:"🔄",d:"开源助手"},
+{n:"Amazon Q",f:"amazonq",i:"💬",d:"AWS助手"},{n:"Cody",f:"cody",i:"💻",d:"Sourcegraph"}]},
 {name:"🟠 云服务/平台类",items:[
 {n:"Azure OpenAI",f:"azure",i:"☁️",d:"微软"},{n:"Notion AI",f:"notionai",i:"📝",d:"Notion"},
 {n:"阶跃Step",f:"stepfun",i:"📈",d:"阶跃星辰"},{n:"ChatGLM",f:"chatglm",i:"💬",d:"智谱对话"},
 {n:"AWS Bedrock",f:"bedrock",i:"☁️",d:"亚马逊"},{n:"Vertex AI",f:"vertex",i:"🔷",d:"谷歌云"},
-{n:"HuggingFace",f:"hf",i:"🤗",d:"模型库"},{n:"Papers with Code",f:"papers",i:"📄",d:"论文代码"}]}
+{n:"HuggingFace",f:"hf",i:"🤗",d:"模型库"},{n:"Papers with Code",f:"papers",i:"📄",d:"论文代码"},
+{n:"第四范式",f:"4paradigm",i:"🔬",d:"企业AI"},{n:"旷视Face++",f:"megvii",i:"👁️",d:"人脸识别"},
+{n:"云从科技",f:"cloudwalk",i:"☁️",d:"人机协同"},{n:"拓尔思",f:"trs",i:"📊",d:"智能问答"},
+{n:"同花顺问财",f:"iwencai",i:"💰",d:"智能选股"},{n:"蚂蚁百灵",f:"ling",i:"🐦",d:"金融AI"},
+{n:"火山方舟",f:"ark",i:"🚀",d:"字节大模型"}]}
 ];
 var list=document.getElementById("aiList");
 cats.forEach(function(cat,idx){
@@ -205,8 +227,8 @@ function doSearch(){
     music:'https://music.163.com/#/search/m/?s='+enc+'&type=1',
     article:'https://weixin.sogou.com/weixin?type=2&query='+enc+'&ie=utf8',
     image:'https://image.baidu.com/search/index?tn=baiduimage&word='+enc,
-    anime:'https://search.bilibili.com/anime?keyword='+enc,
-    up:'https://search.bilibili.com/upuser?keyword='+enc
+    cinema:'https://search.bilibili.com/cinema?keyword='+enc,
+    course:'https://search.bilibili.com/course?keyword='+enc
   };
   document.getElementById("srContent").innerHTML='<iframe src="'+urls[curTab]+'"></iframe>';
   document.getElementById("srBox").scrollIntoView({behavior:"smooth"});
