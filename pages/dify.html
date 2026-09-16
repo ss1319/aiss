@@ -2,46 +2,54 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Dify - 详细配置教程</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dify - Agent自动化工作型 - 配置教程</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;width:100%;font-family:"Microsoft YaHei","PingFang SC",sans-serif}
 body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914;min-height:100%}
-.top{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);padding:14px 20px;border-bottom:1px solid rgba(212,160,23,.25)}
-.top-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:12px}
-.back-btn{padding:8px 16px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;border:none;border-radius:20px;cursor:pointer;font-size:14px;text-decoration:none;white-space:nowrap}
-.top h1{font-size:20px;background:linear-gradient(135deg,#b8860b,#d4a017);-webkit-background-clip:text;-webkit-text-fill-color:transparent;flex:1}
-.wrap{max-width:1000px;margin:0 auto;padding:20px}
-.hero{text-align:center;padding:36px 24px;background:rgba(255,255,255,.85);border-radius:20px;border:1px solid rgba(212,160,23,.2);margin-bottom:18px}
-.hero .big-icon{font-size:72px;margin-bottom:12px}
-.hero h2{font-size:30px;color:#8b6914;margin-bottom:10px}
-.hero .cat-tag{display:inline-block;padding:5px 18px;background:rgba(212,160,23,.15);color:#8b6914;border-radius:20px;font-size:14px}
-.card-box{background:rgba(255,255,255,.85);border-radius:16px;padding:22px;margin-bottom:16px;border:1px solid rgba(212,160,23,.15)}
-.card-box h3{font-size:19px;color:#8b6914;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid rgba(212,160,23,.2)}
-.card-box p{font-size:16px;line-height:1.8;color:#555;margin-bottom:10px;white-space:pre-line}
-.card-box ul{margin-left:20px;font-size:16px;line-height:1.8}
-.card-box li{margin-bottom:6px;white-space:pre-line}
-.code-block{background:#2d2d3f;color:#e0e0e0;padding:16px;border-radius:10px;margin:12px 0;overflow-x:auto;font-family:Consolas,monospace;font-size:14px;line-height:1.6;position:relative}
-.code-block::-webkit-scrollbar{height:1px;width:1px}
-.code-block::-webkit-scrollbar-thumb{background:#d4a017}
-.copy-btn{position:absolute;top:8px;right:8px;padding:4px 12px;background:rgba(212,160,23,.3);color:#f4d03f;border:1px solid #d4a017;border-radius:4px;cursor:pointer;font-size:12px}
-.link-list{display:flex;flex-direction:column;gap:8px}
-.link-item{padding:12px 16px;background:rgba(255,248,230,.6);border-radius:10px;text-decoration:none;color:#8b6914;font-size:15px;display:block;border-left:4px solid #d4a017}
-.cta{display:inline-block;padding:14px 36px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;text-decoration:none;border-radius:25px;font-size:17px;font-weight:bold;box-shadow:0 4px 15px rgba(212,160,23,.3);margin:10px 5px}
-.float-btns{position:fixed;right:0;bottom:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;transition:transform .3s}
+/* 1px金色滚动条 - 全站统一 */
+::-webkit-scrollbar{width:1px;height:1px}
+::-webkit-scrollbar-thumb{background:#d4a017;border-radius:0}
+::-webkit-scrollbar-track{background:transparent}
+*{scrollbar-width:thin;scrollbar-color:#d4a017 transparent}
+.nav{padding:12px 16px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(212,160,23,.2)}
+.nav a{color:#8b6914;text-decoration:none;font-size:14px}
+.wrap{max-width:800px;margin:0 auto;padding:20px}
+.header{text-align:center;padding:24px;background:rgba(255,255,255,.9);border-radius:18px;border:1px solid rgba(212,160,23,.2);margin-bottom:16px}
+.header .icon{font-size:48px}
+.header h1{font-size:24px;color:#8b6914;margin:8px 0}
+.header .cat{display:inline-block;padding:4px 14px;background:rgba(212,160,23,.15);border-radius:12px;font-size:13px;color:#8b6914}
+.cta{display:block;text-align:center;padding:14px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;text-decoration:none;border-radius:14px;font-weight:bold;font-size:16px;margin:16px 0}
+.section{background:rgba(255,255,255,.9);border-radius:14px;padding:20px;margin-bottom:14px;border:1px solid rgba(212,160,23,.15)}
+.section h2{font-size:18px;color:#8b6914;margin-bottom:12px;border-left:4px solid #d4a017;padding-left:10px}
+.section p{font-size:15px;line-height:1.8;color:#5a4a2a;margin-bottom:10px;white-space:pre-line}
+.section ul{padding-left:20px;font-size:15px;line-height:2;color:#5a4a2a}
+.step{display:flex;gap:12px;margin-bottom:10px;align-items:flex-start}
+.step b{min-width:28px;height:28px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px}
+.step span{font-size:15px;line-height:1.8;color:#5a4a2a}
+.code-box{position:relative;background:#1e1e2e;border-radius:12px;padding:16px;margin:10px 0;overflow:auto;max-height:400px}
+.code-box::-webkit-scrollbar{width:1px;height:1px}
+.code-box::-webkit-scrollbar-thumb{background:#d4a017}
+.code-box pre{color:#a6e3a1;font-size:14px;line-height:1.7;white-space:pre}
+.copy-btn{position:absolute;top:8px;right:8px;padding:4px 12px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;cursor:pointer;font-size:12px}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.link-item{padding:8px 16px;background:rgba(212,160,23,.1);border:1px solid rgba(212,160,23,.3);border-radius:10px;color:#8b6914;text-decoration:none;font-size:14px}
+/* 三个悬浮按钮 */
+.float-btns{position:fixed;right:0;bottom:20px;z-index:9999;display:flex;flex-direction:column;gap:8px;transition:transform .3s}
 .float-btns.hide{transform:translateX(80px)}
-.fab{width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.2)}
-.svc-fab{background:linear-gradient(135deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3);animation:bounce 1.2s infinite,grad 4s infinite;color:#fff}
+.fab{width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+.home-fab{background:linear-gradient(135deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3);animation:grad 4s infinite}
+.svc-fab{background:linear-gradient(135deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3);animation:bounce 1.2s infinite,grad 4s infinite}
 .back-top{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 @keyframes grad{0%{filter:hue-rotate(0)}100%{filter:hue-rotate(360deg)}}
 .svc-mask{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:9998;display:none}
 .svc-mask.show{display:block}
-.svc-panel{position:fixed;right:0;top:0;width:300px;height:100%;background:rgba(255,252,240,.97);backdrop-filter:blur(20px);z-index:9999;padding:24px;overflow-y:auto;transform:translateX(100%);transition:transform .3s;display:none;box-shadow:-4px 0 20px rgba(0,0,0,.1)}
+.svc-panel{position:fixed;right:0;top:0;width:300px;height:100%;background:rgba(255,252,240,.97);backdrop-filter:blur(20px);z-index:9999;padding:24px;overflow-y:auto;transform:translateX(100%);transition:transform .3s;display:none}
 .svc-panel.open{display:block;transform:translateX(0)}
 .svc-panel::-webkit-scrollbar{width:1px}
-.svc-panel::-webkit-scrollbar-thumb{background:rgba(212,160,23,.3)}
+.svc-panel::-webkit-scrollbar-thumb{background:#d4a017}
 .panel-title{text-align:center;color:#8b6914;font-size:17px;margin-bottom:18px;font-weight:bold}
 .qr-frame{width:160px;height:160px;margin:0 auto;border:2px solid #d4a017;border-radius:14px;overflow:hidden;background:#fff}
 .qr-frame img{width:100%;height:100%;object-fit:cover}
@@ -57,97 +65,57 @@ body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914;mi
 .c3{background:linear-gradient(135deg,#ff9ff3,#f368e0)}.c4{background:linear-gradient(135deg,#54a0ff,#5f27cd)}
 .c5{background:linear-gradient(135deg,#54ca6b,#27ae60)}.c6{background:linear-gradient(135deg,#ff9f43,#e67e22)}
 .c7{background:linear-gradient(135deg,#00d2d3,#01a3a8)}.c8{background:linear-gradient(135deg,#a55eea,#8854d0)}
-@media(max-width:600px){.wrap{padding:12px}.hero{padding:24px 16px}.hero h2{font-size:22px}.card-box{padding:16px}.card-box p{font-size:15px}}
 </style>
 </head>
 <body>
-<div class="top"><div class="top-inner">
-<a class="back-btn" href="../index.html">← 返回</a>
-<h1>🔧 Dify</h1>
-</div></div>
+<div class="nav"><a href="../index.html">← 返回首页</a></div>
 <div class="wrap">
-<div class="hero"><div class="big-icon">🔧</div><h2>Dify</h2><div class="cat-tag">Agent自动化工作型</div></div>
-<div class="card-box"><h3>📖 平台详细介绍</h3><p>Dify是开源的LLM应用开发平台，可视化拖拽编排工作流，内置RAG知识库系统，支持接入各种大模型（OpenAI、Claude、通义、DeepSeek等）。创建好的应用可以发布为API，嵌入到自己的网站或应用中。
-
-Dify可以自部署（免费），也可以用云端版。适合开发者和企业快速构建AI应用。</p></div>
-<div class="card-box"><h3>💡 AI主要用途</h3><p>1. 企业知识库：上传公司文档，员工随时问随时答。
-2. AI客服：7x24小时自动回答客户问题。
-3. 工作流自动化：多步骤任务自动完成。
-4. AI应用开发：快速开发各种AI应用，发布API。
-5. 团队协作：多人协作管理AI应用。</p></div>
-<div class="card-box"><h3>🚀 详细使用步骤</h3><p>第一步：打开浏览器，输入 dify.ai，注册账号登录云端版。
-第二步：或者自部署：安装Docker后运行 docker-compose up -d。
-第三步：登录后点击"创建应用"，选择聊天助手或工作流。
-第四步：在编排页面，选择你要用的大模型（如通义千问、DeepSeek）。
-第五步：写提示词，配置系统提示词和用户提示词模板。
-第六步：在"知识库"里上传文档，系统会自动向量化。
-第七步：在"工具"里添加需要的工具（搜索、代码执行等）。
-第八步：点击"发布"，获取API密钥，就可以调用了。</p></div>
-<div class="card-box"><h3>🔌 API回调函数调用方法</h3><p>以下是Dify的API完整调用代码，复制后填入你的密钥即可：</p>
-<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre># Dify API完整调用示例
-import requests
-
-# 配置
-API_KEY = 'app-你的API密钥'  # 在Dify后台-API页面创建
-BASE_URL = 'https://api.dify.ai/v1'  # 自部署换成你的地址
-
-headers = {
-    'Authorization': f'Bearer {API_KEY}',
-    'Content-Type': 'application/json'
-}
-
-# 发送对话
-response = requests.post(
-    f'{BASE_URL}/chat-messages',
-    headers=headers,
-    json={
-        'inputs': {},  # 表单变量
-        'query': '你好，介绍一下你们公司的产品',
-        'response_mode': 'blocking',  # 或 'stream' 流式
-        'conversation_id': '',  # 多轮对话时传之前的conversation_id
-        'user': 'user-123'
-    }
-)
-
-result = response.json()
-print(f"AI回复: {result['answer']}")
-print(f"对话ID: {result['conversation_id']}")
-
-# 上传文件到知识库
-files = {'file': open('document.pdf', 'rb')}
-upload_resp = requests.post(
-    f'{BASE_URL}/files/upload',
-    headers={'Authorization': f'Bearer {API_KEY}'},
-    files=files
-)
-print(f"上传结果: {upload_resp.json()}")</pre></div></div>
-<div class="card-box"><h3>📱 社交渠道与社区</h3><div class="link-list"><a class="link-item" href="https://chat.360.com" target="_blank" rel="noopener">🔗 官网：https://dify.ai</a><a class="link-item" href="https://chat.360.com" target="_blank" rel="noopener">🔗 GitHub：https://github.com/langgenius/dify</a><a class="link-item" href="https://chat.360.com" target="_blank" rel="noopener">🔗 文档：https://docs.dify.ai</a><a class="link-item" href="https://chat.360.com" target="_blank" rel="noopener">🔗 社区：Discord/Dify官方社区</a></div></div>
-<div class="card-box" style="text-align:center"><h3>🔗 官方地址</h3>
-<a class="cta" href="https://dify.ai" target="_blank" rel="noopener">🌐 访问Dify官网 →</a></div>
+  <div class="header">
+    <div class="icon">🔧</div>
+    <h1>Dify</h1>
+    <span class="cat">Agent自动化工作型</span>
+  </div>
+  <a class="cta" href="https://dify.ai" target="_blank">🚀 立即访问Dify</a>
+  <div class="section"><h2>📖 平台详细介绍</h2><p>Dify是开源的LLM应用开发平台，结合了后端API和可视化编排。它支持提示词管理、知识库RAG、Agent、工作流、监控等功能。可以自部署也可以使用云服务。Dify是目前最受欢迎的开源LLMops平台之一。</p></div>
+  <div class="section"><h2>💡 主要用途</h2><ul><li>LLM应用开发</li><li>RAG知识库</li><li>工作流编排</li><li>Agent构建</li><li>提示词管理</li><li>开源可自部署</li><li>API监控</li></ul></div>
+  <div class="section"><h2>🚀 详细使用步骤</h2><div class="step"><b>1</b><span>访问 dify.ai或自部署</span></div><div class="step"><b>2</b><span>注册登录</span></div><div class="step"><b>3</b><span>创建应用</span></div><div class="step"><b>4</b><span>配置模型供应商</span></div><div class="step"><b>5</b><span>上传知识库</span></div><div class="step"><b>6</b><span>编排工作流</span></div><div class="step"><b>7</b><span>发布API</span></div><div class="step"><b>8</b><span>嵌入到网站</span></div></div>
+  <div class="section"><h2>🔌 API回调函数代码</h2><div class="code-box"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre>// Dify API调用
+POST https://api.dify.ai/v1/chat-messages
+Headers: Authorization: Bearer APP_KEY
+Body: {"query":"你好","user":"user-1","response_mode":"blocking"}</pre></div></div>
+  <div class="section"><h2>🔗 社交渠道与社区</h2><div class="links"><a class="link-item" href="https://dify.ai" target="_blank">官网 ↗</a><a class="link-item" href="https://github.com/langgenius/dify" target="_blank">GitHub ↗</a></div></div>
 </div>
+
 <div class="float-btns" id="floatBtns">
-<button class="fab svc-fab" id="svcToggle">💬</button>
-<button class="fab back-top" id="backTop">🚀</button>
+  <button class="fab home-fab" onclick="location.href='../index.html'">🏠</button>
+  <button class="fab svc-fab" id="svcToggle">💬</button>
+  <button class="fab back-top" id="backTop">🚀</button>
 </div>
 <div class="svc-mask" id="svcMask"></div>
 <div class="svc-panel" id="svcPanel">
-<div class="panel-title">💬 联系客服</div>
-<div class="qr-frame"><img id="qrImg" src="https://ss1319.github.io/aiss/assets/img/zsm.png"></div>
-<div class="qr-name" id="qrName">赞赏二维码</div>
-<button class="qr-switch" onclick="switchQr()">切换到公众号</button>
-<p class="qr-tip">欢迎自愿赞赏支持作者</p>
-<div class="wx-id"><span class="wx-label">微信公众号</span><span class="wx-line" id="wxLine">wxsy1349</span></div>
-<div class="svc-links">
-<a class="svc-link c1" href="https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj" target="_blank" rel="noopener">🛒 快手小店</a>
-<a class="svc-link c2" href="https://pd.qq.com/s/24yp7y38f" target="_blank" rel="noopener">💬 腾讯频道</a>
-<a class="svc-link c3" href="https://www.zhihu.com/people/z6391" target="_blank" rel="noopener">💡 知乎</a>
-<a class="svc-link c4" href="https://qm.qq.com/q/VHeRTTdQcu" target="_blank" rel="noopener">👥 QQ群</a>
-<a class="svc-link c5" href="https://bolt.cello.so/lsypink3QTR" target="_blank" rel="noopener">⚡ 在线编程</a>
-<a class="svc-link c6" href="https://api.u-claw.org/register?aff=9OLG" target="_blank" rel="noopener">🦞 OpenClaw</a>
-<a class="svc-link c7" href="https://weibo.com/zdzqxt" target="_blank" rel="noopener">📢 微博</a>
-<a class="svc-link c8" href="https://txc.qq.com/embed/367382/new-post/" target="_blank" rel="noopener">✍️ 欢迎留言</a>
-</div></div>
+  <div class="panel-title">💬 联系客服</div>
+  <div class="qr-frame"><img id="qrImg" src="../assets/img/zsm.png"></div>
+  <div class="qr-name" id="qrName">赞赏二维码</div>
+  <button class="qr-switch" onclick="switchQr()">切换到公众号</button>
+  <p class="qr-tip">欢迎自愿赞赏支持作者</p>
+  <div class="wx-id"><span class="wx-label">微信公众号</span><span class="wx-line" id="wxLine">wxsy1349</span></div>
+  <div class="svc-links">
+    <a class="svc-link c1" href="https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj" target="_blank">🛒 快手小店</a>
+    <a class="svc-link c2" href="https://pd.qq.com/s/24yp7y38f" target="_blank">💬 腾讯频道</a>
+    <a class="svc-link c3" href="https://www.zhihu.com/people/z6391" target="_blank">💡 知乎</a>
+    <a class="svc-link c4" href="https://qm.qq.com/q/VHeRTTdQcu" target="_blank">👥 QQ群</a>
+    <a class="svc-link c5" href="https://bolt.cello.so/lsypink3QTR" target="_blank">⚡ 在线编程</a>
+    <a class="svc-link c6" href="https://api.u-claw.org/register?aff=9OLG" target="_blank">🦞 OpenClaw</a>
+    <a class="svc-link c7" href="https://weibo.com/zdzqxt" target="_blank">📢 微博</a>
+    <a class="svc-link c8" href="https://txc.qq.com/embed/367382/new-post/" target="_blank">✍️ 欢迎留言</a>
+  </div>
+</div>
+
 <script>
+function copyCode(btn){
+  navigator.clipboard.writeText(btn.parentElement.querySelector("pre").textContent);
+  btn.textContent="已复制";setTimeout(()=>btn.textContent="复制",1500);
+}
 var svcToggle=document.getElementById("svcToggle");
 var svcPanel=document.getElementById("svcPanel");
 var svcMask=document.getElementById("svcMask");
@@ -156,24 +124,10 @@ svcMask.onclick=function(){svcPanel.classList.remove("open");svcMask.classList.r
 document.onclick=function(e){if(svcPanel.classList.contains("open")&&!svcPanel.contains(e.target)&&e.target!==svcToggle){svcPanel.classList.remove("open");svcMask.classList.remove("show");}};
 document.addEventListener("keydown",function(e){if(e.key==="Escape"){svcPanel.classList.remove("open");svcMask.classList.remove("show");}});
 var wxQr=false;
-function switchQr(){
-  wxQr=!wxQr;
-  document.getElementById("qrImg").src=wxQr?"https://ss1319.github.io/aiss/assets/img/wxsy1349.png":"https://ss1319.github.io/aiss/assets/img/zsm.png";
-  document.getElementById("qrName").textContent=wxQr?"微信公众号":"赞赏二维码";
-  event.target.textContent=wxQr?"切换到赞赏码":"切换到公众号";
-}
-document.getElementById("wxLine").onmouseenter=function(){navigator.clipboard.writeText("wxsy1349");this.style.opacity="0.7";};
-document.getElementById("wxLine").onmouseleave=function(){this.style.opacity="1";};
+function switchQr(){wxQr=!wxQr;document.getElementById("qrImg").src=wxQr?"../assets/img/wxsy1349.png":"../assets/img/zsm.png";document.getElementById("qrName").textContent=wxQr?"微信公众号":"赞赏二维码";event.target.textContent=wxQr?"切换到赞赏码":"切换到公众号";}
+document.getElementById("wxLine").onmouseenter=function(){navigator.clipboard.writeText("wxsy1349");};
 document.getElementById("backTop").onclick=function(){window.scrollTo({top:0,behavior:"smooth"});};
-var scrollT;window.onscroll=function(){
-  document.getElementById("floatBtns").classList.add("hide");
-  clearTimeout(scrollT);scrollT=setTimeout(function(){document.getElementById("floatBtns").classList.remove("hide");},300);
-};
-function copyCode(btn){
-  var text=btn.parentElement.textContent.replace("复制","").trim();
-  navigator.clipboard.writeText(text);
-  btn.textContent="已复制✓";
-  setTimeout(function(){btn.textContent="复制";},1500);
-}
+var st;window.onscroll=function(){document.getElementById("floatBtns").classList.add("hide");clearTimeout(st);st=setTimeout(function(){document.getElementById("floatBtns").classList.remove("hide");},300);};
 </script>
-</body></html>
+</body>
+</html>
