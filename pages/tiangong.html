@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>天工AI - 配置教程</title><style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;width:100%;font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914}
+::-webkit-scrollbar{width:1px;height:1px}
+::-webkit-scrollbar-thumb{background:#d4a017}
+::-webkit-scrollbar-track{background:transparent}
+*{scrollbar-width:thin;scrollbar-color:#d4a017 transparent}
+.nav{padding:12px 20px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(212,160,23,.2)}
+.nav a{color:#8b6914;text-decoration:none;font-size:15px}
+.wrap{max-width:100%;padding:20px 30px;margin:0 auto}
+.header{text-align:center;padding:30px;background:rgba(255,255,255,.9);border-radius:18px;border:1px solid rgba(212,160,23,.2);margin-bottom:16px}
+.header .icon{font-size:56px}
+.header h1{font-size:32px;color:#8b6914;margin:8px 0}
+.header .cat{display:inline-block;padding:5px 16px;background:rgba(212,160,23,.15);border-radius:12px;font-size:14px;color:#8b6914}
+.cta{display:block;text-align:center;padding:16px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;text-decoration:none;border-radius:14px;font-weight:bold;font-size:18px;margin:16px 0}
+.section{background:rgba(255,255,255,.9);border-radius:14px;padding:24px;margin-bottom:14px;border:1px solid rgba(212,160,23,.15)}
+.section h2{font-size:20px;color:#8b6914;margin-bottom:14px;border-left:4px solid #d4a017;padding-left:12px}
+.section p{font-size:16px;line-height:2;color:#5a4a2a;margin-bottom:12px;white-space:pre-line}
+.section ul{padding-left:24px;font-size:16px;line-height:2;color:#5a4a2a}
+.step{display:flex;gap:14px;margin-bottom:12px;align-items:flex-start}
+.step b{min-width:32px;height:32px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.step span{font-size:16px;line-height:1.9;color:#5a4a2a}
+.code-box{position:relative;background:#1e1e2e;border-radius:12px;padding:18px;margin:10px 0;overflow:auto;max-height:500px}
+.code-box::-webkit-scrollbar{width:1px;height:1px}
+.code-box::-webkit-scrollbar-thumb{background:#d4a017}
+.code-box pre{color:#a6e3a1;font-size:14px;line-height:1.7;white-space:pre}
+.copy-btn{position:absolute;top:8px;right:8px;padding:5px 14px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:8px;cursor:pointer;font-size:13px}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.link-item{padding:10px 18px;background:rgba(212,160,23,.1);border:1px solid rgba(212,160,23,.3);border-radius:10px;color:#8b6914;text-decoration:none;font-size:15px}
+.float-btns{position:fixed;right:0;bottom:20px;z-index:9999;display:flex;flex-direction:column;gap:8px;transition:transform .3s}
+.float-btns.hide{transform:translateX(80px)}
+.fab{width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+.home-fab{background:linear-gradient(135deg,#f39c12,#e74c3c);color:#fff}
+.svc-fab{background:linear-gradient(135deg,#9b59b6,#3498db);color:#fff;animation:bounce 1.2s infinite}
+.back-top{background:linear-gradient(135deg,#1abc9c,#2ecc71);color:#fff}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.svc-mask{position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:9998;display:none}
+.svc-mask.show{display:block}
+.svc-panel{position:fixed;right:0;top:0;width:300px;height:100%;background:rgba(255,252,240,.97);backdrop-filter:blur(20px);z-index:9999;padding:24px;overflow-y:auto;transform:translateX(100%);transition:transform .3s;display:none}
+.svc-panel.open{display:block;transform:translateX(0)}
+</style></head><body>
+<div class="nav"><a href="../index.html">← 返回首页</a></div>
+<div class="wrap">
+<div class="header"><div class="icon">🌌</div><h1>天工AI</h1><span class="cat">普通对话型AI</span></div>
+<a class="cta" href="https://www.tiangong.cn" target="_blank">🚀 立即访问天工AI</a>
+<div class="section"><h2>📖 平台详细介绍</h2><p>天工AI是昆仑万维公司推出的大模型产品，于2023年4月正式发布。天工AI集成了搜索、聊天、写作、图片生成、视频理解等多种功能，是昆仑万维在AGI（通用人工智能）方向的战略产品。天工AI最大的特色是深度集成了搜索引擎，用户在对话过程中可以自动获取最新信息，回答有据可查。昆仑万维还推出了天工SkyReels视频生成模型、天工SkyMusic音乐生成模型等多模态产品。天工AI开放平台提供API服务，支持企业级应用开发。昆仑万维是国内较早布局AGI的上市公司，在大模型训练、多模态生成等方面有深厚积累。天工AI还支持创建智能体，用户可以定制专属AI助手。</p></div>
+<div class="section"><h2>💡 主要用途</h2><ul><li>智能对话与搜索</li><li>文案写作</li><li>图片生成</li><li>多模态理解</li><li>企业API服务</li><li>智能体创建</li></ul></div>
+<div class="section"><h2>🚀 详细使用步骤</h2><div class="step"><b>1</b><span>访问 tiangong.cn</span></div><div class="step"><b>2</b><span>注册登录</span></div><div class="step"><b>3</b><span>开始对话</span></div><div class="step"><b>4</b><span>使用搜索功能</span></div><div class="step"><b>5</b><span>生成图片</span></div><div class="step"><b>6</b><span>API开发访问开放平台</span></div></div>
+<div class="section"><h2>🔌 API回调函数代码</h2><div class="code-box"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre>// 天工AI API（通过开放平台）
+POST https://api.tiangong.cn/v1/chat/completions</pre></div></div>
+<div class="section"><h2>🔗 社交渠道与社区</h2><div class="links"><a class="link-item" href="https://www.tiangong.cn" target="_blank">天工AI官网 ↗</a><a class="link-item" href="https://www.kunlun.com" target="_blank">昆仑万维 ↗</a></div></div>
+</div>
+<div class="float-btns" id="floatBtns">
+<button class="fab home-fab" onclick="location.href='../index.html'">🏠</button>
+<button class="fab svc-fab" id="svcToggle">💬</button>
+<button class="fab back-top" id="backTop">🚀</button>
+</div>
+<div class="svc-mask" id="svcMask"></div>
+<div class="svc-panel" id="svcPanel">
+<div class="panel-title">💬 联系客服</div>
+<div class="qr-frame"><img id="qrImg" src="../assets/img/zsm.png"></div>
+<div class="qr-name" id="qrName">赞赏二维码</div>
+<button class="qr-switch" onclick="switchQr()">切换到公众号</button>
+<p class="qr-tip">欢迎自愿赞赏支持作者</p>
+<div class="wx-id"><span class="wx-label">微信公众号</span><span class="wx-line" id="wxLine">wxsy1349</span></div>
+<div class="svc-links">
+<a class="svc-link c1" href="https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj" target="_blank">🛒 快手小店</a>
+<a class="svc-link c2" href="https://pd.qq.com/s/24yp7y38f" target="_blank">💬 腾讯频道</a>
+<a class="svc-link c3" href="https://www.zhihu.com/people/z6391" target="_blank">💡 知乎</a>
+<a class="svc-link c4" href="https://qm.qq.com/q/VHeRTTdQcu" target="_blank">👥 QQ群</a>
+<a class="svc-link c5" href="https://bolt.cello.so/lsypink3QTR" target="_blank">⚡ 在线编程</a>
+<a class="svc-link c6" href="https://api.u-claw.org/register?aff=9OLG" target="_blank">🦞 OpenClaw</a>
+<a class="svc-link c7" href="https://weibo.com/zdzqxt" target="_blank">📢 微博</a>
+<a class="svc-link c8" href="https://txc.qq.com/embed/367382/new-post/" target="_blank">✍️ 欢迎留言</a>
+</div></div>
+<script>
+function copyCode(b){navigator.clipboard.writeText(b.parentElement.querySelector("pre").textContent);b.textContent="已复制";setTimeout(()=>b.textContent="复制",1500);}
+var st=document.getElementById("svcToggle"),sp=document.getElementById("svcPanel"),sm=document.getElementById("svcMask");
+st.onclick=function(e){e.stopPropagation();sp.classList.toggle("open");sm.classList.toggle("show");};
+sm.onclick=function(){sp.classList.remove("open");sm.classList.remove("show");};
+document.onclick=function(e){if(sp.classList.contains("open")&&!sp.contains(e.target)&&e.target!==st){sp.classList.remove("open");sm.classList.remove("show");}};
+var wq=false;function switchQr(){wq=!wq;document.getElementById("qrImg").src=wq?"../assets/img/wxsy1349.png":"../assets/img/zsm.png";document.getElementById("qrName").textContent=wq?"微信公众号":"赞赏二维码";event.target.textContent=wq?"切换到赞赏码":"切换到公众号";}
+document.getElementById("wxLine").onmouseenter=function(){navigator.clipboard.writeText("wxsy1349");};
+document.getElementById("backTop").onclick=function(){window.scrollTo({top:0,behavior:"smooth"});};
+var t;window.onscroll=function(){document.getElementById("floatBtns").classList.add("hide");clearTimeout(t);t=setTimeout(function(){document.getElementById("floatBtns").classList.remove("hide");},300);};
+</script></body></html>
