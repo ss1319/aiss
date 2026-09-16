@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>月之暗面 · AI智能体搭建与exe/apk后端Key配置教程</title>
+<meta name="description" content="Kimi背后的公司。">
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="ai-page">
+<div class="bg-layer" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob b4"></i></div>
+<header class="topbar glass">
+  <a class="logo" href="../index.html">🏠 AI配置教程 · 智能索引</a>
+  <span class="crumb">一般普通对话型AI</span>
+</header>
+<main class="ai-main">
+<div class="ai-head glass">
+    <h1>月之暗面</h1>
+    <div class="tags"><span class="tag">对话型</span></div>
+    <p class="brief">Kimi背后的公司。</p>
+  </div>
+  
+<div class="fold glass" data-fold>
+  <button class="fold-hd" type="button"><span>📌 官网 · 插件 · 接口文档 · 社群渠道（全部可点）</span><i class="caret"></i></button>
+  <div class="fold-bd"><table class="link-table"><tr><th>官网地址</th><td><a href="#" target="_blank">待补充</a></td></tr><tr><th>插件地址</th><td>暂无</td></tr><tr><th>接口文档</th><td>暂无</td></tr><tr><th>社群/社区</th><td>暂无</td></tr><tr><th>微信公众号</th><td>关注AI技术社区</td></tr><tr><th>微信小程序</th><td>暂无</td></tr></table></div>
+</div>
+
+<div class="sec glass"><h2>🧠 它擅长什么 · 适用场景</h2><ul class="feat"><li>对话型</li><li>支持API调用</li><li>可内嵌到exe/apk</li><li>持续更新中</li></ul></div>
+
+<div class="sec glass"><h2>📖 详细介绍</h2><div class="intro-txt">月之暗面是对话型。Kimi背后的公司。</div></div>
+
+<div class="sec glass"><h2>🛠️ 详细部署 / 配置操作步骤</h2><div class="steps"><div class="step"><div class="step-no">1</div><div class="step-body"><h4>注册账号</h4><div class="step-txt">访问月之暗面官网注册账号。</div></div></div><div class="step"><div class="step-no">2</div><div class="step-body"><h4>获取Key</h4><div class="step-txt">在控制台创建应用，获取API Key。</div></div></div><div class="step"><div class="step-no">3</div><div class="step-body"><h4>配置调用</h4><div class="step-txt">使用API Key配置调用参数。</div></div></div><div class="step"><div class="step-no">4</div><div class="step-body"><h4>测试连接</h4><div class="step-txt">发送测试请求验证连接。</div></div></div><div class="step"><div class="step-no">5</div><div class="step-body"><h4>内嵌部署</h4><div class="step-txt">将API调用集成到exe/apk中。</div></div></div></div></div>
+
+<div class="sec glass callback">
+  <h2>🔁 exe / apk 内嵌与后端回调接通教程</h2>
+  <div class="cb-txt">内嵌到exe/apk的回调流程：客户端 → HTTP请求 → 收到JSON回复 → 解析内容 → 触发回调函数更新UI。注意API Key的安全存储，建议在服务端环境变量中管理。</div>
+  <div class="code-wrap">
+<div class="code-bar"><span class="code-t">月之暗面回调函数模板</span><span class="code-lang">python</span><button class="copy-btn" type="button" onclick="copyCode(this)">复制</button></div>
+<pre><code id="cb_moonshot">import requests
+
+API_KEY = "你的API Key"
+BASE_URL = "https://api.example.com/v1"
+
+def on_ai_reply(text):
+    """回调函数：AI回答后更新UI"""
+    print("AI回答:", text)
+
+def ask(prompt):
+    r = requests.post(f"{BASE_URL}/chat/completions",
+        headers={"Authorization": f"Bearer {API_KEY}"},
+        json={"model": "default", "messages": [{"role": "user", "content": prompt}]})
+    reply = r.json()["choices"][0]["message"]["content"]
+    on_ai_reply(reply)
+    return reply
+
+ask("你好")</code></pre>
+</div>
+</div>
+</main>
+
+<div class="svc-mask" id="svcMask"></div>
+<div class="svc-panel glass-strong" id="svcPanel">
+  <div class="panel-inner">
+    <div class="panel-title">💬 联系客服 · 资源导航</div>
+    <div class="qr-box">
+      <div class="qr-frame"><img id="qrImg" src="../assets/img/zsm.png" alt="赞赏码" onerror="this.src='../assets/img/wxsy1349.png'"></div>
+      <div class="qr-name" id="qrName">赞赏二维码</div>
+      <button class="qr-switch" id="qrSwitch" type="button">切换到公众号</button>
+    </div>
+    <p class="qr-tip">欢迎自愿赞赏支持作者</p>
+    <div class="wx-id" title="鼠标移过自动复制">
+      <span class="wx-label">微信公众号</span>
+      <span class="wx-line">wxsy1349</span>
+    </div>
+    <div class="svc-links">
+      <a class="svc-link c1" href="https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj" target="_blank">🛒 快手小店</a>
+      <a class="svc-link c2" href="https://pd.qq.com/s/24yp7y38f" target="_blank">💬 腾讯频道</a>
+      <a class="svc-link c3" href="https://www.zhihu.com/people/z6391" target="_blank">💡 知乎</a>
+      <a class="svc-link c4" href="https://qm.qq.com/q/VHeRTTdQcu" target="_blank">👥 QQ群</a>
+      <a class="svc-link c5" href="https://bolt.cello.so/lsypink3QTR" target="_blank">💻 在线AI编程</a>
+      <a class="svc-link c6" href="https://api.u-claw.org/register?aff=9OLG" target="_blank">🐙 OpenClaw</a>
+      <a class="svc-link c7" href="https://weibo.com/zdzqxt" target="_blank">📢 微博</a>
+      <a class="svc-link c8" href="https://txc.qq.com/embed/367382/new-post/" target="_blank">✉️ 欢迎留言</a>
+    </div>
+    <div class="svc-bottom">AI配置教程 · 全国AI智能体大全 · 持续更新中</div>
+  </div>
+</div>
+<div class="float-btns docked" id="floatBtns">
+  <button class="fab" id="svcToggle" type="button" title="点击打开客服面板">💬</button>
+  <button class="fab" id="backTop" type="button" title="返回顶部">🚀</button>
+</div>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
