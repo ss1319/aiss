@@ -23,7 +23,7 @@ body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914}
 .sr-box{display:none;max-width:100%;margin:12px auto;background:#fff;border:1px solid #d4a017;border-radius:12px;overflow:hidden}
 .sr-title{padding:10px 16px;background:rgba(212,160,23,.1);font-size:16px;color:#8b6914;font-weight:bold}
 .sr-content{padding:0;max-height:600px;overflow-y:auto}
-.sr-content iframe{width:100%;height:600px;border:0;border-left:1px solid #d4a017}
+.sr-content iframe{width:100%;height:600px;border:0}
 .main{max-width:100%;padding:20px 30px;margin:0 auto}
 .cat{margin-bottom:14px}
 .cat-header{padding:14px 18px;background:linear-gradient(135deg,rgba(212,160,23,.15),rgba(244,208,63,.08));border:1px solid rgba(212,160,23,.3);border-radius:14px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:18px;color:#8b6914;font-weight:bold}
@@ -37,7 +37,6 @@ body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914}
 .card .icon{font-size:30px;margin-bottom:6px}
 .card h4{font-size:16px;color:#8b6914;margin-bottom:4px}
 .card p{font-size:13px;color:#999}
-/* 三个悬浮按钮 - 不同颜色 */
 .float-btns{position:fixed;right:0;bottom:20px;z-index:9999;display:flex;flex-direction:column;gap:8px;transition:transform .3s}
 .float-btns.hide{transform:translateX(80px)}
 .fab{width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.2)}
@@ -79,7 +78,7 @@ body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914}
 <button class="stab" data-s="news">📰 新闻</button>
 <button class="stab" data-s="article">📄 文章</button>
 <button class="stab" data-s="image">🖼️ 图片</button>
-<button class="stab" data-s="weibo">🔥 微博</button>
+<button class="stab" data-s="toutiao">📰 头条</button>
 </div>
 <div class="sr-box" id="srBox">
 <div class="sr-title" id="srTitle"></div>
@@ -119,14 +118,19 @@ var cats=[
 {n:"文心一言",f:"wenxin",i:"🟡",d:"百度"},{n:"智谱清言",f:"zhipu",i:"🔷",d:"智谱"},
 {n:"讯飞星火",f:"xinghuo",i:"🔥",d:"讯飞"},{n:"腾讯混元",f:"hunyuan",i:"🌀",d:"腾讯"},
 {n:"百川",f:"baichuan",i:"🌊",d:"百川"},{n:"MiniMax",f:"minimax",i:"💎",d:"MiniMax"},
-{n:"360智脑",f:"360gpt",i:"🟢",d:"360"},{n:"文心素食助手",f:"wenxin-vegan",i:"🥗",d:"百度智能体"}]},
+{n:"360智脑",f:"360gpt",i:"🟢",d:"360"},{n:"文心素食助手",f:"wenxin-vegan",i:"🥗",d:"百度智能体"},
+{n:"天工AI",f:"tiangong",i:"🌌",d:"昆仑万维"},{n:"零一万物",f:"01ai",i:"🌐",d:"李开复"},
+{n:"商量SenseChat",f:"sensechat",i:"👁️",d:"商汤"},{n:"元器",f:"yuanqi",i:"🧩",d:"字节智能体"},
+{n:"星野",f:"xingye",i:"✨",d:"MiniMax星野"},{n:"Glow",f:"glow",i:"💫",d:"对话AI"}]},
 {name:"🔵 自定义模型/API类",items:[
 {n:"OpenAI",f:"openai",i:"⚪",d:"GPT API"},{n:"Claude",f:"claude",i:"🟠",d:"Anthropic"},
 {n:"Gemini",f:"gemini",i:"💎",d:"谷歌"},{n:"DeepSeek API",f:"deepseek-api",i:"🧠",d:"深度求索API"},
 {n:"月之暗面API",f:"moonshot-api",i:"🌙",d:"Kimi API"},{n:"智谱API",f:"zhipu-api",i:"🔷",d:"智谱API"},
 {n:"百川API",f:"baichuan-api",i:"🌊",d:"百川API"},{n:"MiniMax API",f:"minimax-api",i:"💎",d:"MiniMax API"},
 {n:"OpenRouter",f:"openrouter",i:"🔀",d:"模型聚合"},{n:"硅基流动",f:"siliconflow",i:"⚡",d:"SiliconFlow"},
-{n:"灵犀",f:"skylark",i:"🦅",d:"火山引擎"},{n:"阿里云百炼",f:"dashscope",i:"☁️",d:"阿里百炼"}]},
+{n:"灵犀",f:"skylark",i:"🦅",d:"火山引擎"},{n:"阿里云百炼",f:"dashscope",i:"☁️",d:"阿里百炼"},
+{n:"Groq",f:"groq",i:"⚡",d:"超快推理"},{n:"Together AI",f:"together",i:"🤝",d:"开源模型API"},
+{n:"HuggingFace",f:"huggingface",i:"🤗",d:"模型社区"}]},
 {name:"🟣 Agent自动化工作型",items:[
 {n:"Coze扣子",f:"coze",i:"🟣",d:"字节智能体"},{n:"Dify",f:"dify",i:"🔧",d:"开源LLM平台"},
 {n:"FastGPT",f:"fastgpt",i:"⚡",d:"知识库"},{n:"AutoGen",f:"autogen",i:"🤖",d:"微软"},
@@ -134,31 +138,45 @@ var cats=[
 {n:"n8n",f:"n8n",i:"🔄",d:"自动化"},{n:"IFTTT",f:"ifttt",i:"⚡",d:"自动化"},
 {n:"Zapier",f:"zapier",i:"⚡",d:"自动化"},{n:"Make",f:"make",i:"🎬",d:"可视化"},
 {n:"OpenClaw虾盘云",f:"openclaw",i:"🦞",d:"虾盘云"},{n:"实在智能Agent",f:"shizai",i:"🤖",d:"实在RPA"},
-{n:"腾讯WorkBuddy",f:"workbuddy",i:"💼",d:"腾讯"},{n:"爱派Aipy",f:"aipy",i:"💡",d:"Aipy"}]},
+{n:"腾讯WorkBuddy",f:"workbuddy",i:"💼",d:"腾讯"},{n:"爱派Aipy",f:"aipy",i:"💡",d:"Aipy"},
+{n:"百度AppBuilder",f:"appbuilder",i:"🔨",d:"百度智能体"},{n:"Flowise",f:"flowise",i:"🌊",d:"可视化LLM"},
+{n:"LangFlow",f:"langflow",i:"🔬",d:"LangFlow"},{n:"Semantic Kernel",f:"semantickernel",i:"🧠",d:"微软SDK"}]},
 {name:"🟡 RPA类AI",items:[
 {n:"影刀RPA",f:"yingdao",i:"🤖",d:"影刀"},{n:"UiBot",f:"uibot",i:"🤖",d:"UiBot"},
 {n:"UiPath",f:"uipath",i:"🤖",d:"UiPath"},{n:"Automation Anywhere",f:"automationanywhere",i:"🤖",d:"AA"},
-{n:"Power Automate",f:"powerautomate",i:"⚡",d:"微软"}]},
+{n:"Power Automate",f:"powerautomate",i:"⚡",d:"微软"},{n:"来也RPA",f:"laiye",i:"🤖",d:"来也科技"},
+{n:"艺赛旗",f:"i-search",i:"🔍",d:"iS-RPA"},{n:"Blue Prism",f:"blueprism",i:"🔷",d:"Blue Prism"}]},
 {name:"🔴 生产类AI",items:[
 {n:"PixVerse",f:"pixverse",i:"🎥",d:"AI视频"},{n:"Runway",f:"runway",i:"🎞️",d:"AI视频"},
 {n:"Canva",f:"canva",i:"🎨",d:"设计"},{n:"Gamma",f:"gamma",i:"📊",d:"AI PPT"},
 {n:"剪映",f:"capcut",i:"✂️",d:"剪辑"},{n:"秒哒",f:"miaoda",i:"⚡",d:"全能AI"},
 {n:"沸推AI",f:"feitui",i:"📢",d:"营销"},{n:"飞影数字人",f:"feiying",i:"🧑",d:"数字人"},
-{n:"LiblibAI",f:"liblib",i:"🎨",d:"生图"}]},
+{n:"LiblibAI",f:"liblib",i:"🎨",d:"生图"},{n:"可灵AI",f:"kling",i:"🎬",d:"快手视频"},
+{n:"即梦AI",f:"jimeng",i:"💫",d:"字节即梦"},{n:"Vidu",f:"vidu",i:"🎨",d:"生数视频"},
+{n:"Pika",f:"pika",i:"⚡",d:"Pika视频"},{n:"D-ID",f:"did",i:"🗣️",d:"数字人"},
+{n:"HeyGen",f:"heygen",i:"🧑",d:"AI数字人"},{n:"Midjourney",f:"midjourney",i:"🖼️",d:"AI绘画"},
+{n:"即梦生图",f:"jimeng-img",i:"🎨",d:"字节生图"},{n:"WPS AI",f:"wpsai",i:"📝",d:"办公AI"},
+{n:"秘塔AI搜索",f:"metaso",i:"🔍",d:"AI搜索"}]},
 {name:"🟢 离线/本地部署类",items:[
 {n:"Ollama",f:"ollama",i:"🦙",d:"本地模型"},{n:"LM Studio",f:"lmstudio",i:"💻",d:"桌面"},
 {n:"GPT4All",f:"gpt4all",i:"🔒",d:"离线"},{n:"Llama.cpp",f:"llama-cpp",i:"📦",d:"GGUF"},
 {n:"KoboldCpp",f:"koboldcpp",i:"💬",d:"角色扮演"},{n:"Oobabooga",f:"text-generation-webui",i:"🌐",d:"WebUI"},
 {n:"Xinference",f:"xinference",i:"🎯",d:"推理"},{n:"vLLM",f:"vllm",i:"⚡",d:"高性能"},
-{n:"AnythingLLM",f:"anything-llm",i:"📚",d:"知识库"},{n:"MCP协议",f:"mcp",i:"🔌",d:"上下文协议"}]},
+{n:"AnythingLLM",f:"anything-llm",i:"📚",d:"知识库"},{n:"MCP协议",f:"mcp",i:"🔌",d:"上下文协议"},
+{n:"Open WebUI",f:"openwebui",i:"🌐",d:"Ollama前端"},{n:"LibreChat",f:"librechat",i:"💬",d:"开源ChatGPT"},
+{n:"Jan",f:"jan",i:"📱",d:"本地AI"},{n:"Msty",f:"msty",i:"🧪",d:"本地AI"}]},
 {name:"🔵 编程开发类AI",items:[
 {n:"GitHub Copilot",f:"githubcopilot",i:"🐱",d:"代码助手"},{n:"Cursor",f:"cursor",i:"✏️",d:"AI编辑器"},
 {n:"Trae",f:"trae",i:"🚀",d:"字节IDE"},{n:"通义灵码",f:"tongyi-lingma",i:"🐉",d:"阿里"},
 {n:"CodeGeeX",f:"codegeex",i:"💻",d:"智谱代码"},{n:"Codeium",f:"codeium",i:"💨",d:"免费补全"},
-{n:"Bolt在线编程",f:"bolt",i:"⚡",d:"在线编程"},{n:"学会打字",f:"typefun",i:"⌨️",d:"学打字"}]},
+{n:"Bolt在线编程",f:"bolt",i:"⚡",d:"在线编程"},{n:"学会打字",f:"typefun",i:"⌨️",d:"学打字"},
+{n:"Windsurf",f:"windsurf",i:"🌊",d:"AI IDE"},{n:"Tabnine",f:"tabnine",i:"⚡",d:"代码补全"},
+{n:"Aider",f:"aider",i:"✏️",d:"终端AI"},{n:"Continue",f:"continue",i:"🔄",d:"开源助手"}]},
 {name:"🟠 云服务/平台类",items:[
 {n:"Azure OpenAI",f:"azure",i:"☁️",d:"微软"},{n:"Notion AI",f:"notionai",i:"📝",d:"Notion"},
-{n:"阶跃Step",f:"stepfun",i:"📈",d:"阶跃星辰"},{n:"ChatGLM",f:"chatglm",i:"💬",d:"智谱对话"}]}
+{n:"阶跃Step",f:"stepfun",i:"📈",d:"阶跃星辰"},{n:"ChatGLM",f:"chatglm",i:"💬",d:"智谱对话"},
+{n:"AWS Bedrock",f:"bedrock",i:"☁️",d:"亚马逊"},{n:"Vertex AI",f:"vertex",i:"🔷",d:"谷歌云"},
+{n:"HuggingFace",f:"hf",i:"🤗",d:"模型库"},{n:"Papers with Code",f:"papers",i:"📄",d:"论文代码"}]}
 ];
 var list=document.getElementById("aiList");
 cats.forEach(function(cat,idx){
@@ -185,10 +203,10 @@ function doSearch(){
   var urls={
     video:'https://search.bilibili.com/all?keyword='+enc,
     music:'https://music.163.com/#/search/m/?s='+enc+'&type=1',
-    news:'https://www.sogou.com/news?query='+enc,
-    article:'https://weixin.sogou.com/weixin?type=2&query='+enc+'&ie=utf8',
+    news:'https://www.baidu.com/s?wd='+enc+'&tn=news',
+    article:'https://www.baidu.com/s?wd='+enc,
     image:'https://image.baidu.com/search/index?tn=baiduimage&word='+enc,
-    weibo:'https://s.weibo.com/weibo?q='+enc
+    toutiao:'https://so.toutiao.com/search?keyword='+enc
   };
   document.getElementById("srContent").innerHTML='<iframe src="'+urls[curTab]+'"></iframe>';
   document.getElementById("srBox").scrollIntoView({behavior:"smooth"});
