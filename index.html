@@ -75,10 +75,10 @@ body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914}
 <div class="search-tabs">
 <button class="stab active" data-s="video">📺 视频</button>
 <button class="stab" data-s="music">🎵 音乐</button>
+<button class="stab" data-s="bing">🔍 必应</button>
 <button class="stab" data-s="article">📄 文章</button>
 <button class="stab" data-s="image">🖼️ 图片</button>
-<button class="stab" data-s="cinema">🎬 影视</button>
-<button class="stab" data-s="course">📚 课程</button>
+<button class="stab" data-s="so">🌐 360</button>
 </div>
 <div class="sr-box" id="srBox">
 <div class="sr-title" id="srTitle"></div>
@@ -198,7 +198,41 @@ var cats=[
 {n:"第四范式",f:"4paradigm",i:"🔬",d:"企业AI"},{n:"旷视Face++",f:"megvii",i:"👁️",d:"人脸识别"},
 {n:"云从科技",f:"cloudwalk",i:"☁️",d:"人机协同"},{n:"拓尔思",f:"trs",i:"📊",d:"智能问答"},
 {n:"同花顺问财",f:"iwencai",i:"💰",d:"智能选股"},{n:"蚂蚁百灵",f:"ling",i:"🐦",d:"金融AI"},
-{n:"火山方舟",f:"ark",i:"🚀",d:"字节大模型"}]}
+{n:"火山方舟",f:"ark",i:"🚀",d:"字节大模型"}]},
+{name:"🎓 教育学习类AI",items:[
+{n:"猿辅导",f:"yuanfudao",i:"📚",d:"在线辅导"},{n:"学而思",f:"xueersi",i:"📖",d:"好未来"},
+{n:"斑马AI课",f:"zebra",i:"🦓",d:"儿童教育"},{n:"粉笔",f:"fenbi",i:"✏️",d:"公考"},
+{n:"高途",f:"gaotu",i:"📈",d:"在线教育"},{n:"新东方",f:"dongfang",i:"🎓",d:"语言学习"},
+{n:"极客时间",f:"jikeshijian",i:"⏱️",d:"IT学习"},{n:"慕课网",f:"lianxi",i:"💻",d:"编程学习"}]},
+{name:"🎨 设计创意类AI",items:[
+{n:"稿定设计",f:"gaoding",i:"🎨",d:"在线设计"},{n:"创客贴",f:"chuangke",i:"🎨",d:"设计模板"},
+{n:"图怪兽",f:"tuguaishou",i:"🖼️",d:"图片设计"},{n:"黄油相机",f:"huangyou",i:"📸",d:"拍照修图"},
+{n:"飞瓜数据",f:"xingtu",i:"📊",d:"短视频数据"},{n:"蝉妈妈",f:"chanmama",i:"🦗",d:"抖音电商"},
+{n:"新榜",f:"xinbang",i:"📰",d:"新媒体数据"}]},
+{name:"💼 办公效率类AI",items:[
+{n:"企业微信",f:"qiyeweixin",i:"💬",d:"企业办公"},{n:"腾讯文档",f:"tencentdocs",i:"📝",d:"在线文档"},
+{n:"金山文档",f:"jinshan",i:"📊",d:"在线办公"},{n:"语雀",f:"yuque",i:"📚",d:"知识库"},
+{n:"印象笔记",f:"yinxiang",i:"📒",d:"笔记管理"},{n:"幕布",f:"mubu",i:"📋",d:"大纲笔记"},
+{n:"腾讯会议",f:"tencentmeeting",i:"🎥",d:"视频会议"},{n:"搜狗输入法",f:"sogouinput",i:"⌨️",d:"中文输入"},
+{n:"百度输入法",f:"baidushurufa",i:"⌨️",d:"中文输入"},{n:"讯飞输入法",f:"iflytekinput",i:"⌨️",d:"语音输入"}]},
+{name:"🏭 企业服务类AI",items:[
+{n:"明略科技",f:"mingluo",i:"📊",d:"数据智能"},{n:"依图科技",f:"yitu",i:"👁️",d:"计算机视觉"},
+{n:"海康威视",f:"hikvision",i:"📹",d:"智能安防"},{n:"大华股份",f:"dahua",i:"📹",d:"安防"},
+{n:"大疆",f:"dji",i:"🚁",d:"无人机"},{n:"科沃斯",f:"ecovacs",i:"🤖",d:"服务机器人"},
+{n:"石头科技",f:"roborock",i:"🏠",d:"扫地机器人"}]},
+{name:"🏥 医疗健康类AI",items:[
+{n:"平安好医生",f:"pingan",i:"🏥",d:"在线医疗"},{n:"丁香医生",f:"dxy",i:"💊",d:"健康科普"},
+{n:"微医",f:"weiyi",i:"🏥",d:"挂号问诊"},{n:"春雨医生",f:"chunyu",i:"📱",d:"移动医疗"},
+{n:"京东健康",f:"jdhealth",i:"💊",d:"在线买药"},{n:"阿里健康",f:"alikang",i:"💊",d:"阿里医疗"},
+{n:"推想医疗",f:"tuixiang",i:"🔬",d:"AI影像"},{n:"数坤科技",f:"shukun",i:"🫀",d:"心脑血管"}]},
+{name:"💰 金融与生活服务",items:[
+{n:"东方财富",f:"eastmoney",i:"📈",d:"财经数据"},{n:"度小满",f:"duxiaoman",i:"💰",d:"金融科技"},
+{n:"美团",f:"meituan",i:"🍔",d:"本地生活"},{n:"饿了么",f:"eleme",i:"🍱",d:"外卖"},
+{n:"滴滴出行",f:"didi",i:"🚗",d:"网约车"},{n:"高德地图",f:"amap",i:"🗺️",d:"导航"},
+{n:"携程",f:"ctrip",i:"✈️",d:"旅游"},{n:"夸克",f:"quark",i:"🔍",d:"智能搜索"},
+{n:"百度问一问",f:"wenyi",i:"💬",d:"AI问答"},{n:"腾讯元宝",f:"yuanbao",i:"🫘",d:"腾讯助手"},
+{n:"腾讯翻译君",f:"translator",i:"🌐",d:"AI翻译"},{n:"极速数据",f:"jisu",i:"⚡",d:"数据API"},
+{n:"天行数据",f:"tianapi",i:"☁️",d:"数据API"}]}
 ];
 var list=document.getElementById("aiList");
 cats.forEach(function(cat,idx){
@@ -225,10 +259,10 @@ function doSearch(){
   var urls={
     video:'https://search.bilibili.com/all?keyword='+enc,
     music:'https://music.163.com/#/search/m/?s='+enc+'&type=1',
+    bing:'https://cn.bing.com/search?q='+enc,
     article:'https://weixin.sogou.com/weixin?type=2&query='+enc+'&ie=utf8',
     image:'https://image.baidu.com/search/index?tn=baiduimage&word='+enc,
-    cinema:'https://search.bilibili.com/cinema?keyword='+enc,
-    course:'https://search.bilibili.com/course?keyword='+enc
+    so:'https://www.so.com/s?q='+enc
   };
   document.getElementById("srContent").innerHTML='<iframe src="'+urls[curTab]+'"></iframe>';
   document.getElementById("srBox").scrollIntoView({behavior:"smooth"});
