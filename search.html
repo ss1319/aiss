@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万能嗅探搜索 - 真实API聚合搜索</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;width:100%;overflow:hidden;font-family:"Microsoft YaHei",sans-serif}
+body{background:linear-gradient(135deg,#fff8e7,#fff3d6,#ffe9b8);color:#333}
+/* 顶部 */
+.header{height:64px;background:rgba(212,160,23,.15);backdrop-filter:blur(10px);display:flex;align-items:center;padding:0 20px;gap:12px;border-bottom:2px solid #d4a017;flex-shrink:0}
+.header h1{font-size:20px;color:#b8860b;white-space:nowrap}
+.search-box{flex:1;display:flex;gap:8px;max-width:700px}
+.search-box input{flex:1;padding:10px 18px;border:2px solid #d4a017;border-radius:25px;font-size:16px;outline:none;background:#fff}
+.search-box button{padding:10px 28px;border:none;border-radius:25px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;font-size:16px;cursor:pointer;font-weight:bold}
+/* 标签 */
+.tabs{display:flex;gap:4px;padding:8px 20px;background:rgba(255,255,255,.5);overflow-x:auto;flex-shrink:0;border-bottom:1px solid #e0d090}
+.tab{padding:8px 20px;border:none;background:transparent;color:#888;cursor:pointer;font-size:15px;border-bottom:3px solid transparent;white-space:nowrap;transition:.2s}
+.tab.active{color:#b8860b;border-bottom-color:#d4a017;font-weight:bold}
+.tab .badge{display:inline-block;background:#d4a017;color:#fff;border-radius:10px;padding:0 6px;font-size:11px;margin-left:4px}
+/* 内容 */
+.content{flex:1;overflow-y:auto;padding:20px;height:calc(100% - 120px)}
+.content::-webkit-scrollbar{width:4px}
+.content::-webkit-scrollbar-thumb{background:#d4a017}
+.panel{display:none}
+.panel.active{display:block}
+.loading{text-align:center;padding:40px;color:#999;font-size:16px}
+/* 视频卡片 */
+.video-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.video-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(212,160,23,.15);cursor:pointer;transition:.2s}
+.video-card:hover{box-shadow:0 4px 20px rgba(212,160,23,.3);transform:translateY(-2px)}
+.video-card img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.video-card .v-body{padding:10px}
+.video-card .v-title{font-size:15px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.video-card .v-meta{font-size:12px;color:#999;margin-top:4px}
+/* 播放器 */
+.player-box{background:#000;border-radius:12px;overflow:hidden;margin-bottom:16px;display:none}
+.player-box iframe{width:100%;height:480px;border:0;display:block}
+/* 音乐卡片 */
+.music-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.music-card{background:#fff;border-radius:12px;padding:10px;box-shadow:0 2px 8px rgba(212,160,23,.15);text-align:center}
+.music-card img{width:100%;aspect-ratio:1;border-radius:8px;object-fit:cover}
+.music-card .m-name{font-size:14px;font-weight:bold;margin-top:8px;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.music-card .m-artist{font-size:12px;color:#999;margin-top:2px}
+.music-card audio{width:100%;height:32px;margin-top:8px}
+/* iframe结果 */
+.iframe-wrap{background:#fff;border-radius:12px;overflow:hidden;height:600px}
+.iframe-wrap iframe{width:100%;height:100%;border:0}
+/* 悬浮客服 */
+.float-btns{position:fixed;right:0;bottom:20px;z-index:9999;display:flex;flex-direction:column;gap:8px;transition:transform .3s}
+.float-btns.hide{transform:translateX(80px)}
+.fab{width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:.2s}
+.svc-fab{background:linear-gradient(135deg,#ff6b6b,#feca57,#48dbfb,#ff9ff3);animation:bounce 1.2s infinite,grad 4s infinite;color:#fff}
+.back-top{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes grad{0%{filter:hue-rotate(0)}100%{filter:hue-rotate(360deg)}}
+.svc-mask{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9998;display:none}
+.svc-mask.show{display:block}
+.svc-panel{position:fixed;right:0;top:0;width:300px;height:100%;background:rgba(255,248,230,.97);backdrop-filter:blur(15px);z-index:9999;padding:20px;overflow-y:auto;transform:translateX(100%);transition:transform .3s;display:none}
+.svc-panel.open{display:block;transform:translateX(0)}
+.svc-panel::-webkit-scrollbar{width:1px}
+.svc-panel::-webkit-scrollbar-thumb{background:rgba(212,160,23,.3)}
+.panel-title{text-align:center;color:#b8860b;font-size:16px;margin-bottom:16px}
+.qr-frame{width:160px;height:160px;margin:0 auto;border:2px solid #d4a017;border-radius:12px;overflow:hidden;background:#fff}
+.qr-frame img{width:100%;height:100%;object-fit:cover}
+.qr-name{text-align:center;color:#888;font-size:13px;margin-top:8px}
+.qr-switch{display:block;margin:8px auto;padding:4px 12px;border:1px solid #d4a017;background:transparent;color:#b8860b;border-radius:12px;cursor:pointer;font-size:12px}
+.qr-tip{text-align:center;color:#888;font-size:12px;margin:8px 0}
+.wx-id{text-align:center;margin:12px 0}
+.wx-label{display:block;color:#888;font-size:12px}
+.wx-line{display:block;font-size:20px;font-weight:bold;background:linear-gradient(90deg,#ff6b6b,#f4d03f,#48dbfb,#ff9ff3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer}
+.svc-links{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:12px}
+.svc-link{width:48%;padding:8px;border-radius:8px;text-align:center;text-decoration:none;color:#fff;font-size:12px;display:block}
+.c1{background:linear-gradient(135deg,#ff6b6b,#ee5a6f)}.c2{background:linear-gradient(135deg,#48dbfb,#0abde3)}
+.c3{background:linear-gradient(135deg,#ff9ff3,#f368e0)}.c4{background:linear-gradient(135deg,#54a0ff,#5f27cd)}
+.c5{background:linear-gradient(135deg,#54ca6b,#27ae60)}.c6{background:linear-gradient(135deg,#ff9f43,#e67e22)}
+.c7{background:linear-gradient(135deg,#00d2d3,#01a3a8)}.c8{background:linear-gradient(135deg,#a55eea,#8854d0)}
+@media(max-width:600px){.header h1{font-size:16px}.video-list{grid-template-columns:1fr}.music-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔍 万能嗅探搜索</h1>
+  <div class="search-box">
+    <input type="text" id="kw" placeholder="输入关键词：AI教程 / 周杰伦 / 编程..." autocomplete="off">
+    <button onclick="doSearch()">🔍 搜索</button>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab active" data-tab="video">📺 B站视频 <span class="badge">真实API</span></button>
+  <button class="tab" data-tab="music">🎵 音乐 <span class="badge">真实API</span></button>
+  <button class="tab" data-tab="article">📄 文章</button>
+  <button class="tab" data-tab="web">🌐 网页</button>
+  <button class="tab" data-tab="map">🗺️ 地图</button>
+</div>
+
+<div class="content">
+  <div class="panel active" id="panel-video">
+    <div class="loading" id="vLoad">💡 输入关键词，搜索B站真实视频数据</div>
+    <div class="player-box" id="playerBox"><iframe id="playerFrame"></iframe></div>
+    <div class="video-list" id="videoList"></div>
+  </div>
+  <div class="panel" id="panel-music">
+    <div class="loading" id="mLoad">💡 输入关键词，搜索iTunes真实音乐数据（可试听）</div>
+    <div class="music-grid" id="musicGrid"></div>
+  </div>
+  <div class="panel" id="panel-article">
+    <div class="iframe-wrap"><iframe id="articleFrame" src="about:blank"></iframe></div>
+  </div>
+  <div class="panel" id="panel-web">
+    <div class="iframe-wrap"><iframe id="webFrame" src="about:blank"></iframe></div>
+  </div>
+  <div class="panel" id="panel-map">
+    <div class="iframe-wrap"><iframe id="mapFrame" src="about:blank"></iframe></div>
+  </div>
+</div>
+
+<!-- 悬浮客服 -->
+<div class="float-btns" id="floatBtns">
+  <button class="fab svc-fab" id="svcToggle">💬</button>
+  <button class="fab back-top" id="backTop">🚀</button>
+</div>
+<div class="svc-mask" id="svcMask"></div>
+<div class="svc-panel" id="svcPanel">
+  <div class="panel-title">💬 联系客服 · 资源导航</div>
+  <div class="qr-frame"><img id="qrImg" src="https://ss1319.github.io/aiss/assets/img/zsm.png"></div>
+  <div class="qr-name" id="qrName">赞赏二维码</div>
+  <button class="qr-switch" onclick="switchQr()">切换到公众号</button>
+  <p class="qr-tip">欢迎自愿赞赏支持作者</p>
+  <div class="wx-id"><span class="wx-label">微信公众号</span><span class="wx-line" id="wxLine">wxsy1349</span></div>
+  <div class="svc-links">
+    <a class="svc-link c1" href="https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj" target="_blank">🛒 快手小店</a>
+    <a class="svc-link c2" href="https://pd.qq.com/s/24yp7y38f" target="_blank">💬 腾讯频道</a>
+    <a class="svc-link c3" href="https://www.zhihu.com/people/z6391" target="_blank">💡 知乎</a>
+    <a class="svc-link c4" href="https://qm.qq.com/q/VHeRTTdQcu" target="_blank">👥 QQ群</a>
+    <a class="svc-link c5" href="https://bolt.cello.so/lsypink3QTR" target="_blank">⚡ 在线编程</a>
+    <a class="svc-link c6" href="https://api.u-claw.org/register?aff=9OLG" target="_blank">🦞 OpenClaw</a>
+    <a class="svc-link c7" href="https://weibo.com/zdzqxt" target="_blank">📢 微博</a>
+    <a class="svc-link c8" href="https://txc.qq.com/embed/367382/new-post/" target="_blank">✍️ 欢迎留言</a>
+  </div>
+</div>
+
+<script>
+/* 标签切换 */
+document.querySelectorAll(".tab").forEach(function(t){
+  t.onclick=function(){
+    document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("active");});
+    t.classList.add("active");
+    document.querySelectorAll(".panel").forEach(function(p){p.classList.remove("active");});
+    document.getElementById("panel-"+t.dataset.tab).classList.add("active");
+  };
+});
+
+/* 回车搜索 */
+document.getElementById("kw").addEventListener("keydown",function(e){if(e.key==="Enter")doSearch();});
+
+function doSearch(){
+  var kw=document.getElementById("kw").value.trim();
+  if(!kw)return;
+  var tab=document.querySelector(".tab.active").dataset.tab;
+  if(tab==="video")searchBili(kw);
+  else if(tab==="music")searchMusic(kw);
+  else if(tab==="article")searchArticle(kw);
+  else if(tab==="web")searchWeb(kw);
+  else if(tab==="map")searchMap(kw);
+}
+
+/* ===== B站真实API搜索 ===== */
+function searchBili(kw){
+  var load=document.getElementById("vLoad");
+  var list=document.getElementById("videoList");
+  var player=document.getElementById("playerBox");
+  load.style.display="block";load.textContent="🔍 正在搜索B站...";
+  list.innerHTML="";player.style.display="none";
+  fetch("https://api.bilibili.com/x/web-interface/search/all/v2?keyword="+encodeURIComponent(kw)+"&page=1")
+    .then(function(r){return r.json();})
+    .then(function(d){
+      load.style.display="none";
+      if(d.code!==0){load.textContent="⚠️ B站API请求失败，请重试";return;}
+      var vids=[];
+      if(d.data&&d.data.result){
+        d.data.result.forEach(function(r){
+          if(r.result_type==="video"&&r.data)vids=vids.concat(r.data);
+        });
+      }
+      if(!vids.length){load.textContent="😅 没有找到相关视频";return;}
+      vids.slice(0,12).forEach(function(v){
+        var card=document.createElement("div");
+        card.className="video-card";
+        var title=v.title.replace(/<[^>]+>/g,"");
+        card.innerHTML='<img src="'+v.pic+'" loading="lazy"><div class="v-body"><div class="v-title">'+title+'</div><div class="v-meta">UP: '+v.author+' · ▶'+v.play+' · 💬'+v.video_review+'</div></div>';
+        card.onclick=function(){playVideo(v.bvid,v.cid);};
+        list.appendChild(card);
+      });
+    })
+    .catch(function(){load.textContent="⚠️ 网络错误，请检查网络";});
+}
+
+function playVideo(bvid,cid){
+  var box=document.getElementById("playerBox");
+  box.style.display="block";
+  document.getElementById("playerFrame").src="https://player.bilibili.com/player.html?bvid="+bvid+"&cid="+cid+"&autoplay=1";
+  box.scrollIntoView({behavior:"smooth"});
+}
+
+/* ===== iTunes真实API音乐搜索（支持CORS，可试听）===== */
+function searchMusic(kw){
+  var load=document.getElementById("mLoad");
+  var grid=document.getElementById("musicGrid");
+  load.style.display="block";load.textContent="🔍 正在搜索音乐...";
+  grid.innerHTML="";
+  fetch("https://itunes.apple.com/search?term="+encodeURIComponent(kw)+"&media=music&limit=20")
+    .then(function(r){return r.json();})
+    .then(function(d){
+      load.style.display="none";
+      if(!d.results||!d.results.length){load.textContent="😅 没有找到相关音乐";return;}
+      d.results.forEach(function(t){
+        var card=document.createElement("div");
+        card.className="music-card";
+        var art=(t.artworkUrl100||"").replace("100x100","300x300");
+        card.innerHTML='<img src="'+art+'" loading="lazy"><div class="m-name">'+t.trackName+'</div><div class="m-artist">'+t.artistName+'</div>';
+        if(t.previewUrl){
+          var a=document.createElement("audio");
+          a.controls=true;a.src=t.previewUrl;
+          card.appendChild(a);
+        }
+        grid.appendChild(card);
+      });
+    })
+    .catch(function(){load.textContent="⚠️ 音乐搜索失败";});
+}
+
+/* ===== iframe方式（页面内展示）===== */
+function searchArticle(kw){
+  document.getElementById("articleFrame").src="https://weixin.sogou.com/weixin?type=2&query="+encodeURIComponent(kw)+"&ie=utf8";
+}
+function searchWeb(kw){
+  document.getElementById("webFrame").src="https://www.bing.com/search?q="+encodeURIComponent(kw);
+}
+function searchMap(kw){
+  document.getElementById("mapFrame").src="https://ditu.amap.com/search?query="+encodeURIComponent(kw);
+}
+
+/* ===== 悬浮客服 ===== */
+var svcToggle=document.getElementById("svcToggle");
+var svcPanel=document.getElementById("svcPanel");
+var svcMask=document.getElementById("svcMask");
+svcToggle.onclick=function(e){e.stopPropagation();svcPanel.classList.toggle("open");svcMask.classList.toggle("show");};
+svcMask.onclick=function(){svcPanel.classList.remove("open");svcMask.classList.remove("show");};
+document.onclick=function(e){if(svcPanel.classList.contains("open")&&!svcPanel.contains(e.target)&&e.target!==svcToggle){svcPanel.classList.remove("open");svcMask.classList.remove("show");}};
+document.addEventListener("keydown",function(e){if(e.key==="Escape"){svcPanel.classList.remove("open");svcMask.classList.remove("show");}});
+
+/* 二维码切换 */
+var wxQr=false;
+function switchQr(){
+  wxQr=!wxQr;
+  document.getElementById("qrImg").src=wxQr?"https://ss1319.github.io/aiss/assets/img/wxsy1349.png":"https://ss1319.github.io/aiss/assets/img/zsm.png";
+  document.getElementById("qrName").textContent=wxQr?"微信公众号":"赞赏二维码";
+  event.target.textContent=wxQr?"切换到赞赏码":"切换到公众号";
+}
+/* 公众号复制 */
+document.getElementById("wxLine").onmouseenter=function(){navigator.clipboard.writeText("wxsy1349");this.style.opacity="0.7";};
+document.getElementById("wxLine").onmouseleave=function(){this.style.opacity="1";};
+/* 返回顶部 */
+document.getElementById("backTop").onclick=function(){document.querySelector(".content").scrollTo({top:0,behavior:"smooth"});};
+/* 滚动隐藏 */
+var t;
+document.querySelector(".content").onscroll=function(){
+  document.getElementById("floatBtns").classList.add("hide");
+  clearTimeout(t);t=setTimeout(function(){document.getElementById("floatBtns").classList.remove("hide");},300);
+};
+</script>
+</body>
+</html>
