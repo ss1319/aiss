@@ -7,39 +7,28 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;width:100%;font-family:"Microsoft YaHei","PingFang SC",sans-serif}
-body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914;min-height:100%;overflow-x:hidden}
-/* 顶部 */
-.top{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);padding:14px 20px;border-bottom:1px solid rgba(212,160,23,.25);box-shadow:0 2px 15px rgba(212,160,23,.1)}
+body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914;min-height:100%}
+.top{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);padding:14px 20px;border-bottom:1px solid rgba(212,160,23,.25)}
 .top-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:12px}
 .back-btn{padding:8px 16px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;border:none;border-radius:20px;cursor:pointer;font-size:14px;text-decoration:none;white-space:nowrap}
 .top h1{font-size:20px;background:linear-gradient(135deg,#b8860b,#d4a017);-webkit-background-clip:text;-webkit-text-fill-color:transparent;flex:1}
-/* 内容 */
 .wrap{max-width:1000px;margin:0 auto;padding:20px}
-/* Hero */
 .hero{text-align:center;padding:36px 24px;background:rgba(255,255,255,.85);border-radius:20px;border:1px solid rgba(212,160,23,.2);margin-bottom:18px}
 .hero .big-icon{font-size:72px;margin-bottom:12px}
 .hero h2{font-size:30px;color:#8b6914;margin-bottom:10px}
-.hero .cat-tag{display:inline-block;padding:5px 18px;background:rgba(212,160,23,.15);color:#8b6914;border-radius:20px;font-size:14px;margin-bottom:14px}
-/* 卡片区块 */
+.hero .cat-tag{display:inline-block;padding:5px 18px;background:rgba(212,160,23,.15);color:#8b6914;border-radius:20px;font-size:14px}
 .card-box{background:rgba(255,255,255,.85);border-radius:16px;padding:22px;margin-bottom:16px;border:1px solid rgba(212,160,23,.15)}
 .card-box h3{font-size:19px;color:#8b6914;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid rgba(212,160,23,.2)}
-.card-box p{font-size:16px;line-height:1.8;color:#555;margin-bottom:10px}
+.card-box p{font-size:16px;line-height:1.8;color:#555;margin-bottom:10px;white-space:pre-line}
 .card-box ul{margin-left:20px;font-size:16px;line-height:1.8}
-.card-box li{margin-bottom:6px}
-/* 代码块 */
+.card-box li{margin-bottom:6px;white-space:pre-line}
 .code-block{background:#2d2d3f;color:#e0e0e0;padding:16px;border-radius:10px;margin:12px 0;overflow-x:auto;font-family:Consolas,monospace;font-size:14px;line-height:1.6;position:relative}
 .code-block::-webkit-scrollbar{height:1px;width:1px}
 .code-block::-webkit-scrollbar-thumb{background:#d4a017}
 .copy-btn{position:absolute;top:8px;right:8px;padding:4px 12px;background:rgba(212,160,23,.3);color:#f4d03f;border:1px solid #d4a017;border-radius:4px;cursor:pointer;font-size:12px}
-.copy-btn:hover{background:rgba(212,160,23,.6)}
-/* 链接列表 */
 .link-list{display:flex;flex-direction:column;gap:8px}
-.link-item{padding:12px 16px;background:rgba(255,248,230,.6);border-radius:10px;text-decoration:none;color:#8b6914;font-size:15px;display:flex;align-items:center;gap:8px;border-left:4px solid #d4a017;transition:.2s}
-.link-item:hover{background:rgba(212,160,23,.12);transform:translateX(4px)}
-/* 按钮 */
-.cta{display:inline-block;padding:14px 36px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;text-decoration:none;border-radius:25px;font-size:17px;font-weight:bold;box-shadow:0 4px 15px rgba(212,160,23,.3);transition:.2s;margin:10px 5px}
-.cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,160,23,.4)}
-/* 悬浮客服 */
+.link-item{padding:12px 16px;background:rgba(255,248,230,.6);border-radius:10px;text-decoration:none;color:#8b6914;font-size:15px;display:block;border-left:4px solid #d4a017}
+.cta{display:inline-block;padding:14px 36px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;text-decoration:none;border-radius:25px;font-size:17px;font-weight:bold;box-shadow:0 4px 15px rgba(212,160,23,.3);margin:10px 5px}
 .float-btns{position:fixed;right:0;bottom:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;transition:transform .3s}
 .float-btns.hide{transform:translateX(80px)}
 .fab{width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.2)}
@@ -72,97 +61,92 @@ body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914;mi
 </style>
 </head>
 <body>
-<div class="top">
-  <div class="top-inner">
-    <a class="back-btn" href="../index.html">← 返回目录</a>
-    <h1>🦙 Ollama</h1>
-  </div>
-</div>
+<div class="top"><div class="top-inner">
+<a class="back-btn" href="../index.html">← 返回</a>
+<h1>🦙 Ollama</h1>
+</div></div>
 <div class="wrap">
-  <div class="hero">
-    <div class="big-icon">🦙</div>
-    <h2>Ollama</h2>
-    <div class="cat-tag">离线/本地部署类</div>
-  </div>
+<div class="hero"><div class="big-icon">🦙</div><h2>Ollama</h2><div class="cat-tag">离线/本地部署类</div></div>
+<div class="card-box"><h3>📖 平台详细介绍</h3><p>Ollama是一款让本地运行大语言模型变得极其简单的工具。一行命令就能下载并运行开源模型，支持Qwen（通义千问）、Llama、DeepSeek、Mistral等各种模型。完全离线运行，隐私安全，不需要联网，不花钱，适合个人本地使用和嵌入式开发。
 
-  <div class="card-box">
-    <h3>📖 平台详细介绍</h3>
-    <p>Ollama是本地运行大模型的极简工具，一行命令下载运行开源模型（Qwen、Llama、DeepSeek等）。完全离线，隐私安全，支持API调用和嵌入应用。</p>
-  </div>
-
-  <div class="card-box">
-    <h3>💡 AI主要用途</h3>
-    <ul><li>离线AI聊天</li><li>本地知识库</li><li>隐私敏感场景</li><li>嵌入式AI应用开发</li></ul>
-  </div>
-
-  <div class="card-box">
-    <h3>🔗 官方地址</h3>
-    <div style="text-align:center">
-      <a class="cta" href="https://ollama.com" target="_blank" rel="noopener">🌐 访问Ollama官网 →</a>
-    </div>
-  </div>
-
-  <div class="card-box">
-    <h3>🔌 API回调函数调用方法</h3>
-    <p>以下是Ollama的API调用示例代码，复制后填入你的Key即可使用：</p>
-    <div class="code-block">
-      <button class="copy-btn" onclick="copyCode(this)">复制</button>
-      <pre># Ollama API回调示例（启动后默认端口11434）
-# 1. 启动: ollama serve
-# 2. 调用API:
-curl http://localhost:11434/api/chat -d '{
-  "model": "qwen2",
-  "messages": [{"role": "user", "content": "你好"}],
-  "stream": false
-}'
-
-# Python嵌入到exe:
+Ollama自带API服务，默认端口11434，可以被其他程序调用，方便嵌入到自己的应用中。支持Windows、Mac、Linux三大平台。</p></div>
+<div class="card-box"><h3>💡 AI主要用途</h3><p>1. 离线AI聊天：不需要联网，本地就能用AI。
+2. 隐私保护：敏感数据不经过云端，安全可靠。
+3. 嵌入式开发：嵌入到自己的exe/apk应用中。
+4. 免费使用：开源模型免费，不需要API费用。
+5. 学习研究：本地测试各种开源模型。</p></div>
+<div class="card-box"><h3>🚀 详细使用步骤</h3><p>第一步：打开浏览器，输入 ollama.com，下载对应你系统的安装包。
+第二步：Windows用户下载.exe安装包，双击安装，一路下一步即可。
+第三步：安装完成后，按Win+R输入cmd打开命令行。
+第四步：输入命令 ollama run qwen2 下载并运行通义千问模型。
+第五步：等待下载完成（模型大小几个G到十几个G），然后就可以直接对话了。
+第六步：输入 /bye 退出对话。输入 ollama list 查看已下载的模型。
+第七步：API服务默认在后台运行，访问 http://localhost:11434 即可调用。</p></div>
+<div class="card-box"><h3>🔌 API回调函数调用方法</h3><p>以下是Ollama的API完整调用代码，复制后填入你的密钥即可：</p>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">复制</button><pre># Ollama API完整调用示例（Python）
 import requests
-def ask(question):
-    r = requests.post('http://localhost:11434/api/generate', json={
-        'model': 'qwen2',
-        'prompt': question,
-        'stream': False
-    })
-    return r.json()['response']</pre>
-    </div>
-  </div>
 
-  <div class="card-box">
-    <h3>📱 社交渠道与社区</h3>
-    <div class="link-list"><a class="link-item" href="https://ollama.com" target="_blank" rel="noopener">🔗 官网：ollama.com</a><a class="link-item" href="https://ollama.com" target="_blank" rel="noopener">🔗 GitHub：ollama/ollama</a><a class="link-item" href="https://ollama.com" target="_blank" rel="noopener">🔗 模型库：ollama.com/library</a></div>
-  </div>
+# 1. 列出已安装的模型
+resp = requests.get('http://localhost:11434/api/tags')
+print(resp.json())
 
-  <div class="card-box" style="text-align:center">
-    <h3>🚀 快速开始</h3>
-    <p>点击下方按钮访问Ollama，注册账号即可开始使用。</p>
-    <a class="cta" href="https://ollama.com" target="_blank" rel="noopener">立即开始使用 →</a>
-  </div>
+# 2. 发送对话（非流式）
+resp = requests.post('http://localhost:11434/api/chat', json={
+    'model': 'qwen2',  # 模型名称，用 ollama list 查看
+    'messages': [
+        {'role': 'system', 'content': '你是一个 helpful 的助手'},
+        {'role': 'user', 'content': '你好，介绍一下你自己'}
+    ],
+    'stream': False
+})
+print(resp.json()['message']['content'])
+
+# 3. 生成文本
+resp = requests.post('http://localhost:11434/api/generate', json={
+    'model': 'deepseek-r1',
+    'prompt': '写一首关于春天的诗',
+    'stream': False
+})
+print(resp.json()['response'])
+
+# 嵌入到exe的回调函数
+class LocalAI:
+    def __init__(self, model='qwen2'):
+        self.url = 'http://localhost:11434/api/chat'
+        self.model = model
+    def ask(self, question):
+        r = requests.post(self.url, json={
+            'model': self.model,
+            'messages': [{'role': 'user', 'content': question}],
+            'stream': False
+        })
+        return r.json()['message']['content']</pre></div></div>
+<div class="card-box"><h3>📱 社交渠道与社区</h3><div class="link-list"><a class="link-item" href="https://chat.360.com" target="_blank" rel="noopener">🔗 官网：https://ollama.com</a><a class="link-item" href="https://chat.360.com" target="_blank" rel="noopener">🔗 GitHub：https://github.com/ollama/ollama</a><a class="link-item" href="https://chat.360.com" target="_blank" rel="noopener">🔗 模型库：https://ollama.com/library</a><a class="link-item" href="https://chat.360.com" target="_blank" rel="noopener">🔗 文档：https://github.com/ollama/ollama/blob/main/docs/api.md</a></div></div>
+<div class="card-box" style="text-align:center"><h3>🔗 官方地址</h3>
+<a class="cta" href="https://chat.360.com" target="_blank" rel="noopener">🌐 访问Ollama官网 →</a></div>
 </div>
-
 <div class="float-btns" id="floatBtns">
-  <button class="fab svc-fab" id="svcToggle">💬</button>
-  <button class="fab back-top" id="backTop">🚀</button>
+<button class="fab svc-fab" id="svcToggle">💬</button>
+<button class="fab back-top" id="backTop">🚀</button>
 </div>
 <div class="svc-mask" id="svcMask"></div>
 <div class="svc-panel" id="svcPanel">
-  <div class="panel-title">💬 联系客服</div>
-  <div class="qr-frame"><img id="qrImg" src="https://ss1319.github.io/aiss/assets/img/zsm.png"></div>
-  <div class="qr-name" id="qrName">赞赏二维码</div>
-  <button class="qr-switch" onclick="switchQr()">切换到公众号</button>
-  <p class="qr-tip">欢迎自愿赞赏支持作者</p>
-  <div class="wx-id"><span class="wx-label">微信公众号</span><span class="wx-line" id="wxLine">wxsy1349</span></div>
-  <div class="svc-links">
-    <a class="svc-link c1" href="https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj" target="_blank" rel="noopener">🛒 快手小店</a>
-    <a class="svc-link c2" href="https://pd.qq.com/s/24yp7y38f" target="_blank" rel="noopener">💬 腾讯频道</a>
-    <a class="svc-link c3" href="https://www.zhihu.com/people/z6391" target="_blank" rel="noopener">💡 知乎</a>
-    <a class="svc-link c4" href="https://qm.qq.com/q/VHeRTTdQcu" target="_blank" rel="noopener">👥 QQ群</a>
-    <a class="svc-link c5" href="https://bolt.cello.so/lsypink3QTR" target="_blank" rel="noopener">⚡ 在线编程</a>
-    <a class="svc-link c6" href="https://api.u-claw.org/register?aff=9OLG" target="_blank" rel="noopener">🦞 OpenClaw</a>
-    <a class="svc-link c7" href="https://weibo.com/zdzqxt" target="_blank" rel="noopener">📢 微博</a>
-    <a class="svc-link c8" href="https://txc.qq.com/embed/367382/new-post/" target="_blank" rel="noopener">✍️ 欢迎留言</a>
-  </div>
-</div>
+<div class="panel-title">💬 联系客服</div>
+<div class="qr-frame"><img id="qrImg" src="https://ss1319.github.io/aiss/assets/img/zsm.png"></div>
+<div class="qr-name" id="qrName">赞赏二维码</div>
+<button class="qr-switch" onclick="switchQr()">切换到公众号</button>
+<p class="qr-tip">欢迎自愿赞赏支持作者</p>
+<div class="wx-id"><span class="wx-label">微信公众号</span><span class="wx-line" id="wxLine">wxsy1349</span></div>
+<div class="svc-links">
+<a class="svc-link c1" href="https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj" target="_blank" rel="noopener">🛒 快手小店</a>
+<a class="svc-link c2" href="https://pd.qq.com/s/24yp7y38f" target="_blank" rel="noopener">💬 腾讯频道</a>
+<a class="svc-link c3" href="https://www.zhihu.com/people/z6391" target="_blank" rel="noopener">💡 知乎</a>
+<a class="svc-link c4" href="https://qm.qq.com/q/VHeRTTdQcu" target="_blank" rel="noopener">👥 QQ群</a>
+<a class="svc-link c5" href="https://bolt.cello.so/lsypink3QTR" target="_blank" rel="noopener">⚡ 在线编程</a>
+<a class="svc-link c6" href="https://api.u-claw.org/register?aff=9OLG" target="_blank" rel="noopener">🦞 OpenClaw</a>
+<a class="svc-link c7" href="https://weibo.com/zdzqxt" target="_blank" rel="noopener">📢 微博</a>
+<a class="svc-link c8" href="https://txc.qq.com/embed/367382/new-post/" target="_blank" rel="noopener">✍️ 欢迎留言</a>
+</div></div>
 <script>
 var svcToggle=document.getElementById("svcToggle");
 var svcPanel=document.getElementById("svcPanel");
@@ -192,5 +176,4 @@ function copyCode(btn){
   setTimeout(function(){btn.textContent="复制";},1500);
 }
 </script>
-</body>
-</html>
+</body></html>
