@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiniMax API - AI配置教程</title>
+
+<!-- ===== 编辑器CSS ===== -->
+<link rel="stylesheet" href="https://cdn.tiny.cloud/1/no-api-key/tinymce/6.8.3/tinymce.min.css">
+<link rel="stylesheet" href="https://cdn.quilljs.com/1.3.7/quill.snow.css">
+<link rel="stylesheet" href="https://unpkg.com/wangeditor@4.7.15/dist/css/wangEditor.min.css">
+<!-- ===== CSS框架CSS ===== -->
+<link rel="stylesheet" href="https://cdn.tailwindcss.com">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
+<!-- ===== 动画CSS ===== -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/textillate@0.4.0/assets/animate.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gradient-animations@1.2.0/dist/gradient-anim.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/border-animations@1.1.0/dist/border-anim.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glow-effects@1.1.0/dist/glow.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/page-transitions@1.3.0/dist/transitions.min.css">
+<!-- ===== 组件CSS ===== -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.css">
+<link href="https://vjs.zencdn.net/8.6.1/video-js.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery.js/1.4.0/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css">
+<link rel="stylesheet" href="https://www.jeasyui.com/easyui/themes/default/easyui.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/handsontable@13.1.0/dist/handsontable.full.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@jaames/iro@5.5.2/dist/iro.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@6.2.5/dist/simplebar.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/custom-scrollbar-css@4.2.0/dist/custom-scrollbar.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nanoscroller@0.8.7/bin/css/nanoscroller.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toolbar.css@1.2.0/dist/toolbar.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/editor-toolbar-kit@1.0.0/dist/toolbar.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue-flow@1.38.1/dist/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/form-designer-vue3@1.2.0/dist/style.css">
+<!-- ===== 边框/按钮效果CSS ===== -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/border-gradients@1.1.0/dist/border-gradients.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fancy-borders@2.0.1/dist/fancy-borders.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animated-borders@1.0.0/dist/animated-borders.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/border-radius-plus@1.0.2/dist/border-radius-plus.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/btn-animations@1.2.0/dist/btn-anim.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-animations@1.0.3/dist/img-anim.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modal-animations@2.1.0/dist/modal-anim.min.css">
+<!-- ===== 代码高亮CSS ===== -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-dark.min.css">
+<!-- ===== 图标CSS ===== -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/twemoji-colr@1.0.1/twemoji-colr.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/icomoon-icons@1.0.0/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons@4.29.0/dist/feather.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicons@1.8.0/css/devicons.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!-- ===== 字体CSS ===== -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-zcool-gdh@1.0.1/css/zcool-gdh.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/text-gradient@1.0.1/dist/text-gradient.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-animate@1.0.0/dist/font-animate.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/symbola-font@1.0.0/css/symbola.min.css">
+
+<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<div class="page">
+  <header class="top-bar">
+    <a href="../index.html" class="back-btn">← 返回目录</a>
+    <h1>💎 MiniMax API</h1>
+    <span class="cat-badge">API类</span>
+  </header>
+  <div class="ai-container">
+    <section class="ai-intro glass">
+      <h2>📋 简介</h2>
+      <p>MiniMax开放平台</p>
+      <div class="feat-tags"><span class="feat-tag">API</span><span class="feat-tag">支持API调用</span><span class="feat-tag">可内嵌到exe/apk</span><span class="feat-tag">持续更新中</span></div>
+    </section>
+    <section class="ai-links glass">
+      <h2>🔗 相关渠道</h2>
+      <div class="link-row"><span class="link-label">官网地址</span><span class="link-val"><a href="https://api.minimaxi.com" target="_blank">https://api.minimaxi.com</a></span></div><div class="link-row"><span class="link-label">微信公众号</span><span class="link-val">wxsy1349</span></div>
+    </section>
+    <section class="ai-steps glass">
+      <h2>📖 部署教程</h2>
+      <div class="steps"><div class="step"><div class="step-no">1</div><div class="step-body"><h4>注册账号</h4><div class="step-txt">访问MiniMax API官网注册账号。</div></div></div><div class="step"><div class="step-no">2</div><div class="step-body"><h4>获取Key</h4><div class="step-txt">在控制台创建应用，获取API Key。</div></div></div><div class="step"><div class="step-no">3</div><div class="step-body"><h4>配置调用</h4><div class="step-txt">使用API Key配置调用参数。</div></div></div><div class="step"><div class="step-no">4</div><div class="step-body"><h4>测试连接</h4><div class="step-txt">发送测试请求验证连接。</div></div></div><div class="step"><div class="step-no">5</div><div class="step-body"><h4>内嵌部署</h4><div class="step-txt">将API调用集成到exe/apk中。</div></div></div></div>
+    </section>
+    
+  </div>
+  <footer class="footer">全国中文AI大全 · MiniMax API · <a href="../index.html">返回目录</a></footer>
+</div>
+
+<div class="float-btns">
+  <button class="fab svc-fab" id="svcToggle" title="联系客服">💬</button>
+  <button class="fab back-top" id="backTop" title="返回顶部">🚀</button>
+</div>
+
+
+<div class="svc-mask" id="svcMask"></div>
+<div class="svc-panel glass-strong" id="svcPanel">
+  <div class="panel-inner">
+    <div class="panel-title">💬 联系客服 · 资源导航</div>
+    <div class="qr-box">
+      <div class="qr-frame"><img id="qrImg" src="assets/img/zsm.png" alt="赞赏码" onerror="this.src='assets/img/wxsy1349.png'"></div>
+      <div class="qr-name" id="qrName">赞赏二维码</div>
+      <button class="qr-switch" id="qrSwitch" type="button">切换到公众号</button>
+    </div>
+    <p class="qr-tip">欢迎自愿赞赏支持作者</p>
+    <div class="wx-id" title="鼠标移过自动复制">
+      <span class="wx-label">微信公众号</span>
+      <span class="wx-line">wxsy1349</span>
+    </div>
+    <div class="svc-links">
+      <a class="svc-link c1" href="https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj" target="_blank">🛒 快手小店</a>
+      <a class="svc-link c2" href="https://pd.qq.com/s/24yp7y38f" target="_blank">💬 腾讯频道</a>
+      <a class="svc-link c3" href="https://www.zhihu.com/people/z6391" target="_blank">💡 知乎</a>
+      <a class="svc-link c4" href="https://qm.qq.com/q/VHeRTTdQcu" target="_blank">👥 QQ群</a>
+      <a class="svc-link c5" href="https://bolt.cello.so/lsypink3QTR" target="_blank">⚡ 在线编程</a>
+      <a class="svc-link c6" href="https://api.u-claw.org/register?aff=9OLG" target="_blank">🦞 OpenClaw</a>
+      <a class="svc-link c7" href="https://weibo.com/zdzqxt" target="_blank">📢 微博</a>
+      <a class="svc-link c8" href="https://txc.qq.com/embed/367382/new-post/" target="_blank">✍️ 欢迎留言</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ===== 工具库JS ===== -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.7/dayjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.6.8/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/localforage@1.10.0/dist/localforage.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/downloadjs@1.4.7/download.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/resumable.js@1.1.0/resumable.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mime-types@2.1.35/index.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sniffy@2.0.0/dist/sniffy.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xmldom@0.8.10/lib/xmldom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xml-js@1.6.11/dist/xml-js.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sjcl/1.0.8/sjcl.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fontfaceobserver@2.3.0/fontfaceobserver.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/linkifyjs@4.1.1/dist/linkify.min.js"></script>
+<!-- ===== Vue3全家桶JS ===== -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@vueuse/core@10.7.2/dist/index.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/element-plus/dist/index.full.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue3-download@1.0.5/dist/vue3-download.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue3-draggable-resizable@2.0.1/dist/vue3-draggable-resizable.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuedraggable@4.1.0/dist/vuedraggable.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-flow@1.38.1/dist/vue-flow.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/form-designer-vue3@1.2.0/dist/form-designer-vue3.umd.min.js"></script>
+<!-- ===== React/Angular JS ===== -->
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@angular/core@16/bundles/core.umd.js"></script>
+<!-- ===== CSS框架JS ===== -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/antd/dist/antd.min.js"></script>
+<!-- ===== 编辑器JS ===== -->
+<script src="https://cdn.quilljs.com/1.3.7/quill.min.js"></script>
+<script src="https://unpkg.com/wangeditor@4.7.15/dist/wangEditor.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6.8.3/tinymce.min.js"></script>
+<!-- ===== 动画/交互JS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.4/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mo-js@0.288.2/build/mo.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/interactjs@1.9.19/dist/interact.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/headroom.js@0.12.0/dist/headroom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@3.3.0/tsparticles.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/turn.js@4.1.0/build/turn.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/btn-animations@1.2.0/dist/btn-anim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/textillate@0.4.0/jquery.textillate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/modal-animations@2.1.0/dist/modal-anim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glow-effects@1.1.0/dist/glow.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/window-animations@1.0.1/dist/window-anim.min.js"></script>
+<!-- ===== 图表/可视化JS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet.animatedmarker@0.2.0/dist/leaflet.animatedmarker.min.js"></script>
+<!-- ===== 媒体处理JS ===== -->
+<script src="https://vjs.zencdn.net/8.6.1/video.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery.js/1.4.0/js/lightgallery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas2image@1.0.5/canvas2image.min.js"></script>
+<!-- ===== 文档处理JS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mammoth@1.6.0/mammoth.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/snap.svg@0.5.1/dist/snap.svg-min.js"></script>
+<!-- ===== 代码编辑器/高亮JS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/lib/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.js"></script>
+<!-- ===== 表格/弹窗/提示JS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/handsontable@13.1.0/dist/handsontable.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/floating-ui@1.6.1/dist/floating-ui.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simplebar@6.2.5/dist/simplebar.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/nanoscroller@0.8.7/bin/javascripts/jquery.nanoscroller.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/editor-toolbar-kit@1.0.0/dist/toolbar.min.js"></script>
+<script src="https://www.jeasyui.com/easyui/jquery.min.js"></script>
+<script src="https://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+<!-- ===== 其他JS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.14.0/dist/tf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullpage.js/dist/fullpage.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+<!-- 注意：jRespond.js和restive为本地路径库，需自行下载引入 -->
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
