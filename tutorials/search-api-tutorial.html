@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>万能搜索引擎SDK接口调用教程（图文版）</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft YaHei",sans-serif;background:linear-gradient(135deg,#fef9e7,#fff,#fef5e7);color:#333;line-height:1.8;padding:20px}
+.container{max-width:900px;margin:0 auto;background:rgba(255,255,255,.9);border-radius:16px;padding:30px;box-shadow:0 4px 20px rgba(212,160,23,.15)}
+h1{color:#d4a017;text-align:center;margin-bottom:8px;font-size:28px}
+.subtitle{text-align:center;color:#888;margin-bottom:30px;font-size:15px}
+h2{color:#b8860b;border-left:4px solid #d4a017;padding-left:12px;margin:30px 0 15px;font-size:22px}
+h3{color:#d4a017;margin:20px 0 10px;font-size:18px}
+p{margin:10px 0;font-size:16px}
+.step{background:linear-gradient(135deg,#fff9e6,#fff);border:1px solid #f0e0a0;border-radius:12px;padding:16px;margin:12px 0}
+.step-no{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;border-radius:50%;font-weight:bold;margin-right:10px}
+.step-title{font-size:17px;font-weight:bold;color:#333;display:inline}
+.code-wrap{position:relative;margin:12px 0;border-radius:10px;overflow:hidden;border:1px solid #e0d0a0}
+.code-bar{display:flex;justify-content:space-between;align-items:center;background:#2c3e50;color:#ecf0f1;padding:6px 12px;font-size:13px}
+.code-lang{background:#d4a017;padding:2px 8px;border-radius:4px;font-size:11px}
+.copy-btn{background:#27ae60;color:#fff;border:none;padding:4px 10px;border-radius:4px;cursor:pointer;font-size:12px}
+pre{margin:0;padding:14px;background:#1a1a2e;color:#e0e0e0;overflow:auto;font-size:13px;line-height:1.6;max-height:400px}
+pre::-webkit-scrollbar{width:4px;height:4px}
+pre::-webkit-scrollbar-thumb{background:#d4a017}
+.tip{background:#e8f5e9;border-left:4px solid #4caf50;padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0}
+.warn{background:#fff3e0;border-left:4px solid #ff9800;padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0}
+.info{background:#e3f2fd;border-left:4px solid #2196f3;padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th{background:#d4a017;color:#fff;padding:10px;text-align:left}
+td{padding:10px;border-bottom:1px solid #eee}
+.tut-img{width:100%;border-radius:8px;border:1px solid #ddd;margin:10px 0}
+.tut-caption{text-align:center;font-size:13px;color:#888;margin-bottom:14px}
+a{color:#d4a017;text-decoration:none}
+.footer{text-align:center;margin-top:40px;padding-top:20px;border-top:1px solid #eee;color:#999;font-size:13px}
+@media(max-width:600px){.container{padding:16px}h1{font-size:22px}pre{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🔍 万能搜索引擎SDK接口调用教程</h1>
+<p class="subtitle">Universal Search Engine SDK v2.0 · 15个搜索引擎 · 多平台视频解析 · 内嵌播放器 · 页面内展示不跳转</p>
+
+<div class="info">
+<p><b>SDK文件清单：</b></p>
+<p><code>search-api.js</code> — 纯英文接口文件，所有路径通过 <code>UniversalSearch.config</code> 配置变量管理</p>
+<p><code>search.css</code> — 独立样式文件</p>
+</div>
+
+<h2>📦 第一步：引入SDK</h2>
+<div class="code-wrap">
+<div class="code-bar"><span>HTML引入代码</span><span class="code-lang">html</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="search.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="ss-search-bar"&gt;
+    &lt;input id="ss-input" type="search" placeholder="输入关键词或视频链接"&gt;
+    &lt;button id="ss-go" class="ss-btn ss-btn-primary"&gt;搜索&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div id="ss-results"&gt;&lt;/div&gt;
+  &lt;div id="ss-player"&gt;&lt;/div&gt;
+  &lt;script src="search-api.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</div>
+
+<img src="../assets/img/tut-search.png" class="tut-img" alt="搜索界面截图">
+<p class="tut-caption">▲ 搜索结果在搜索框下方自动展开，视频/音乐/文章/网页全部页面内展示</p>
+
+<h2>⚙️ 第二步：配置万能变量路径</h2>
+<div class="code-wrap">
+<div class="code-bar"><span>配置变量</span><span class="code-lang">javascript</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<pre><code>// 修改容器ID
+UniversalSearch.config.containers.input = "my-input";
+UniversalSearch.config.containers.results = "my-results";
+
+// 修改搜索引擎URL
+UniversalSearch.config.engines.baidu = "https://www.baidu.com/s?wd=";
+
+// 修改API地址
+UniversalSearch.config.api.biliView = "https://api.bilibili.com/x/web-interface/view?";
+
+// 配置离线AI嗅探后端（可用GitHub Pages托管）
+UniversalSearch.config.aiBackend = "https://你的用户名.github.io/api/sniff";
+
+// 配置回调函数
+UniversalSearch.config.callbacks.onVideoPlay = function(data) {
+  console.log("Play:", data.bvid, data.title);
+};</code></pre>
+</div>
+
+<h2>🎯 第三步：15个搜索引擎列表</h2>
+<table>
+<tr><th>引擎</th><th>配置key</th><th>URL模板</th></tr>
+<tr><td>百度</td><td>baidu</td><td>https://www.baidu.com/s?wd=</td></tr>
+<tr><td>谷歌</td><td>google</td><td>https://www.google.com/search?q=</td></tr>
+<tr><td>必应</td><td>bing</td><td>https://www.bing.com/search?q=</td></tr>
+<tr><td>搜狗</td><td>sogou</td><td>https://www.sogou.com/web?query=</td></tr>
+<tr><td>360</td><td>so360</td><td>https://www.so.com/s?q=</td></tr>
+<tr><td>头条</td><td>toutiao</td><td>https://so.toutiao.com/search?keyword=</td></tr>
+<tr><td>微信</td><td>wechat</td><td>https://weixin.sogou.com/weixin?type=2&query=</td></tr>
+<tr><td>知乎</td><td>zhihu</td><td>https://www.zhihu.com/search?type=content&q=</td></tr>
+<tr><td>B站</td><td>bilibili</td><td>https://search.bilibili.com/all?keyword=</td></tr>
+<tr><td>抖音</td><td>douyin</td><td>https://www.douyin.com/search/</td></tr>
+<tr><td>快手</td><td>kuaishou</td><td>https://www.kuaishou.com/search/video?searchKey=</td></tr>
+<tr><td>优酷</td><td>youku</td><td>https://so.youku.com/search_video/q_</td></tr>
+<tr><td>爱奇艺</td><td>iqiyi</td><td>https://so.iqiyi.com/so/q_</td></tr>
+<tr><td>腾讯视频</td><td>tencentvideo</td><td>https://v.qq.com/x/search/?q=</td></tr>
+<tr><td>西瓜</td><td>xigua</td><td>https://www.ixigua.com/search/</td></tr>
+</table>
+
+<h2>📺 第四步：视频自动识别与页面内播放</h2>
+<div class="step">
+<span class="step-no">1</span><span class="step-title">B站视频解析播放</span>
+<p>粘贴B站链接或BV号，自动解析并在页面内iframe播放，显示全部元数据：</p>
+<div class="code-wrap">
+<div class="code-bar"><span>B站解析</span><span class="code-lang">javascript</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<pre><code>UniversalSearch.search("https://www.bilibili.com/video/BV1xx411c7mD");
+UniversalSearch.search("BV1xx411c7mD");
+UniversalSearch.search("av170001");
+// 支持番剧ep/ss/md号、收藏夹ml号、UP主uid</code></pre>
+</div>
+</div>
+
+<div class="step">
+<span class="step-no">2</span><span class="step-title">其他平台识别</span>
+<p>抖音/快手/优酷/腾讯视频/爱奇艺/西瓜自动识别，展示播放和复制按钮。</p>
+</div>
+
+<h2>🔍 第五步：聚合搜索（全部页面内展示，不跳转）</h2>
+<p>页面中存在 <code>id="ss-results"</code> 容器时，搜索自动进入聚合模式，分5个标签页：</p>
+<div class="step"><span class="step-no">1</span><span class="step-title">📺 视频</span><p>B站API真实搜索，卡片列表，点击立即播放</p></div>
+<div class="step"><span class="step-no">2</span><span class="step-title">🎵 音乐</span><p>网易云/QQ音乐/酷狗iframe内嵌，页面内搜索播放</p></div>
+<div class="step"><span class="step-no">3</span><span class="step-title">📄 文章</span><p>知乎/微信/必应iframe内嵌，多引擎切换</p></div>
+<div class="step"><span class="step-no">4</span><span class="step-title">🌐 网页</span><p>必应搜索iframe页面内展示（百度禁止iframe，新窗口打开）</p></div>
+<div class="step"><span class="step-no">5</span><span class="step-title">🤖 AI嗅探</span><p>对接本地AI后端或GitHub Pages托管接口，自动嗅探全网资源</p></div>
+
+<div class="tip">
+<p><b>💡 关键：</b>所有搜索结果都在搜索框下方展开显示，<b>不会跳转外部浏览器</b>。视频在页面内播放，音乐在页面内播放，文章在页面内阅读。</p>
+</div>
+
+<h2>💻 第六步：exe内嵌（Electron / C# WebView2）</h2>
+<div class="code-wrap">
+<div class="code-bar"><span>Electron主进程</span><span class="code-lang">javascript</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<pre><code>const { ipcMain, shell, clipboard } = require('electron');
+ipcMain.handle('search', async (e, {query, engine}) => {
+  const url = UniversalSearch.config.engines[engine] + encodeURIComponent(query);
+  // 在应用内webview展示，不跳转外部
+  e.sender.send('open-webview', url);
+  return {ok:true, url};
+});
+ipcMain.handle('copy', async (e, text) => {
+  clipboard.writeText(text);
+  return {ok:true};
+});</code></pre>
+</div>
+
+<h2>📱 第七步：APK内嵌（Android WebView）</h2>
+<div class="code-wrap">
+<div class="code-bar"><span>Android Kotlin</span><span class="code-lang">kotlin</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<pre><code>webView.settings.javaScriptEnabled = true
+webView.addJavascriptInterface(JsBridge(), "native")
+webView.loadUrl("file:///android_asset/search.html")
+
+class JsBridge {
+    @JavascriptInterface fun openUrl(url: String) {
+        // 在WebView内加载，不跳转外部浏览器
+        webView.loadUrl(url)
+    }
+    @JavascriptInterface fun copyText(text: String) {
+        val cm = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        cm.setPrimaryClip(ClipData.newPlainText("text", text))
+    }
+}</code></pre>
+</div>
+
+<h2>🤖 第八步：GitHub Pages托管搜索接口回调</h2>
+<p>未配置本地AI后端时，可使用GitHub Pages托管搜索接口：</p>
+<div class="code-wrap">
+<div class="code-bar"><span>GitHub Pages接口</span><span class="code-lang">javascript</span><button class="copy-btn" onclick="copyCode(this)">复制</button></div>
+<pre><code>// 1. 在GitHub创建仓库，开启Pages
+// 2. 创建 api/sniff/index.html (或用Cloudflare Worker)
+// 3. 配置SDK：
+UniversalSearch.config.aiBackend = "https://你的用户名.github.io/api/sniff";
+
+// 4. 接口返回格式：
+// { videos:[], musics:[], articles:[], ai_summary:"" }
+
+// 5. 也可用Cloudflare Worker做代理：
+// addEventListener('fetch', event => {
+//   event.respondWith(handleRequest(event.request))
+// })</code></pre>
+</div>
+
+<div class="warn">
+<p><b>⚠️ 注意：</b>GitHub Pages是静态托管，无法直接做后端代理。建议使用Cloudflare Workers或Vercel Functions做搜索接口代理，前端通过 <code>UniversalSearch.config.aiBackend</code> 调用。</p>
+</div>
+
+<h2>📋 API速查表</h2>
+<table>
+<tr><th>方法</th><th>说明</th><th>示例</th></tr>
+<tr><td>UniversalSearch.search(query, engine, options)</td><td>主搜索入口</td><td>search("关键词", "bing", {aggregate:true})</td></tr>
+<tr><td>UniversalSearch.detectVideo(url)</td><td>识别视频平台</td><td>detectVideo("https://...")</td></tr>
+<tr><td>UniversalSearch.biliResolve(bvid, area)</td><td>B站解析播放</td><td>biliResolve("BV1xx...", div)</td></tr>
+<tr><td>UniversalSearch.aggregate(keyword, area)</td><td>聚合搜索</td><td>aggregate("关键词", div)</td></tr>
+<tr><td>UniversalSearch.copyText(text)</td><td>静默复制</td><td>copyText("文本")</td></tr>
+<tr><td>UniversalSearch.config</td><td>配置对象</td><td>config.engines.baidu = "..."</td></tr>
+</table>
+
+<div class="footer">
+<p>📚 万能搜索引擎SDK接口教程 · 图文并茂响应式设计</p>
+<p>搜索结果全部页面内展示，不跳转外部浏览器</p>
+</div>
+</div>
+<script>
+function copyCode(btn){
+  var pre=btn.closest(".code-wrap").querySelector("pre");
+  var text=pre.textContent;
+  if(navigator.clipboard){navigator.clipboard.writeText(text);}
+  else{var ta=document.createElement("textarea");ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);}
+  btn.textContent="已复制";setTimeout(function(){btn.textContent="复制";},1500);
+}
+</script>
+</body>
+</html>
