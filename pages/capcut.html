@@ -3,28 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>剪映 - 配置教程</title>
+<title>剪映 - 详细配置教程</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{font-family:"Microsoft YaHei","PingFang SC",sans-serif}
-body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);min-height:100%;color:#3d2914}
-.top{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.8);backdrop-filter:blur(20px);padding:16px 20px;border-bottom:1px solid rgba(212,160,23,.25);box-shadow:0 2px 15px rgba(212,160,23,.1)}
-.top h1{font-size:22px;background:linear-gradient(135deg,#b8860b,#d4a017);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center}
-.back{position:absolute;left:16px;top:50%;transform:translateY(-50%);padding:8px 16px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;border:none;border-radius:20px;cursor:pointer;font-size:14px;text-decoration:none}
-.wrap{max-width:900px;margin:0 auto;padding:24px}
-.hero{text-align:center;padding:30px 20px;background:rgba(255,255,255,.8);border-radius:20px;border:1px solid rgba(212,160,23,.2);margin-bottom:20px}
-.hero .big-icon{font-size:64px;margin-bottom:10px}
-.hero h2{font-size:28px;color:#8b6914;margin-bottom:8px}
-.hero .cat{display:inline-block;padding:4px 14px;background:rgba(212,160,23,.15);color:#8b6914;border-radius:15px;font-size:14px;margin-bottom:12px}
-.hero p{font-size:16px;color:#666;line-height:1.7}
-.section{background:rgba(255,255,255,.8);border-radius:16px;padding:20px;margin-bottom:16px;border:1px solid rgba(212,160,23,.15)}
-.section h3{font-size:20px;color:#8b6914;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid rgba(212,160,23,.2)}
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-.feat{padding:12px;background:rgba(255,248,230,.6);border-radius:10px;font-size:15px;text-align:center}
-.steps{counter-reset:step}
-.step{padding:12px 16px;margin-bottom:8px;background:rgba(255,248,230,.6);border-radius:10px;font-size:15px;line-height:1.6;border-left:4px solid #d4a017}
-.cta{display:inline-block;padding:14px 32px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;text-decoration:none;border-radius:25px;font-size:16px;font-weight:bold;box-shadow:0 4px 15px rgba(212,160,23,.3);transition:.2s}
+html,body{height:100%;width:100%;font-family:"Microsoft YaHei","PingFang SC",sans-serif}
+body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);color:#3d2914;min-height:100%;overflow-x:hidden}
+/* 顶部 */
+.top{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);padding:14px 20px;border-bottom:1px solid rgba(212,160,23,.25);box-shadow:0 2px 15px rgba(212,160,23,.1)}
+.top-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.back-btn{padding:8px 16px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;border:none;border-radius:20px;cursor:pointer;font-size:14px;text-decoration:none;white-space:nowrap}
+.top h1{font-size:20px;background:linear-gradient(135deg,#b8860b,#d4a017);-webkit-background-clip:text;-webkit-text-fill-color:transparent;flex:1}
+/* 内容 */
+.wrap{max-width:1000px;margin:0 auto;padding:20px}
+/* Hero */
+.hero{text-align:center;padding:36px 24px;background:rgba(255,255,255,.85);border-radius:20px;border:1px solid rgba(212,160,23,.2);margin-bottom:18px}
+.hero .big-icon{font-size:72px;margin-bottom:12px}
+.hero h2{font-size:30px;color:#8b6914;margin-bottom:10px}
+.hero .cat-tag{display:inline-block;padding:5px 18px;background:rgba(212,160,23,.15);color:#8b6914;border-radius:20px;font-size:14px;margin-bottom:14px}
+/* 卡片区块 */
+.card-box{background:rgba(255,255,255,.85);border-radius:16px;padding:22px;margin-bottom:16px;border:1px solid rgba(212,160,23,.15)}
+.card-box h3{font-size:19px;color:#8b6914;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid rgba(212,160,23,.2)}
+.card-box p{font-size:16px;line-height:1.8;color:#555;margin-bottom:10px}
+.card-box ul{margin-left:20px;font-size:16px;line-height:1.8}
+.card-box li{margin-bottom:6px}
+/* 代码块 */
+.code-block{background:#2d2d3f;color:#e0e0e0;padding:16px;border-radius:10px;margin:12px 0;overflow-x:auto;font-family:Consolas,monospace;font-size:14px;line-height:1.6;position:relative}
+.code-block::-webkit-scrollbar{height:1px;width:1px}
+.code-block::-webkit-scrollbar-thumb{background:#d4a017}
+.copy-btn{position:absolute;top:8px;right:8px;padding:4px 12px;background:rgba(212,160,23,.3);color:#f4d03f;border:1px solid #d4a017;border-radius:4px;cursor:pointer;font-size:12px}
+.copy-btn:hover{background:rgba(212,160,23,.6)}
+/* 链接列表 */
+.link-list{display:flex;flex-direction:column;gap:8px}
+.link-item{padding:12px 16px;background:rgba(255,248,230,.6);border-radius:10px;text-decoration:none;color:#8b6914;font-size:15px;display:flex;align-items:center;gap:8px;border-left:4px solid #d4a017;transition:.2s}
+.link-item:hover{background:rgba(212,160,23,.12);transform:translateX(4px)}
+/* 按钮 */
+.cta{display:inline-block;padding:14px 36px;background:linear-gradient(135deg,#d4a017,#f4d03f);color:#fff;text-decoration:none;border-radius:25px;font-size:17px;font-weight:bold;box-shadow:0 4px 15px rgba(212,160,23,.3);transition:.2s;margin:10px 5px}
 .cta:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,160,23,.4)}
+/* 悬浮客服 */
 .float-btns{position:fixed;right:0;bottom:24px;z-index:9999;display:flex;flex-direction:column;gap:10px;transition:transform .3s}
 .float-btns.hide{transform:translateX(80px)}
 .fab{width:32px;height:32px;border-radius:50%;border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.2)}
@@ -53,33 +68,66 @@ body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);min-height:100%;
 .c3{background:linear-gradient(135deg,#ff9ff3,#f368e0)}.c4{background:linear-gradient(135deg,#54a0ff,#5f27cd)}
 .c5{background:linear-gradient(135deg,#54ca6b,#27ae60)}.c6{background:linear-gradient(135deg,#ff9f43,#e67e22)}
 .c7{background:linear-gradient(135deg,#00d2d3,#01a3a8)}.c8{background:linear-gradient(135deg,#a55eea,#8854d0)}
+@media(max-width:600px){.wrap{padding:12px}.hero{padding:24px 16px}.hero h2{font-size:22px}.card-box{padding:16px}.card-box p{font-size:15px}}
 </style>
 </head>
 <body>
 <div class="top">
-  <a class="back" href="../index.html">← 返回</a>
-  <h1>✂️ 剪映</h1>
+  <div class="top-inner">
+    <a class="back-btn" href="../index.html">← 返回目录</a>
+    <h1>✂️ 剪映</h1>
+  </div>
 </div>
 <div class="wrap">
   <div class="hero">
     <div class="big-icon">✂️</div>
     <h2>剪映</h2>
-    <div class="cat">生产类类AI</div>
-    <p>CapCut视频剪辑</p>
+    <div class="cat-tag">生产类</div>
   </div>
-  <div class="section">
-    <h3>✨ 核心特点</h3>
-    <div class="feat-grid"><div class="feat">✓ AI剪辑</div><div class="feat">✓ 模板丰富</div><div class="feat">✓ 字幕自动</div><div class="feat">✓ 免费使用</div></div>
+
+  <div class="card-box">
+    <h3>📖 平台详细介绍</h3>
+    <p>CapCut视频剪辑。</p>
   </div>
-  <div class="section">
-    <h3>🚀 使用教程</h3>
-    <div class="steps"><div class="step">1. 下载剪映</div><div class="step">2. 导入素材</div><div class="step">3. AI剪辑</div><div class="step">4. 导出</div></div>
+
+  <div class="card-box">
+    <h3>💡 AI主要用途</h3>
+    <ul><li>视频剪辑</li><li>AI字幕</li></ul>
   </div>
-  <div class="section" style="text-align:center">
+
+  <div class="card-box">
     <h3>🔗 官方地址</h3>
-    <a class="cta" href="https://www.capcut.cn" target="_blank">立即访问 剪映 →</a>
+    <div style="text-align:center">
+      <a class="cta" href="https://www.capcut.cn" target="_blank" rel="noopener">🌐 访问剪映官网 →</a>
+    </div>
+  </div>
+
+  <div class="card-box">
+    <h3>🔌 API回调函数调用方法</h3>
+    <p>以下是剪映的API调用示例代码，复制后填入你的Key即可使用：</p>
+    <div class="code-block">
+      <button class="copy-btn" onclick="copyCode(this)">复制</button>
+      <pre># API调用请参考官方文档
+# 通常格式:
+curl -X POST https://api.example.com/v1/chat \
+  -H 'Authorization: Bearer 你的KEY' \
+  -H 'Content-Type: application/json' \
+  -d '{"message":"你好"}'</pre>
+    </div>
+  </div>
+
+  <div class="card-box">
+    <h3>📱 社交渠道与社区</h3>
+    <div class="link-list"><a class="link-item" href="https://www.capcut.cn" target="_blank" rel="noopener">🔗 官网：访问下方链接</a><a class="link-item" href="https://www.capcut.cn" target="_blank" rel="noopener">🔗 微信公众号：搜索对应名称</a><a class="link-item" href="https://www.capcut.cn" target="_blank" rel="noopener">🔗 社区：官方论坛/Discord</a></div>
+  </div>
+
+  <div class="card-box" style="text-align:center">
+    <h3>🚀 快速开始</h3>
+    <p>点击下方按钮访问剪映，注册账号即可开始使用。</p>
+    <a class="cta" href="https://www.capcut.cn" target="_blank" rel="noopener">立即开始使用 →</a>
   </div>
 </div>
+
 <div class="float-btns" id="floatBtns">
   <button class="fab svc-fab" id="svcToggle">💬</button>
   <button class="fab back-top" id="backTop">🚀</button>
@@ -93,14 +141,14 @@ body{background:linear-gradient(135deg,#fff8e7,#ffe9b8,#fff3d6);min-height:100%;
   <p class="qr-tip">欢迎自愿赞赏支持作者</p>
   <div class="wx-id"><span class="wx-label">微信公众号</span><span class="wx-line" id="wxLine">wxsy1349</span></div>
   <div class="svc-links">
-    <a class="svc-link c1" href="https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj" target="_blank">🛒 快手小店</a>
-    <a class="svc-link c2" href="https://pd.qq.com/s/24yp7y38f" target="_blank">💬 腾讯频道</a>
-    <a class="svc-link c3" href="https://www.zhihu.com/people/z6391" target="_blank">💡 知乎</a>
-    <a class="svc-link c4" href="https://qm.qq.com/q/VHeRTTdQcu" target="_blank">👥 QQ群</a>
-    <a class="svc-link c5" href="https://bolt.cello.so/lsypink3QTR" target="_blank">⚡ 在线编程</a>
-    <a class="svc-link c6" href="https://api.u-claw.org/register?aff=9OLG" target="_blank">🦞 OpenClaw</a>
-    <a class="svc-link c7" href="https://weibo.com/zdzqxt" target="_blank">📢 微博</a>
-    <a class="svc-link c8" href="https://txc.qq.com/embed/367382/new-post/" target="_blank">✍️ 欢迎留言</a>
+    <a class="svc-link c1" href="https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj" target="_blank" rel="noopener">🛒 快手小店</a>
+    <a class="svc-link c2" href="https://pd.qq.com/s/24yp7y38f" target="_blank" rel="noopener">💬 腾讯频道</a>
+    <a class="svc-link c3" href="https://www.zhihu.com/people/z6391" target="_blank" rel="noopener">💡 知乎</a>
+    <a class="svc-link c4" href="https://qm.qq.com/q/VHeRTTdQcu" target="_blank" rel="noopener">👥 QQ群</a>
+    <a class="svc-link c5" href="https://bolt.cello.so/lsypink3QTR" target="_blank" rel="noopener">⚡ 在线编程</a>
+    <a class="svc-link c6" href="https://api.u-claw.org/register?aff=9OLG" target="_blank" rel="noopener">🦞 OpenClaw</a>
+    <a class="svc-link c7" href="https://weibo.com/zdzqxt" target="_blank" rel="noopener">📢 微博</a>
+    <a class="svc-link c8" href="https://txc.qq.com/embed/367382/new-post/" target="_blank" rel="noopener">✍️ 欢迎留言</a>
   </div>
 </div>
 <script>
@@ -125,6 +173,12 @@ var scrollT;window.onscroll=function(){
   document.getElementById("floatBtns").classList.add("hide");
   clearTimeout(scrollT);scrollT=setTimeout(function(){document.getElementById("floatBtns").classList.remove("hide");},300);
 };
+function copyCode(btn){
+  var text=btn.parentElement.textContent.replace("复制","").trim();
+  navigator.clipboard.writeText(text);
+  btn.textContent="已复制✓";
+  setTimeout(function(){btn.textContent="复制";},1500);
+}
 </script>
 </body>
 </html>
