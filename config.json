@@ -1,41 +1,1409 @@
 {
   "siteName": "全国中文AI大全",
   "searchTabs": [
-    {"id":"video","name":"📺 视频","url":"https://search.bilibili.com/all?keyword="},
-    {"id":"music","name":"🎵 音乐","url":"https://music.163.com/#/search/m/?s="},
-    {"id":"bing","name":"🔍 必应","url":"https://cn.bing.com/search?q="},
-    {"id":"article","name":"📄 文章","url":"https://weixin.sogou.com/weixin?type=2&query="},
-    {"id":"image","name":"🖼️ 图片","url":"https://image.baidu.com/search/index?tn=baiduimage&word="},
-    {"id":"so","name":"🌐 360","url":"https://www.so.com/s?q="}
+    {
+      "id": "video",
+      "name": "📺 视频",
+      "url": "https://search.bilibili.com/all?keyword="
+    },
+    {
+      "id": "music",
+      "name": "🎵 音乐",
+      "url": "https://music.163.com/#/search/m/?s="
+    },
+    {
+      "id": "bing",
+      "name": "🔍 必应",
+      "url": "https://cn.bing.com/search?q="
+    },
+    {
+      "id": "article",
+      "name": "📄 文章",
+      "url": "https://weixin.sogou.com/weixin?type=2&query="
+    },
+    {
+      "id": "image",
+      "name": "🖼️ 图片",
+      "url": "https://image.baidu.com/search/index?tn=baiduimage&word="
+    },
+    {
+      "id": "so",
+      "name": "🌐 360",
+      "url": "https://www.so.com/s?q="
+    }
   ],
   "customerService": {
     "publicAccount": "wxsy1349",
     "tip": "欢迎自愿赞赏支持作者",
     "buttons": [
-      {"id":"c1","color":"#ff6b6b","name":"🛒 快手小店","url":"https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj"},
-      {"id":"c2","color":"#4ecdc4","name":"💬 腾讯频道","url":"https://pd.qq.com/s/24yp7y38f"},
-      {"id":"c3","color":"#45b7d1","name":"💡 知乎","url":"https://www.zhihu.com/people/z6391"},
-      {"id":"c4","color":"#96ceb4","name":"👥 QQ群","url":"https://qm.qq.com/q/VHeRTTdQcu"},
-      {"id":"c5","color":"#ffeaa7","name":"⚡ 在线编程","url":"https://bolt.cello.so/lsypink3QTR"},
-      {"id":"c6","color":"#dfe6e9","name":"🦞 OpenClaw","url":"https://api.u-claw.org/register?aff=9OLG"},
-      {"id":"c7","color":"#fd79a8","name":"📢 微博","url":"https://weibo.com/zdzqxt"},
-      {"id":"c8","color":"#a29bfe","name":"✍️ 欢迎留言","url":"https://txc.qq.com/embed/367382/new-post/"}
+      {
+        "id": "c1",
+        "color": "#ff6b6b",
+        "name": "🛒 快手小店",
+        "url": "https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj"
+      },
+      {
+        "id": "c2",
+        "color": "#4ecdc4",
+        "name": "💬 腾讯频道",
+        "url": "https://pd.qq.com/s/24yp7y38f"
+      },
+      {
+        "id": "c3",
+        "color": "#45b7d1",
+        "name": "💡 知乎",
+        "url": "https://www.zhihu.com/people/z6391"
+      },
+      {
+        "id": "c4",
+        "color": "#96ceb4",
+        "name": "👥 QQ群",
+        "url": "https://qm.qq.com/q/VHeRTTdQcu"
+      },
+      {
+        "id": "c5",
+        "color": "#ffeaa7",
+        "name": "⚡ 在线编程",
+        "url": "https://bolt.cello.so/lsypink3QTR"
+      },
+      {
+        "id": "c6",
+        "color": "#dfe6e9",
+        "name": "🦞 OpenClaw",
+        "url": "https://api.u-claw.org/register?aff=9OLG"
+      },
+      {
+        "id": "c7",
+        "color": "#fd79a8",
+        "name": "📢 微博",
+        "url": "https://weibo.com/zdzqxt"
+      },
+      {
+        "id": "c8",
+        "color": "#a29bfe",
+        "name": "✍️ 欢迎留言",
+        "url": "https://txc.qq.com/embed/367382/new-post/"
+      }
     ]
   },
   "categories": [
-    {"name":"🟢 普通对话型AI","items":[]},
-    {"name":"🔵 自定义模型/API类","items":[]},
-    {"name":"🟣 Agent自动化工作型","items":[]},
-    {"name":"🟡 RPA类AI","items":[]},
-    {"name":"🔴 生产类AI","items":[]},
-    {"name":"🟢 离线/本地部署类","items":[]},
-    {"name":"🔵 编程开发类AI","items":[]},
-    {"name":"🟠 云服务/平台类","items":[]},
-    {"name":"🎓 教育学习类AI","items":[]},
-    {"name":"🎨 设计创意类AI","items":[]},
-    {"name":"💼 办公效率类AI","items":[]},
-    {"name":"🏭 企业服务类AI","items":[]},
-    {"name":"🏥 医疗健康类AI","items":[]},
-    {"name":"💰 金融与生活服务","items":[]}
+    {
+      "name": "🟢 普通对话型AI",
+      "items": [
+        {
+          "n": "豆包",
+          "f": "doubao",
+          "i": "🤖",
+          "d": "字节跳动AI助手"
+        },
+        {
+          "n": "DeepSeek",
+          "f": "deepseek",
+          "i": "🧠",
+          "d": "深度求索"
+        },
+        {
+          "n": "Kimi",
+          "f": "kimi",
+          "i": "🌙",
+          "d": "月之暗面"
+        },
+        {
+          "n": "通义千问",
+          "f": "tongyi",
+          "i": "🟠",
+          "d": "阿里"
+        },
+        {
+          "n": "文心一言",
+          "f": "wenxin",
+          "i": "🟡",
+          "d": "百度"
+        },
+        {
+          "n": "智谱清言",
+          "f": "zhipu",
+          "i": "🔷",
+          "d": "智谱"
+        },
+        {
+          "n": "讯飞星火",
+          "f": "xinghuo",
+          "i": "🔥",
+          "d": "讯飞"
+        },
+        {
+          "n": "腾讯混元",
+          "f": "hunyuan",
+          "i": "🌀",
+          "d": "腾讯"
+        },
+        {
+          "n": "百川",
+          "f": "baichuan",
+          "i": "🌊",
+          "d": "百川"
+        },
+        {
+          "n": "MiniMax",
+          "f": "minimax",
+          "i": "💎",
+          "d": "MiniMax"
+        },
+        {
+          "n": "360智脑",
+          "f": "360gpt",
+          "i": "🟢",
+          "d": "360"
+        },
+        {
+          "n": "文心素食助手",
+          "f": "wenxin-vegan",
+          "i": "🥗",
+          "d": "百度智能体"
+        },
+        {
+          "n": "天工AI",
+          "f": "tiangong",
+          "i": "🌌",
+          "d": "昆仑万维"
+        },
+        {
+          "n": "零一万物",
+          "f": "01ai",
+          "i": "🌐",
+          "d": "李开复"
+        },
+        {
+          "n": "商量SenseChat",
+          "f": "sensechat",
+          "i": "👁️",
+          "d": "商汤"
+        },
+        {
+          "n": "元器",
+          "f": "yuanqi",
+          "i": "🧩",
+          "d": "字节智能体"
+        },
+        {
+          "n": "星野",
+          "f": "xingye",
+          "i": "✨",
+          "d": "MiniMax星野"
+        },
+        {
+          "n": "Glow",
+          "f": "glow",
+          "i": "💫",
+          "d": "对话AI"
+        },
+        {
+          "n": "出门问问问道",
+          "f": "wenwen",
+          "i": "🔍",
+          "d": "序列猴子"
+        },
+        {
+          "n": "知乎直答",
+          "f": "zhihuida",
+          "i": "💡",
+          "d": "知乎AI"
+        },
+        {
+          "n": "纳米AI搜索",
+          "f": "nami",
+          "i": "🧭",
+          "d": "360AI搜索"
+        },
+        {
+          "n": "华为盘古",
+          "f": "pangu",
+          "i": "☁️",
+          "d": "华为大模型"
+        },
+        {
+          "n": "京东言犀",
+          "f": "yanxi",
+          "i": "🐦",
+          "d": "京东大模型"
+        },
+        {
+          "n": "网易子曰",
+          "f": "ziyue",
+          "i": "📝",
+          "d": "网易大模型"
+        },
+        {
+          "n": "百度文库AI",
+          "f": "wendang",
+          "i": "📄",
+          "d": "百度写作"
+        },
+        {
+          "n": "钉钉AI",
+          "f": "dingtalk",
+          "i": "📌",
+          "d": "阿里办公"
+        },
+        {
+          "n": "飞书智能伙伴",
+          "f": "feishu",
+          "i": "🐦",
+          "d": "字节办公"
+        },
+        {
+          "n": "有道AI",
+          "f": "youdao",
+          "i": "📖",
+          "d": "网易学习"
+        },
+        {
+          "n": "讯飞听见",
+          "f": "tingjian",
+          "i": "🎙️",
+          "d": "语音转文字"
+        },
+        {
+          "n": "百度翻译",
+          "f": "fanyi",
+          "i": "🌐",
+          "d": "机器翻译"
+        },
+        {
+          "n": "作业帮AI",
+          "f": "zuoyebang",
+          "i": "📚",
+          "d": "作业辅导"
+        }
+      ]
+    },
+    {
+      "name": "🔵 自定义模型/API类",
+      "items": [
+        {
+          "n": "OpenAI",
+          "f": "openai",
+          "i": "⚪",
+          "d": "GPT API"
+        },
+        {
+          "n": "Claude",
+          "f": "claude",
+          "i": "🟠",
+          "d": "Anthropic"
+        },
+        {
+          "n": "Gemini",
+          "f": "gemini",
+          "i": "💎",
+          "d": "谷歌"
+        },
+        {
+          "n": "DeepSeek API",
+          "f": "deepseek-api",
+          "i": "🧠",
+          "d": "深度求索API"
+        },
+        {
+          "n": "月之暗面API",
+          "f": "moonshot-api",
+          "i": "🌙",
+          "d": "Kimi API"
+        },
+        {
+          "n": "智谱API",
+          "f": "zhipu-api",
+          "i": "🔷",
+          "d": "智谱API"
+        },
+        {
+          "n": "百川API",
+          "f": "baichuan-api",
+          "i": "🌊",
+          "d": "百川API"
+        },
+        {
+          "n": "MiniMax API",
+          "f": "minimax-api",
+          "i": "💎",
+          "d": "MiniMax API"
+        },
+        {
+          "n": "OpenRouter",
+          "f": "openrouter",
+          "i": "🔀",
+          "d": "模型聚合"
+        },
+        {
+          "n": "硅基流动",
+          "f": "siliconflow",
+          "i": "⚡",
+          "d": "SiliconFlow"
+        },
+        {
+          "n": "灵犀",
+          "f": "skylark",
+          "i": "🦅",
+          "d": "火山引擎"
+        },
+        {
+          "n": "阿里云百炼",
+          "f": "dashscope",
+          "i": "☁️",
+          "d": "阿里百炼"
+        },
+        {
+          "n": "Groq",
+          "f": "groq",
+          "i": "⚡",
+          "d": "超快推理"
+        },
+        {
+          "n": "Together AI",
+          "f": "together",
+          "i": "🤝",
+          "d": "开源模型API"
+        },
+        {
+          "n": "HuggingFace",
+          "f": "huggingface",
+          "i": "🤗",
+          "d": "模型社区"
+        }
+      ]
+    },
+    {
+      "name": "🟣 Agent自动化工作型",
+      "items": [
+        {
+          "n": "Coze扣子",
+          "f": "coze",
+          "i": "🟣",
+          "d": "字节智能体"
+        },
+        {
+          "n": "Dify",
+          "f": "dify",
+          "i": "🔧",
+          "d": "开源LLM平台"
+        },
+        {
+          "n": "FastGPT",
+          "f": "fastgpt",
+          "i": "⚡",
+          "d": "知识库"
+        },
+        {
+          "n": "AutoGen",
+          "f": "autogen",
+          "i": "🤖",
+          "d": "微软"
+        },
+        {
+          "n": "CrewAI",
+          "f": "crewai",
+          "i": "👥",
+          "d": "多Agent"
+        },
+        {
+          "n": "LangChain",
+          "f": "langchain",
+          "i": "⛓️",
+          "d": "LLM框架"
+        },
+        {
+          "n": "n8n",
+          "f": "n8n",
+          "i": "🔄",
+          "d": "自动化"
+        },
+        {
+          "n": "IFTTT",
+          "f": "ifttt",
+          "i": "⚡",
+          "d": "自动化"
+        },
+        {
+          "n": "Zapier",
+          "f": "zapier",
+          "i": "⚡",
+          "d": "自动化"
+        },
+        {
+          "n": "Make",
+          "f": "make",
+          "i": "🎬",
+          "d": "可视化"
+        },
+        {
+          "n": "OpenClaw虾盘云",
+          "f": "openclaw",
+          "i": "🦞",
+          "d": "虾盘云"
+        },
+        {
+          "n": "实在智能Agent",
+          "f": "shizai",
+          "i": "🤖",
+          "d": "实在RPA"
+        },
+        {
+          "n": "腾讯WorkBuddy",
+          "f": "workbuddy",
+          "i": "💼",
+          "d": "腾讯"
+        },
+        {
+          "n": "爱派Aipy",
+          "f": "aipy",
+          "i": "💡",
+          "d": "Aipy"
+        },
+        {
+          "n": "百度AppBuilder",
+          "f": "appbuilder",
+          "i": "🔨",
+          "d": "百度智能体"
+        },
+        {
+          "n": "Flowise",
+          "f": "flowise",
+          "i": "🌊",
+          "d": "可视化LLM"
+        },
+        {
+          "n": "LangFlow",
+          "f": "langflow",
+          "i": "🔬",
+          "d": "LangFlow"
+        },
+        {
+          "n": "Semantic Kernel",
+          "f": "semantickernel",
+          "i": "🧠",
+          "d": "微软SDK"
+        },
+        {
+          "n": "字节HiAgent",
+          "f": "hiagent",
+          "i": "🤖",
+          "d": "企业智能体"
+        },
+        {
+          "n": "腾讯HiFlow",
+          "f": "hiflow",
+          "i": "🔄",
+          "d": "腾讯工作流"
+        }
+      ]
+    },
+    {
+      "name": "🟡 RPA类AI",
+      "items": [
+        {
+          "n": "影刀RPA",
+          "f": "yingdao",
+          "i": "🤖",
+          "d": "影刀"
+        },
+        {
+          "n": "UiBot",
+          "f": "uibot",
+          "i": "🤖",
+          "d": "UiBot"
+        },
+        {
+          "n": "UiPath",
+          "f": "uipath",
+          "i": "🤖",
+          "d": "UiPath"
+        },
+        {
+          "n": "Automation Anywhere",
+          "f": "automationanywhere",
+          "i": "🤖",
+          "d": "AA"
+        },
+        {
+          "n": "Power Automate",
+          "f": "powerautomate",
+          "i": "⚡",
+          "d": "微软"
+        },
+        {
+          "n": "来也RPA",
+          "f": "laiye",
+          "i": "🤖",
+          "d": "来也科技"
+        },
+        {
+          "n": "艺赛旗",
+          "f": "i-search",
+          "i": "🔍",
+          "d": "iS-RPA"
+        },
+        {
+          "n": "Blue Prism",
+          "f": "blueprism",
+          "i": "🔷",
+          "d": "Blue Prism"
+        },
+        {
+          "n": "弘玑Cyclone",
+          "f": "cyclone",
+          "i": "🔄",
+          "d": "弘玑"
+        },
+        {
+          "n": "金智维",
+          "f": "kingdee",
+          "i": "👑",
+          "d": "金智维"
+        },
+        {
+          "n": "云扩科技",
+          "f": "cloudext",
+          "i": "☁️",
+          "d": "云扩"
+        },
+        {
+          "n": "达观数据",
+          "f": "datagrand",
+          "i": "📄",
+          "d": "达观"
+        }
+      ]
+    },
+    {
+      "name": "🔴 生产类AI",
+      "items": [
+        {
+          "n": "PixVerse",
+          "f": "pixverse",
+          "i": "🎥",
+          "d": "AI视频"
+        },
+        {
+          "n": "Runway",
+          "f": "runway",
+          "i": "🎞️",
+          "d": "AI视频"
+        },
+        {
+          "n": "Canva",
+          "f": "canva",
+          "i": "🎨",
+          "d": "设计"
+        },
+        {
+          "n": "Gamma",
+          "f": "gamma",
+          "i": "📊",
+          "d": "AI PPT"
+        },
+        {
+          "n": "剪映",
+          "f": "capcut",
+          "i": "✂️",
+          "d": "剪辑"
+        },
+        {
+          "n": "秒哒",
+          "f": "miaoda",
+          "i": "⚡",
+          "d": "全能AI"
+        },
+        {
+          "n": "沸推AI",
+          "f": "feitui",
+          "i": "📢",
+          "d": "营销"
+        },
+        {
+          "n": "飞影数字人",
+          "f": "feiying",
+          "i": "🧑",
+          "d": "数字人"
+        },
+        {
+          "n": "LiblibAI",
+          "f": "liblib",
+          "i": "🎨",
+          "d": "生图"
+        },
+        {
+          "n": "可灵AI",
+          "f": "kling",
+          "i": "🎬",
+          "d": "快手视频"
+        },
+        {
+          "n": "即梦AI",
+          "f": "jimeng",
+          "i": "💫",
+          "d": "字节即梦"
+        },
+        {
+          "n": "Vidu",
+          "f": "vidu",
+          "i": "🎨",
+          "d": "生数视频"
+        },
+        {
+          "n": "Pika",
+          "f": "pika",
+          "i": "⚡",
+          "d": "Pika视频"
+        },
+        {
+          "n": "D-ID",
+          "f": "did",
+          "i": "🗣️",
+          "d": "数字人"
+        },
+        {
+          "n": "HeyGen",
+          "f": "heygen",
+          "i": "🧑",
+          "d": "AI数字人"
+        },
+        {
+          "n": "Midjourney",
+          "f": "midjourney",
+          "i": "🖼️",
+          "d": "AI绘画"
+        },
+        {
+          "n": "即梦生图",
+          "f": "jimeng-img",
+          "i": "🎨",
+          "d": "字节生图"
+        },
+        {
+          "n": "WPS AI",
+          "f": "wpsai",
+          "i": "📝",
+          "d": "办公AI"
+        },
+        {
+          "n": "秘塔AI搜索",
+          "f": "metaso",
+          "i": "🔍",
+          "d": "AI搜索"
+        },
+        {
+          "n": "文心一格",
+          "f": "yiyan",
+          "i": "🎨",
+          "d": "百度生图"
+        },
+        {
+          "n": "通义万相",
+          "f": "wanxiang",
+          "i": "🖌️",
+          "d": "阿里生图"
+        },
+        {
+          "n": "腾讯智影",
+          "f": "zhiying",
+          "i": "🎬",
+          "d": "腾讯视频"
+        },
+        {
+          "n": "硅基智能",
+          "f": "guiji",
+          "i": "🤖",
+          "d": "数字人"
+        },
+        {
+          "n": "魔珐科技",
+          "f": "mofa",
+          "i": "🎭",
+          "d": "虚拟人"
+        },
+        {
+          "n": "Suno AI",
+          "f": "suno",
+          "i": "🎵",
+          "d": "AI音乐"
+        },
+        {
+          "n": "讯飞配音",
+          "f": "peiyin",
+          "i": "🗣️",
+          "d": "AI配音"
+        },
+        {
+          "n": "火山引擎语音",
+          "f": "volcvoice",
+          "i": "🔊",
+          "d": "TTS"
+        },
+        {
+          "n": "网易天音",
+          "f": "tianyin",
+          "i": "🎼",
+          "d": "AI音乐"
+        },
+        {
+          "n": "海绵音乐",
+          "f": "haimian",
+          "i": "🎵",
+          "d": "字节音乐"
+        },
+        {
+          "n": "百度曦灵",
+          "f": "xiling",
+          "i": "🧑",
+          "d": "数字人"
+        },
+        {
+          "n": "快影",
+          "f": "kuaiging",
+          "i": "✂️",
+          "d": "快手剪辑"
+        },
+        {
+          "n": "必剪",
+          "f": "bcut",
+          "i": "✂️",
+          "d": "B站剪辑"
+        },
+        {
+          "n": "美图WHEE",
+          "f": "whee",
+          "i": "🎨",
+          "d": "美图生图"
+        },
+        {
+          "n": "巨量星图",
+          "f": "xingtu",
+          "i": "✨",
+          "d": "达人营销"
+        }
+      ]
+    },
+    {
+      "name": "🟢 离线/本地部署类",
+      "items": [
+        {
+          "n": "Ollama",
+          "f": "ollama",
+          "i": "🦙",
+          "d": "本地模型"
+        },
+        {
+          "n": "LM Studio",
+          "f": "lmstudio",
+          "i": "💻",
+          "d": "桌面"
+        },
+        {
+          "n": "GPT4All",
+          "f": "gpt4all",
+          "i": "🔒",
+          "d": "离线"
+        },
+        {
+          "n": "Llama.cpp",
+          "f": "llama-cpp",
+          "i": "📦",
+          "d": "GGUF"
+        },
+        {
+          "n": "KoboldCpp",
+          "f": "koboldcpp",
+          "i": "💬",
+          "d": "角色扮演"
+        },
+        {
+          "n": "Oobabooga",
+          "f": "text-generation-webui",
+          "i": "🌐",
+          "d": "WebUI"
+        },
+        {
+          "n": "Xinference",
+          "f": "xinference",
+          "i": "🎯",
+          "d": "推理"
+        },
+        {
+          "n": "vLLM",
+          "f": "vllm",
+          "i": "⚡",
+          "d": "高性能"
+        },
+        {
+          "n": "AnythingLLM",
+          "f": "anything-llm",
+          "i": "📚",
+          "d": "知识库"
+        },
+        {
+          "n": "MCP协议",
+          "f": "mcp",
+          "i": "🔌",
+          "d": "上下文协议"
+        },
+        {
+          "n": "Open WebUI",
+          "f": "openwebui",
+          "i": "🌐",
+          "d": "Ollama前端"
+        },
+        {
+          "n": "LibreChat",
+          "f": "librechat",
+          "i": "💬",
+          "d": "开源ChatGPT"
+        },
+        {
+          "n": "Jan",
+          "f": "jan",
+          "i": "📱",
+          "d": "本地AI"
+        },
+        {
+          "n": "Msty",
+          "f": "msty",
+          "i": "🧪",
+          "d": "本地AI"
+        }
+      ]
+    },
+    {
+      "name": "🔵 编程开发类AI",
+      "items": [
+        {
+          "n": "GitHub Copilot",
+          "f": "githubcopilot",
+          "i": "🐱",
+          "d": "代码助手"
+        },
+        {
+          "n": "Cursor",
+          "f": "cursor",
+          "i": "✏️",
+          "d": "AI编辑器"
+        },
+        {
+          "n": "Trae",
+          "f": "trae",
+          "i": "🚀",
+          "d": "字节IDE"
+        },
+        {
+          "n": "通义灵码",
+          "f": "tongyi-lingma",
+          "i": "🐉",
+          "d": "阿里"
+        },
+        {
+          "n": "CodeGeeX",
+          "f": "codegeex",
+          "i": "💻",
+          "d": "智谱代码"
+        },
+        {
+          "n": "Codeium",
+          "f": "codeium",
+          "i": "💨",
+          "d": "免费补全"
+        },
+        {
+          "n": "Bolt在线编程",
+          "f": "bolt",
+          "i": "⚡",
+          "d": "在线编程"
+        },
+        {
+          "n": "学会打字",
+          "f": "typefun",
+          "i": "⌨️",
+          "d": "学打字"
+        },
+        {
+          "n": "Windsurf",
+          "f": "windsurf",
+          "i": "🌊",
+          "d": "AI IDE"
+        },
+        {
+          "n": "Tabnine",
+          "f": "tabnine",
+          "i": "⚡",
+          "d": "代码补全"
+        },
+        {
+          "n": "Aider",
+          "f": "aider",
+          "i": "✏️",
+          "d": "终端AI"
+        },
+        {
+          "n": "Continue",
+          "f": "continue",
+          "i": "🔄",
+          "d": "开源助手"
+        },
+        {
+          "n": "Amazon Q",
+          "f": "amazonq",
+          "i": "💬",
+          "d": "AWS助手"
+        },
+        {
+          "n": "Cody",
+          "f": "cody",
+          "i": "💻",
+          "d": "Sourcegraph"
+        }
+      ]
+    },
+    {
+      "name": "🟠 云服务/平台类",
+      "items": [
+        {
+          "n": "Azure OpenAI",
+          "f": "azure",
+          "i": "☁️",
+          "d": "微软"
+        },
+        {
+          "n": "Notion AI",
+          "f": "notionai",
+          "i": "📝",
+          "d": "Notion"
+        },
+        {
+          "n": "阶跃Step",
+          "f": "stepfun",
+          "i": "📈",
+          "d": "阶跃星辰"
+        },
+        {
+          "n": "ChatGLM",
+          "f": "chatglm",
+          "i": "💬",
+          "d": "智谱对话"
+        },
+        {
+          "n": "AWS Bedrock",
+          "f": "bedrock",
+          "i": "☁️",
+          "d": "亚马逊"
+        },
+        {
+          "n": "Vertex AI",
+          "f": "vertex",
+          "i": "🔷",
+          "d": "谷歌云"
+        },
+        {
+          "n": "HuggingFace",
+          "f": "hf",
+          "i": "🤗",
+          "d": "模型库"
+        },
+        {
+          "n": "Papers with Code",
+          "f": "papers",
+          "i": "📄",
+          "d": "论文代码"
+        },
+        {
+          "n": "第四范式",
+          "f": "4paradigm",
+          "i": "🔬",
+          "d": "企业AI"
+        },
+        {
+          "n": "旷视Face++",
+          "f": "megvii",
+          "i": "👁️",
+          "d": "人脸识别"
+        },
+        {
+          "n": "云从科技",
+          "f": "cloudwalk",
+          "i": "☁️",
+          "d": "人机协同"
+        },
+        {
+          "n": "拓尔思",
+          "f": "trs",
+          "i": "📊",
+          "d": "智能问答"
+        },
+        {
+          "n": "同花顺问财",
+          "f": "iwencai",
+          "i": "💰",
+          "d": "智能选股"
+        },
+        {
+          "n": "蚂蚁百灵",
+          "f": "ling",
+          "i": "🐦",
+          "d": "金融AI"
+        },
+        {
+          "n": "火山方舟",
+          "f": "ark",
+          "i": "🚀",
+          "d": "字节大模型"
+        }
+      ]
+    },
+    {
+      "name": "🎓 教育学习类AI",
+      "items": [
+        {
+          "n": "猿辅导",
+          "f": "yuanfudao",
+          "i": "📚",
+          "d": "在线辅导"
+        },
+        {
+          "n": "学而思",
+          "f": "xueersi",
+          "i": "📖",
+          "d": "好未来"
+        },
+        {
+          "n": "斑马AI课",
+          "f": "zebra",
+          "i": "🦓",
+          "d": "儿童教育"
+        },
+        {
+          "n": "粉笔",
+          "f": "fenbi",
+          "i": "✏️",
+          "d": "公考"
+        },
+        {
+          "n": "高途",
+          "f": "gaotu",
+          "i": "📈",
+          "d": "在线教育"
+        },
+        {
+          "n": "新东方",
+          "f": "dongfang",
+          "i": "🎓",
+          "d": "语言学习"
+        },
+        {
+          "n": "极客时间",
+          "f": "jikeshijian",
+          "i": "⏱️",
+          "d": "IT学习"
+        },
+        {
+          "n": "慕课网",
+          "f": "lianxi",
+          "i": "💻",
+          "d": "编程学习"
+        }
+      ]
+    },
+    {
+      "name": "🎨 设计创意类AI",
+      "items": [
+        {
+          "n": "稿定设计",
+          "f": "gaoding",
+          "i": "🎨",
+          "d": "在线设计"
+        },
+        {
+          "n": "创客贴",
+          "f": "chuangke",
+          "i": "🎨",
+          "d": "设计模板"
+        },
+        {
+          "n": "图怪兽",
+          "f": "tuguaishou",
+          "i": "🖼️",
+          "d": "图片设计"
+        },
+        {
+          "n": "黄油相机",
+          "f": "huangyou",
+          "i": "📸",
+          "d": "拍照修图"
+        },
+        {
+          "n": "飞瓜数据",
+          "f": "xingtu",
+          "i": "📊",
+          "d": "短视频数据"
+        },
+        {
+          "n": "蝉妈妈",
+          "f": "chanmama",
+          "i": "🦗",
+          "d": "抖音电商"
+        },
+        {
+          "n": "新榜",
+          "f": "xinbang",
+          "i": "📰",
+          "d": "新媒体数据"
+        }
+      ]
+    },
+    {
+      "name": "💼 办公效率类AI",
+      "items": [
+        {
+          "n": "企业微信",
+          "f": "qiyeweixin",
+          "i": "💬",
+          "d": "企业办公"
+        },
+        {
+          "n": "腾讯文档",
+          "f": "tencentdocs",
+          "i": "📝",
+          "d": "在线文档"
+        },
+        {
+          "n": "金山文档",
+          "f": "jinshan",
+          "i": "📊",
+          "d": "在线办公"
+        },
+        {
+          "n": "语雀",
+          "f": "yuque",
+          "i": "📚",
+          "d": "知识库"
+        },
+        {
+          "n": "印象笔记",
+          "f": "yinxiang",
+          "i": "📒",
+          "d": "笔记管理"
+        },
+        {
+          "n": "幕布",
+          "f": "mubu",
+          "i": "📋",
+          "d": "大纲笔记"
+        },
+        {
+          "n": "腾讯会议",
+          "f": "tencentmeeting",
+          "i": "🎥",
+          "d": "视频会议"
+        },
+        {
+          "n": "搜狗输入法",
+          "f": "sogouinput",
+          "i": "⌨️",
+          "d": "中文输入"
+        },
+        {
+          "n": "百度输入法",
+          "f": "baidushurufa",
+          "i": "⌨️",
+          "d": "中文输入"
+        },
+        {
+          "n": "讯飞输入法",
+          "f": "iflytekinput",
+          "i": "⌨️",
+          "d": "语音输入"
+        }
+      ]
+    },
+    {
+      "name": "🏭 企业服务类AI",
+      "items": [
+        {
+          "n": "明略科技",
+          "f": "mingluo",
+          "i": "📊",
+          "d": "数据智能"
+        },
+        {
+          "n": "依图科技",
+          "f": "yitu",
+          "i": "👁️",
+          "d": "计算机视觉"
+        },
+        {
+          "n": "海康威视",
+          "f": "hikvision",
+          "i": "📹",
+          "d": "智能安防"
+        },
+        {
+          "n": "大华股份",
+          "f": "dahua",
+          "i": "📹",
+          "d": "安防"
+        },
+        {
+          "n": "大疆",
+          "f": "dji",
+          "i": "🚁",
+          "d": "无人机"
+        },
+        {
+          "n": "科沃斯",
+          "f": "ecovacs",
+          "i": "🤖",
+          "d": "服务机器人"
+        },
+        {
+          "n": "石头科技",
+          "f": "roborock",
+          "i": "🏠",
+          "d": "扫地机器人"
+        }
+      ]
+    },
+    {
+      "name": "🏥 医疗健康类AI",
+      "items": [
+        {
+          "n": "平安好医生",
+          "f": "pingan",
+          "i": "🏥",
+          "d": "在线医疗"
+        },
+        {
+          "n": "丁香医生",
+          "f": "dxy",
+          "i": "💊",
+          "d": "健康科普"
+        },
+        {
+          "n": "微医",
+          "f": "weiyi",
+          "i": "🏥",
+          "d": "挂号问诊"
+        },
+        {
+          "n": "春雨医生",
+          "f": "chunyu",
+          "i": "📱",
+          "d": "移动医疗"
+        },
+        {
+          "n": "京东健康",
+          "f": "jdhealth",
+          "i": "💊",
+          "d": "在线买药"
+        },
+        {
+          "n": "阿里健康",
+          "f": "alikang",
+          "i": "💊",
+          "d": "阿里医疗"
+        },
+        {
+          "n": "推想医疗",
+          "f": "tuixiang",
+          "i": "🔬",
+          "d": "AI影像"
+        },
+        {
+          "n": "数坤科技",
+          "f": "shukun",
+          "i": "🫀",
+          "d": "心脑血管"
+        }
+      ]
+    },
+    {
+      "name": "💰 金融与生活服务",
+      "items": [
+        {
+          "n": "东方财富",
+          "f": "eastmoney",
+          "i": "📈",
+          "d": "财经数据"
+        },
+        {
+          "n": "度小满",
+          "f": "duxiaoman",
+          "i": "💰",
+          "d": "金融科技"
+        },
+        {
+          "n": "美团",
+          "f": "meituan",
+          "i": "🍔",
+          "d": "本地生活"
+        },
+        {
+          "n": "饿了么",
+          "f": "eleme",
+          "i": "🍱",
+          "d": "外卖"
+        },
+        {
+          "n": "滴滴出行",
+          "f": "didi",
+          "i": "🚗",
+          "d": "网约车"
+        },
+        {
+          "n": "高德地图",
+          "f": "amap",
+          "i": "🗺️",
+          "d": "导航"
+        },
+        {
+          "n": "携程",
+          "f": "ctrip",
+          "i": "✈️",
+          "d": "旅游"
+        },
+        {
+          "n": "夸克",
+          "f": "quark",
+          "i": "🔍",
+          "d": "智能搜索"
+        },
+        {
+          "n": "百度问一问",
+          "f": "wenyi",
+          "i": "💬",
+          "d": "AI问答"
+        },
+        {
+          "n": "腾讯元宝",
+          "f": "yuanbao",
+          "i": "🫘",
+          "d": "腾讯助手"
+        },
+        {
+          "n": "腾讯翻译君",
+          "f": "translator",
+          "i": "🌐",
+          "d": "AI翻译"
+        },
+        {
+          "n": "极速数据",
+          "f": "jisu",
+          "i": "⚡",
+          "d": "数据API"
+        },
+        {
+          "n": "天行数据",
+          "f": "tianapi",
+          "i": "☁️",
+          "d": "数据API"
+        }
+      ]
+    }
   ]
 }
