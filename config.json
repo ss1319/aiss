@@ -1,0 +1,41 @@
+{
+  "siteName": "全国中文AI大全",
+  "searchTabs": [
+    {"id":"video","name":"📺 视频","url":"https://search.bilibili.com/all?keyword="},
+    {"id":"music","name":"🎵 音乐","url":"https://music.163.com/#/search/m/?s="},
+    {"id":"bing","name":"🔍 必应","url":"https://cn.bing.com/search?q="},
+    {"id":"article","name":"📄 文章","url":"https://weixin.sogou.com/weixin?type=2&query="},
+    {"id":"image","name":"🖼️ 图片","url":"https://image.baidu.com/search/index?tn=baiduimage&word="},
+    {"id":"so","name":"🌐 360","url":"https://www.so.com/s?q="}
+  ],
+  "customerService": {
+    "publicAccount": "wxsy1349",
+    "tip": "欢迎自愿赞赏支持作者",
+    "buttons": [
+      {"id":"c1","color":"#ff6b6b","name":"🛒 快手小店","url":"https://app.kwaixiaodian.com/page/kwaishop-store-c-frame-h5/frame?layoutType=4&hyId=kwaishop-store-c-frame-h5&sellerId=1865090819&authorId=1865090819&carrierType=29&carrierId=fva0b4kfnGw&entrance=xdhtlj"},
+      {"id":"c2","color":"#4ecdc4","name":"💬 腾讯频道","url":"https://pd.qq.com/s/24yp7y38f"},
+      {"id":"c3","color":"#45b7d1","name":"💡 知乎","url":"https://www.zhihu.com/people/z6391"},
+      {"id":"c4","color":"#96ceb4","name":"👥 QQ群","url":"https://qm.qq.com/q/VHeRTTdQcu"},
+      {"id":"c5","color":"#ffeaa7","name":"⚡ 在线编程","url":"https://bolt.cello.so/lsypink3QTR"},
+      {"id":"c6","color":"#dfe6e9","name":"🦞 OpenClaw","url":"https://api.u-claw.org/register?aff=9OLG"},
+      {"id":"c7","color":"#fd79a8","name":"📢 微博","url":"https://weibo.com/zdzqxt"},
+      {"id":"c8","color":"#a29bfe","name":"✍️ 欢迎留言","url":"https://txc.qq.com/embed/367382/new-post/"}
+    ]
+  },
+  "categories": [
+    {"name":"🟢 普通对话型AI","items":[]},
+    {"name":"🔵 自定义模型/API类","items":[]},
+    {"name":"🟣 Agent自动化工作型","items":[]},
+    {"name":"🟡 RPA类AI","items":[]},
+    {"name":"🔴 生产类AI","items":[]},
+    {"name":"🟢 离线/本地部署类","items":[]},
+    {"name":"🔵 编程开发类AI","items":[]},
+    {"name":"🟠 云服务/平台类","items":[]},
+    {"name":"🎓 教育学习类AI","items":[]},
+    {"name":"🎨 设计创意类AI","items":[]},
+    {"name":"💼 办公效率类AI","items":[]},
+    {"name":"🏭 企业服务类AI","items":[]},
+    {"name":"🏥 医疗健康类AI","items":[]},
+    {"name":"💰 金融与生活服务","items":[]}
+  ]
+}
